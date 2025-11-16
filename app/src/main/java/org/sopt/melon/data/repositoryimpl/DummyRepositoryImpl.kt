@@ -9,8 +9,9 @@ import javax.inject.Inject
 class DummyRepositoryImpl @Inject constructor(
     private val dummyDataSource: DummyDataSource,
 ) : DummyRepository {
-    override suspend fun getDummy(): Result<Dummy> = runCatching {
-        val response = dummyDataSource.getDummy()
-        response.toModel()
-    }
+    override suspend fun getDummy(): Result<Dummy> =
+        runCatching {
+            val response = dummyDataSource.getDummy()
+            response.toModel()
+        }
 }

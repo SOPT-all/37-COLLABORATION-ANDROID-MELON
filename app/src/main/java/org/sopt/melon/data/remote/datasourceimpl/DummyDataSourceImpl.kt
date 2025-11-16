@@ -7,6 +7,6 @@ import javax.inject.Inject
 
 class DummyDataSourceImpl @Inject constructor(
     private val service: DummyService,
-): DummyDataSource {
+) : DummyDataSource {
     override suspend fun getDummy(): DummyResponseDto = service.getDummy()
 }

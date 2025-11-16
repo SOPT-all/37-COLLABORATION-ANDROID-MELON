@@ -4,8 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-fun ForYouRoute(
-) {
+fun ForYouRoute() {
     ForYouScreen()
 }
 
@@ -13,5 +12,4 @@ fun ForYouRoute(
 private fun ForYouScreen(
     modifier: Modifier = Modifier,
 ) {
-
 }

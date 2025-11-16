@@ -4,8 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-fun HomeRoute(
-) {
+fun HomeRoute() {
     HomeScreen()
 }
 
@@ -13,5 +12,4 @@ fun HomeRoute(
 private fun HomeScreen(
     modifier: Modifier = Modifier,
 ) {
-
 }

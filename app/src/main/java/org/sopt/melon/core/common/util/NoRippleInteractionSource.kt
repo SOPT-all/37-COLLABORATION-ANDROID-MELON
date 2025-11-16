@@ -9,7 +9,6 @@ import kotlinx.coroutines.flow.emptyFlow
  *  리플 효과가 없는 MutableInteractionSource 객체
  */
 object NoRippleInteractionSource : MutableInteractionSource {
-
     override val interactions: Flow<Interaction> = emptyFlow()
 
     override suspend fun emit(interaction: Interaction) {}

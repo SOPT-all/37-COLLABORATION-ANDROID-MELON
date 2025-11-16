@@ -18,18 +18,17 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
+    @Provides
+    @Singleton
+    fun provideJson(): Json =
+        Json {
+            ignoreUnknownKeys = true
+            prettyPrint = true
+        }
 
     @Provides
     @Singleton
-    fun provideJson(): Json = Json {
-        ignoreUnknownKeys = true
-        prettyPrint = true
-    }
-
-    @Provides
-    @Singleton
-    fun provideJsonConverter(json: Json): Converter.Factory =
-        json.asConverterFactory("application/json".toMediaType())
+    fun provideJsonConverter(json: Json): Converter.Factory = json.asConverterFactory("application/json".toMediaType())
 
     @Provides
     @Singleton
@@ -43,7 +42,8 @@ object NetworkModule {
     fun provideHttpClient(
         loggingInterceptor: HttpLoggingInterceptor,
     ): OkHttpClient =
-        OkHttpClient.Builder()
+        OkHttpClient
+            .Builder()
             .retryOnConnectionFailure(true)
             .addInterceptor(loggingInterceptor)
             .readTimeout(300, TimeUnit.SECONDS)
@@ -57,7 +57,8 @@ object NetworkModule {
         okHttpClient: OkHttpClient,
         jsonConverterFactory: Converter.Factory,
     ): Retrofit =
-        Retrofit.Builder()
+        Retrofit
+            .Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(jsonConverterFactory)

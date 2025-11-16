@@ -4,8 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-fun MixUpRoute(
-) {
+fun MixUpRoute() {
     MixUpScreen()
 }
 
@@ -13,5 +12,4 @@ fun MixUpRoute(
 private fun MixUpScreen(
     modifier: Modifier = Modifier,
 ) {
-
 }
