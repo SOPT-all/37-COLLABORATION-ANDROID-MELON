@@ -90,3 +90,11 @@ dependencies {
     // Timber
     implementation(libs.timber)
 }
+
+ktlint {
+    android = true
+    debug = true
+    coloredOutput = true
+    verbose = true
+    outputToConsole = true
+}
