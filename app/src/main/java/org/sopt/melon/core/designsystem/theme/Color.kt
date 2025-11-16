@@ -1,4 +1,4 @@
-package org.sopt.melon.ui.theme
+package org.sopt.melon.core.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 
