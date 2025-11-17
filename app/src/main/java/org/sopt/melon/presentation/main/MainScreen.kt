@@ -7,7 +7,6 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideIn
 import androidx.compose.animation.slideOut
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.material3.Scaffold
@@ -37,18 +36,14 @@ fun MainScreen(
                 enter = fadeIn() + slideIn { IntOffset(0, it.height) },
                 exit = fadeOut() + slideOut { IntOffset(0, it.height) },
             ) {
-                Column(
+                MainBottomBar(
+                    tabs = MainTab.entries.toImmutableList(),
+                    currentTab = navigator.currentTab,
+                    onTabSelected = navigator::navigate,
                     modifier =
                         Modifier
                             .navigationBarsPadding(),
-                ) {
-                    MainBottomBar(
-                        tabs = MainTab.entries.toImmutableList(),
-                        currentTab = navigator.currentTab,
-                        onTabSelected = navigator::navigate,
-                        modifier = Modifier,
-                    )
-                }
+                )
             }
         },
         containerColor = Color.Black, // TODO: 색상 변경
