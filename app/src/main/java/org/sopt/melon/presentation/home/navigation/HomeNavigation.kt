@@ -1,5 +1,7 @@
 package org.sopt.melon.presentation.home.navigation
 
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
@@ -13,9 +15,13 @@ fun NavController.navigateToHome(
 ) = navigate(Home, navOptions)
 
 fun NavGraphBuilder.homeGraph(
+    navigateToMixUp: () -> Unit,
+    innerPadding: PaddingValues,
 ) {
     composable<Home> {
         HomeRoute(
+            navigateToMixUp = navigateToMixUp,
+            innerPadding = innerPadding,
         )
     }
 }

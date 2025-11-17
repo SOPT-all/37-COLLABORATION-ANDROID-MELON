@@ -1,5 +1,6 @@
 package org.sopt.melon.presentation.foryou.navigation
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
@@ -14,9 +15,13 @@ fun NavController.navigateToForYou(
 ) = navigate(ForYou, navOptions)
 
 fun NavGraphBuilder.forYouGraph(
+    innerPadding: PaddingValues,
+    navigateToMixUp: () -> Unit,
 ) {
     composable<ForYou> {
         ForYouRoute(
+            innerPadding = innerPadding,
+            navigateToMixUp = navigateToMixUp,
         )
     }
 }
