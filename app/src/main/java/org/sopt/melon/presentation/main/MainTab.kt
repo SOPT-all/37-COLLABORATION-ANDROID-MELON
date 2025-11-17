@@ -58,17 +58,14 @@ enum class MainTab(
         selectedIconRes = ic_shortcut_default,
         title = shortcut,
         route = ShortCut,
-    );
+    ),
+    ;
 
     companion object {
         @Composable
-        fun find(predicate: @Composable (MainTabRoute) -> Boolean): MainTab? =
-            MainTab.entries.find { predicate(it.route) }
-
+        fun find(predicate: @Composable (MainTabRoute) -> Boolean): MainTab? = MainTab.entries.find { predicate(it.route) }
 
         @Composable
-        fun contains(predicate: @Composable (Route) -> Boolean): Boolean {
-            return MainTab.entries.map { it.route }.any { predicate(it) }
-        }
+        fun contains(predicate: @Composable (Route) -> Boolean): Boolean = MainTab.entries.map { it.route }.any { predicate(it) }
     }
 }

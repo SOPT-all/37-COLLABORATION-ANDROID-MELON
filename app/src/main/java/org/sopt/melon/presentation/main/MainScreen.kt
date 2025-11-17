@@ -38,8 +38,9 @@ fun MainScreen(
                 exit = fadeOut() + slideOut { IntOffset(0, it.height) },
             ) {
                 Column(
-                    modifier = Modifier
-                        .navigationBarsPadding(),
+                    modifier =
+                        Modifier
+                            .navigationBarsPadding(),
                 ) {
                     MainBottomBar(
                         tabs = MainTab.entries.toImmutableList(),
@@ -56,7 +57,6 @@ fun MainScreen(
             navigator = navigator,
             innerPadding = innerPadding,
         )
-
     }
 }
 

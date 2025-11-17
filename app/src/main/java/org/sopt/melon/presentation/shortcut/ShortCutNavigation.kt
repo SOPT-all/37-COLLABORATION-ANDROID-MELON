@@ -7,17 +7,14 @@ import androidx.navigation.compose.composable
 import kotlinx.serialization.Serializable
 import org.sopt.melon.core.common.navigation.MainTabRoute
 
-
 fun NavController.navigateToShortCut(
     navOptions: NavOptions? = null,
 ) = navigate(ShortCut, navOptions)
 
-fun NavGraphBuilder.shortCutGraph(
-) {
+fun NavGraphBuilder.shortCutGraph() {
     composable<ShortCut> {
     }
 }
-
 
 @Serializable
 data object ShortCut : MainTabRoute

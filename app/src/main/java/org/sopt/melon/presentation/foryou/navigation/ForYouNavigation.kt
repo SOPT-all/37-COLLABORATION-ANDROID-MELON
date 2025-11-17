@@ -9,7 +9,6 @@ import kotlinx.serialization.Serializable
 import org.sopt.melon.core.common.navigation.MainTabRoute
 import org.sopt.melon.presentation.foryou.ForYouRoute
 
-
 fun NavController.navigateToForYou(
     navOptions: NavOptions? = null,
 ) = navigate(ForYou, navOptions)
@@ -25,7 +24,6 @@ fun NavGraphBuilder.forYouGraph(
         )
     }
 }
-
 
 @Serializable
 data object ForYou : MainTabRoute

@@ -18,8 +18,8 @@ private fun MixUpScreen(
     modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = modifier
-    ){
+        modifier = modifier,
+    ) {
         Text("MIXUP", color = Color.White)
     }
 }

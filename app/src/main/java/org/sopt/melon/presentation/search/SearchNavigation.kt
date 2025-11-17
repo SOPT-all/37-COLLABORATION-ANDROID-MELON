@@ -7,17 +7,14 @@ import androidx.navigation.compose.composable
 import kotlinx.serialization.Serializable
 import org.sopt.melon.core.common.navigation.MainTabRoute
 
-
 fun NavController.navigateToSearch(
     navOptions: NavOptions? = null,
 ) = navigate(Search, navOptions)
 
-fun NavGraphBuilder.searchGraph(
-) {
+fun NavGraphBuilder.searchGraph() {
     composable<Search> {
     }
 }
-
 
 @Serializable
 data object Search : MainTabRoute

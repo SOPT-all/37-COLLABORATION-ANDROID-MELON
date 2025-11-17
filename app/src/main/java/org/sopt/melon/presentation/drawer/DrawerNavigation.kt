@@ -11,12 +11,10 @@ fun NavController.navigateToDrawer(
     navOptions: NavOptions? = null,
 ) = navigate(Drawer, navOptions)
 
-fun NavGraphBuilder.drawerGraph(
-) {
+fun NavGraphBuilder.drawerGraph() {
     composable<Drawer> {
     }
 }
-
 
 @Serializable
 data object Drawer : MainTabRoute

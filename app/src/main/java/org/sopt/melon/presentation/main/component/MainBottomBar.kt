@@ -42,29 +42,31 @@ fun MainBottomBar(
         modifier = modifier,
     ) {
         Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(1.dp)
-                .background(Color.DarkGray),    // TODO: COLOR 수정
+            modifier =
+                Modifier
+                    .fillMaxWidth()
+                    .height(1.dp)
+                    .background(Color.DarkGray),
+            // TODO: COLOR 수정
         )
 
         Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(
-                    color = Color.Black, // TODO: COLOR 수정
-                )
-                .padding(
-                    start = 14.dp,
-                    top = 4.dp,
-                    end = 14.dp,
-                    bottom = 18.dp,
-                ),
+            modifier =
+                Modifier
+                    .fillMaxWidth()
+                    .background(
+                        color = Color.Black, // TODO: COLOR 수정
+                    ).padding(
+                        start = 14.dp,
+                        top = 4.dp,
+                        end = 14.dp,
+                        bottom = 18.dp,
+                    ),
             horizontalArrangement = Arrangement.SpaceAround,
         ) {
             tabs.forEach { tab ->
                 val selectedIcon = if (tab == currentTab) tab.selectedIconRes else tab.defaultIconRes
-                val selectedColor = if (tab == currentTab) Color.Green else Color.Gray  // TODO: COLOR 수정
+                val selectedColor = if (tab == currentTab) Color.Green else Color.Gray // TODO: COLOR 수정
 
                 MainNavigationBarItem(
                     tab = tab,
@@ -87,10 +89,11 @@ private fun MainNavigationBarItem(
     modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = modifier
-            .semantics(mergeDescendants = true) { role = Role.Tab }
-            .size(48.dp)
-            .noRippleClickable(onClick),
+        modifier =
+            modifier
+                .semantics(mergeDescendants = true) { role = Role.Tab }
+                .size(48.dp)
+                .noRippleClickable(onClick),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(space = 2.dp, alignment = Alignment.CenterVertically),
     ) {
@@ -102,7 +105,7 @@ private fun MainNavigationBarItem(
 
         Text(
             text = stringResource(tab.title),
-            style = TextStyle.Default,        // TODO: TYPO 수정
+            style = TextStyle.Default, // TODO: TYPO 수정
             color = selectedColor,
         )
     }

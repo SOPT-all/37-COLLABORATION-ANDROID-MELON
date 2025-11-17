@@ -19,27 +19,32 @@ class MainNavigator(
     val navController: NavHostController,
 ) {
     private val currentDestination: NavDestination?
-        @Composable get() = navController
-            .currentBackStackEntryAsState().value?.destination
+        @Composable get() =
+            navController
+                .currentBackStackEntryAsState()
+                .value
+                ?.destination
 
     val startDestination = Home
 
     val currentTab: MainTab?
-        @Composable get() = MainTab.find { tab ->
-            currentDestination?.hasRoute(tab::class) == true
-        }
+        @Composable get() =
+            MainTab.find { tab ->
+                currentDestination?.hasRoute(tab::class) == true
+            }
 
     fun navigate(tab: MainTab) {
-        val navOptions = navOptions {
-            navController.currentDestination?.route?.let {
-                popUpTo(it) {
-                    saveState = true
-                    inclusive = true
+        val navOptions =
+            navOptions {
+                navController.currentDestination?.route?.let {
+                    popUpTo(it) {
+                        saveState = true
+                        inclusive = true
+                    }
+                    launchSingleTop = true
+                    restoreState = true
                 }
-                launchSingleTop = true
-                restoreState = true
             }
-        }
 
         when (tab) {
             MainTab.HOME -> navController.navigateToHome(navOptions = navOptions)
@@ -54,9 +59,10 @@ class MainNavigator(
 
     @Composable
     fun showBottomBar(): Boolean {
-        val isMainTabRoute = MainTab.contains {
-            currentDestination?.hasRoute(it::class) == true
-        }
+        val isMainTabRoute =
+            MainTab.contains {
+                currentDestination?.hasRoute(it::class) == true
+            }
         return isMainTabRoute
     }
 }
@@ -64,6 +70,7 @@ class MainNavigator(
 @Composable
 fun rememberMainNavigator(
     navController: NavHostController = rememberNavController(),
-): MainNavigator = remember(navController) {
-    MainNavigator(navController)
-}
+): MainNavigator =
+    remember(navController) {
+        MainNavigator(navController)
+    }

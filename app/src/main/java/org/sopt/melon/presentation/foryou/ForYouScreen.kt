@@ -17,8 +17,9 @@ fun ForYouRoute(
     navigateToMixUp: () -> Unit,
 ) {
     ForYouScreen(
-        modifier = Modifier
-            .padding(innerPadding),
+        modifier =
+            Modifier
+                .padding(innerPadding),
     )
 }
 
@@ -27,8 +28,9 @@ private fun ForYouScreen(
     modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = modifier
-            .fillMaxSize(),
+        modifier =
+            modifier
+                .fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
