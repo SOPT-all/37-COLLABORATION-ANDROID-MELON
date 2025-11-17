@@ -2,9 +2,8 @@ package org.sopt.melon.core.designsystem.theme
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Brush
-
+import androidx.compose.ui.graphics.Color
 
 // Gray Scale
 val Gray100 = Color(0xFFFAFAFA)
@@ -54,28 +53,32 @@ val RedOrange = Color(0xFFFF4E0D)
 val LightGray = Color(0xFF70737C)
 
 // Gradient Color
-val GradientLine = Brush.linearGradient(
-    0.0f to LightGray,
-    0.3f to LightGray.copy(alpha = 0f)
-)
+val GradientLine =
+    Brush.linearGradient(
+        0.0f to LightGray,
+        0.3f to LightGray.copy(alpha = 0f),
+    )
 
-val Gradient1 = Brush.linearGradient(
-    0.0f to Violet2,
-    0.5f to SkyBlue,
-    0.8f to Cyan,
-    1.0f to Cyan
-)
+val Gradient1 =
+    Brush.linearGradient(
+        0.0f to Violet2,
+        0.5f to SkyBlue,
+        0.8f to Cyan,
+        1.0f to Cyan,
+    )
 
-val Gradient2 = Brush.linearGradient(
-    0.0f to Cyan,
-    0.5f to Primary
-)
+val Gradient2 =
+    Brush.linearGradient(
+        0.0f to Cyan,
+        0.5f to Primary,
+    )
 
-val Gradient3 = Brush.linearGradient(
-    0.0f to BlueGray,
-    0.53f to Gray500,
-    1.0f to Background
-)
+val Gradient3 =
+    Brush.linearGradient(
+        0.0f to BlueGray,
+        0.53f to Gray500,
+        1.0f to Background,
+    )
 
 @Immutable
 data class MelonColors(
@@ -86,25 +89,20 @@ data class MelonColors(
     val gray500: Color = Gray500,
     val gray600: Color = Gray600,
     val gray700: Color = Gray700,
-
     val white: Color = White,
     val black: Color = Black,
     val opacity1: Color = Opacity1,
     val opacity2: Color = Opacity2,
-
     val background: Color = Background,
     val background2: Color = Background2,
-
     val bar1: Color = Bar1,
     val bar2: Color = Bar2,
     val bar3: Color = Bar3,
     val bar4: Color = Bar4,
     val bar5: Color = Bar5,
     val bar6: Color = Bar6,
-
     val primary: Color = Primary,
     val secondary: Color = Secondary,
-
     val cyan: Color = Cyan,
     val orange: Color = Orange,
     val violet: Color = Violet,
@@ -115,55 +113,49 @@ data class MelonColors(
     val neonPink: Color = NeonPink,
     val yellow: Color = Yellow,
     val redOrange: Color = RedOrange,
-
     val gradientLine: Brush = GradientLine,
     val gradient1: Brush = Gradient1,
     val gradient2: Brush = Gradient2,
-    val gradient3: Brush = Gradient3
+    val gradient3: Brush = Gradient3,
 )
 
-val defaultMelonColors = MelonColors(
-    gray100 = Gray100,
-    gray200 = Gray200,
-    gray300 = Gray300,
-    gray400 = Gray400,
-    gray500 = Gray500,
-    gray600 = Gray600,
-    gray700 = Gray700,
-
-    white = White,
-    black = Black,
-    opacity1 = Opacity1,
-    opacity2 = Opacity2,
-
-    background = Background,
-    background2 = Background2,
-
-    bar1 = Bar1,
-    bar2 = Bar2,
-    bar3 = Bar3,
-    bar4 = Bar4,
-    bar5 = Bar5,
-    bar6 = Bar6,
-
-    primary = Primary,
-    secondary = Secondary,
-
-    cyan = Cyan,
-    orange = Orange,
-    violet = Violet,
-    purple = Purple,
-    navy = Navy,
-    blue = Blue,
-    pink = Pink,
-    neonPink = NeonPink,
-    yellow = Yellow,
-    redOrange = RedOrange,
-
-    gradientLine = GradientLine,
-    gradient1 = Gradient1,
-    gradient2 = Gradient2,
-    gradient3 = Gradient3
-)
+val defaultMelonColors =
+    MelonColors(
+        gray100 = Gray100,
+        gray200 = Gray200,
+        gray300 = Gray300,
+        gray400 = Gray400,
+        gray500 = Gray500,
+        gray600 = Gray600,
+        gray700 = Gray700,
+        white = White,
+        black = Black,
+        opacity1 = Opacity1,
+        opacity2 = Opacity2,
+        background = Background,
+        background2 = Background2,
+        bar1 = Bar1,
+        bar2 = Bar2,
+        bar3 = Bar3,
+        bar4 = Bar4,
+        bar5 = Bar5,
+        bar6 = Bar6,
+        primary = Primary,
+        secondary = Secondary,
+        cyan = Cyan,
+        orange = Orange,
+        violet = Violet,
+        purple = Purple,
+        navy = Navy,
+        blue = Blue,
+        pink = Pink,
+        neonPink = NeonPink,
+        yellow = Yellow,
+        redOrange = RedOrange,
+        gradientLine = GradientLine,
+        gradient1 = Gradient1,
+        gradient2 = Gradient2,
+        gradient3 = Gradient3,
+    )
 
 val LocalMelonColorsProvider = staticCompositionLocalOf { defaultMelonColors }
