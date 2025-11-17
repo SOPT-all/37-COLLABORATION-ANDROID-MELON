@@ -7,6 +7,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.LineHeightStyle
+import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import org.sopt.melon.R
 
@@ -60,8 +61,8 @@ val defaultMelonTypography =
                     TextStyle(
                         fontFamily = PretendardFont.Bold,
                         fontSize = 24.sp,
-                        lineHeight = 36.sp, // 150%
-                        letterSpacing = (-0.24).sp, // -1%
+                        lineHeight = 1.5.em,
+                        letterSpacing = (-0.01).em,
                         platformStyle =
                             PlatformTextStyle(
                                 includeFontPadding = false,
@@ -79,8 +80,8 @@ val defaultMelonTypography =
                     TextStyle(
                         fontFamily = PretendardFont.Bold,
                         fontSize = 20.sp,
-                        lineHeight = 30.sp, // 150%
-                        letterSpacing = (-0.2).sp, // -1%
+                        lineHeight = 1.5.em,
+                        letterSpacing = (-0.01).em,
                         platformStyle =
                             PlatformTextStyle(
                                 includeFontPadding = false,
@@ -98,8 +99,8 @@ val defaultMelonTypography =
                     TextStyle(
                         fontFamily = PretendardFont.SemiBold,
                         fontSize = 16.sp,
-                        lineHeight = 24.sp, // 150%
-                        letterSpacing = (-0.16).sp, // -1%
+                        lineHeight = 1.5.em,
+                        letterSpacing = (-0.01).em,
                         platformStyle =
                             PlatformTextStyle(
                                 includeFontPadding = false,
@@ -114,8 +115,8 @@ val defaultMelonTypography =
                     TextStyle(
                         fontFamily = PretendardFont.SemiBold,
                         fontSize = 14.sp,
-                        lineHeight = 21.sp, // 150%
-                        letterSpacing = (-0.14).sp, // -1%
+                        lineHeight = 1.5.em,
+                        letterSpacing = (-0.01).em,
                         platformStyle =
                             PlatformTextStyle(
                                 includeFontPadding = false,
@@ -130,8 +131,8 @@ val defaultMelonTypography =
                     TextStyle(
                         fontFamily = PretendardFont.Medium,
                         fontSize = 14.sp,
-                        lineHeight = 21.sp, // 150%
-                        letterSpacing = (-0.14).sp, // -1%
+                        lineHeight = 1.5.em,
+                        letterSpacing = (-0.01).em,
                         platformStyle =
                             PlatformTextStyle(
                                 includeFontPadding = false,
@@ -146,8 +147,8 @@ val defaultMelonTypography =
                     TextStyle(
                         fontFamily = PretendardFont.Regular,
                         fontSize = 14.sp,
-                        lineHeight = 21.sp, // 150%
-                        letterSpacing = (-0.14).sp, // -1%
+                        lineHeight = 1.5.em,
+                        letterSpacing = (-0.01).em,
                         platformStyle =
                             PlatformTextStyle(
                                 includeFontPadding = false,
@@ -165,8 +166,8 @@ val defaultMelonTypography =
                     TextStyle(
                         fontFamily = PretendardFont.Regular,
                         fontSize = 12.sp,
-                        lineHeight = 18.sp, // 150%
-                        letterSpacing = (-0.12).sp, // -1%
+                        lineHeight = 1.5.em,
+                        letterSpacing = (-0.01).em,
                         platformStyle =
                             PlatformTextStyle(
                                 includeFontPadding = false,
@@ -181,8 +182,8 @@ val defaultMelonTypography =
                     TextStyle(
                         fontFamily = PretendardFont.Medium,
                         fontSize = 10.sp,
-                        lineHeight = 15.sp, // 150%
-                        letterSpacing = (-0.1).sp, // -1%
+                        lineHeight = 1.5.em,
+                        letterSpacing = (-0.01).em,
                         platformStyle =
                             PlatformTextStyle(
                                 includeFontPadding = false,
@@ -197,8 +198,8 @@ val defaultMelonTypography =
                     TextStyle(
                         fontFamily = PretendardFont.SemiBold,
                         fontSize = 8.sp,
-                        lineHeight = 12.sp, // 150%
-                        letterSpacing = (-0.08).sp, // -1
+                        lineHeight = 1.5.em,
+                        letterSpacing = (-0.01).em,
                         platformStyle =
                             PlatformTextStyle(
                                 includeFontPadding = false,
