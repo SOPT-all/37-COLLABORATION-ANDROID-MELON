@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 
-object MelonTheme {
+object MELONTheme {
     val colors: MelonColors
         @Composable
         @ReadOnlyComposable
@@ -31,7 +31,7 @@ fun ProvideMelonColorsAndTypography(
 }
 
 @Composable
-fun MelonTheme(
+fun MELONTheme(
     content: @Composable () -> Unit,
 ) {
     ProvideMelonColorsAndTypography(
