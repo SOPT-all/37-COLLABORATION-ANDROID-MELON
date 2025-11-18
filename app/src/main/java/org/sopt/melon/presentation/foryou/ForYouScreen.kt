@@ -1,4 +1,4 @@
-package org.sopt.melon.presentation.home
+package org.sopt.melon.presentation.foryou
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,11 +12,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun HomeRoute(
+fun ForYouRoute(
     innerPadding: PaddingValues,
     navigateToMixUp: () -> Unit,
 ) {
-    HomeScreen(
+    ForYouScreen(
         modifier =
             Modifier
                 .padding(innerPadding),
@@ -24,7 +24,7 @@ fun HomeRoute(
 }
 
 @Composable
-private fun HomeScreen(
+private fun ForYouScreen(
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -34,6 +34,6 @@ private fun HomeScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text("HOME", color = Color.White)
+        Text("FORYOU", color = Color.White)
     }
 }
