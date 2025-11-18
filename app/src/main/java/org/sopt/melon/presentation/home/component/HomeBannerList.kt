@@ -3,7 +3,9 @@ package org.sopt.melon.presentation.home.component
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
@@ -11,6 +13,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -28,22 +32,46 @@ import org.sopt.melon.core.designsystem.theme.MELONTheme
 import org.sopt.melon.presentation.home.model.BannerData
 
 @Composable
-fun Banner(
+fun HomeBannerList(
+    bannerDataList: List<BannerData>,
+    modifier: Modifier = Modifier,
+) {
+    LazyRow(
+        modifier = modifier,
+        contentPadding = PaddingValues(horizontal = 20.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        items(bannerDataList) {
+            BannerItem(
+                data = it,
+            )
+        }
+    }
+}
+
+@Composable
+private fun BannerItem(
     data: BannerData,
     modifier: Modifier = Modifier,
 ) {
-    Row(
-        modifier =
-            modifier
-                .fillMaxWidth()
-                .height(95.dp)
-                .clip(RoundedCornerShape(4.dp))
-                .background(data.backgroundColor),
+    Column(
+        modifier = modifier.width(313.dp),
     ) {
+        Text(
+            data.title,
+            style = MELONTheme.typography.body.r_14,
+            color = MELONTheme.colors.gray200,
+        )
         Row(
-            modifier = modifier,
+            modifier =
+                Modifier
+                    .fillMaxWidth()
+                    .height(95.dp)
+                    .clip(RoundedCornerShape(4.dp))
+                    .background(data.backgroundColor),
             verticalAlignment = Alignment.CenterVertically,
-        ) {
+
+            ) {
             Image(
                 painter = painterResource(id = data.image),
                 contentDescription = null,
@@ -99,17 +127,53 @@ private fun BannerChip(
 
 @Preview
 @Composable
-private fun BannerPreview() {
+private fun BannerItemPreview() {
     MELONTheme {
-        Banner(
+        BannerItem(
             data =
                 BannerData(
+                    title = "2025 WOODZ PREVIEW CONCERT",
                     image = R.drawable.ic_launcher_background,
                     category = "Melon Ticket",
                     headline = "우즈 CONCERT",
                     description = "멜론티켓에서 예매하기멜론티켓에서 예매하기멜론티켓에서 예매하기멜론티켓에서 예매하기",
                     backgroundColor = MELONTheme.colors.bar6,
                 ),
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun BannerListPreview() {
+    MELONTheme {
+        HomeBannerList(
+            bannerDataList = listOf(
+                BannerData(
+                    title = "2025 WOODZ PREVIEW CONCERT",
+                    image = R.drawable.ic_launcher_background,
+                    category = "Melon Ticket",
+                    headline = "우즈 CONCERT",
+                    description = "멜론티켓에서 예매하기",
+                    backgroundColor = MELONTheme.colors.bar6,
+                ),
+                BannerData(
+                    title = "2025 WOODZ PREVIEW CONCERT",
+                    image = R.drawable.ic_launcher_background,
+                    category = "Melon Ticket",
+                    headline = "우즈 CONCERT",
+                    description = "멜론티켓에서 예매하기멜론티켓에서 예매하기",
+                    backgroundColor = MELONTheme.colors.bar6,
+                ),
+                BannerData(
+                    title = "2025 WOODZ PREVIEW CONCERT",
+                    image = R.drawable.ic_launcher_background,
+                    category = "Melon Ticket",
+                    headline = "우즈 CONCERT",
+                    description = "멜론티켓에서 예매하기멜론티켓에서 예매하기멜론티켓에서 예매하기멜론티켓에서 예매하기",
+                    backgroundColor = MELONTheme.colors.bar6,
+                ),
+            ),
         )
     }
 }
