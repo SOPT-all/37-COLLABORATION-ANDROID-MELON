@@ -11,4 +11,7 @@
     <string name="drawer">음악서랍</string>
     <!--ShortCut  -->
     <string name="shortcut">바로가기</string>
+    <!--Snackbar  -->
+    <string name="snackbar_mixup_add_message">믹스업에 추가되었어요</string>
+    <string name="snackbar_move_action_label">이동</string>
 </resources>
