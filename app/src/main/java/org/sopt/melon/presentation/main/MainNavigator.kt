@@ -8,12 +8,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
-import org.sopt.melon.presentation.drawer.navigateToDrawer
 import org.sopt.melon.presentation.foryou.navigation.navigateToForYou
 import org.sopt.melon.presentation.home.navigation.Home
 import org.sopt.melon.presentation.home.navigation.navigateToHome
-import org.sopt.melon.presentation.search.navigateToSearch
-import org.sopt.melon.presentation.shortcut.navigateToShortCut
 
 class MainNavigator(
     val navController: NavHostController,
@@ -49,9 +46,9 @@ class MainNavigator(
         when (tab) {
             MainTab.HOME -> navController.navigateToHome(navOptions = navOptions)
             MainTab.FORYOU -> navController.navigateToForYou(navOptions = navOptions)
-            MainTab.SEARCH -> navController.navigateToSearch(navOptions = navOptions)
-            MainTab.DRAWER -> navController.navigateToDrawer(navOptions = navOptions)
-            MainTab.SHORTCUT -> navController.navigateToShortCut(navOptions = navOptions)
+            MainTab.SEARCH -> {} // TODO: 디자인 미구현 사항
+            MainTab.DRAWER -> {} // TODO: 디자인 미구현 사항
+            MainTab.SHORTCUT -> {} // TODO: 디자인 미구현 사항
         }
     }
 
