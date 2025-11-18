@@ -1,36 +1,216 @@
 package org.sopt.melon.core.designsystem.theme
 
-import androidx.compose.material3.Typography
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.LineHeightStyle
+import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
+import org.sopt.melon.R
 
-// Set of Material typography styles to start with
-val Typography =
-    Typography(
-        bodyLarge =
-            TextStyle(
-                fontFamily = FontFamily.Default,
-                fontWeight = FontWeight.Normal,
-                fontSize = 16.sp,
-                lineHeight = 24.sp,
-                letterSpacing = 0.5.sp,
+object PretendardFont {
+    val Bold = FontFamily(Font(R.font.pretendard_bold))
+    val SemiBold = FontFamily(Font(R.font.pretendard_semibold))
+    val Medium = FontFamily(Font(R.font.pretendard_medium))
+    val Regular = FontFamily(Font(R.font.pretendard_regular))
+}
+
+sealed interface TypographyTokens {
+    @Immutable
+    data class Title(
+        val b_24: TextStyle,
+    )
+
+    @Immutable
+    data class Heading(
+        val b_20: TextStyle,
+    )
+
+    @Immutable
+    data class Body(
+        val sb_16: TextStyle,
+        val sb_14: TextStyle,
+        val m_14: TextStyle,
+        val r_14: TextStyle,
+    )
+
+    @Immutable
+    data class Caption(
+        val r_12: TextStyle,
+        val m_10: TextStyle,
+        val sb_8: TextStyle,
+    )
+}
+
+@Immutable
+data class MelonTypography(
+    val title: TypographyTokens.Title,
+    val heading: TypographyTokens.Heading,
+    val body: TypographyTokens.Body,
+    val caption: TypographyTokens.Caption,
+)
+
+val defaultMelonTypography =
+    MelonTypography(
+        title =
+            TypographyTokens.Title(
+                b_24 =
+                    TextStyle(
+                        fontFamily = PretendardFont.Bold,
+                        fontSize = 24.sp,
+                        lineHeight = 1.5.em,
+                        letterSpacing = (-0.01).em,
+                        platformStyle =
+                            PlatformTextStyle(
+                                includeFontPadding = false,
+                            ),
+                        lineHeightStyle =
+                            LineHeightStyle(
+                                alignment = LineHeightStyle.Alignment.Center,
+                                trim = LineHeightStyle.Trim.None,
+                            ),
+                    ),
             ),
-    /* Other default text styles to override
-    titleLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
-        letterSpacing = 0.sp
-    ),
-    labelSmall = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Medium,
-        fontSize = 11.sp,
-        lineHeight = 16.sp,
-        letterSpacing = 0.5.sp
+        heading =
+            TypographyTokens.Heading(
+                b_20 =
+                    TextStyle(
+                        fontFamily = PretendardFont.Bold,
+                        fontSize = 20.sp,
+                        lineHeight = 1.5.em,
+                        letterSpacing = (-0.01).em,
+                        platformStyle =
+                            PlatformTextStyle(
+                                includeFontPadding = false,
+                            ),
+                        lineHeightStyle =
+                            LineHeightStyle(
+                                alignment = LineHeightStyle.Alignment.Center,
+                                trim = LineHeightStyle.Trim.None,
+                            ),
+                    ),
+            ),
+        body =
+            TypographyTokens.Body(
+                sb_16 =
+                    TextStyle(
+                        fontFamily = PretendardFont.SemiBold,
+                        fontSize = 16.sp,
+                        lineHeight = 1.5.em,
+                        letterSpacing = (-0.01).em,
+                        platformStyle =
+                            PlatformTextStyle(
+                                includeFontPadding = false,
+                            ),
+                        lineHeightStyle =
+                            LineHeightStyle(
+                                alignment = LineHeightStyle.Alignment.Center,
+                                trim = LineHeightStyle.Trim.None,
+                            ),
+                    ),
+                sb_14 =
+                    TextStyle(
+                        fontFamily = PretendardFont.SemiBold,
+                        fontSize = 14.sp,
+                        lineHeight = 1.5.em,
+                        letterSpacing = (-0.01).em,
+                        platformStyle =
+                            PlatformTextStyle(
+                                includeFontPadding = false,
+                            ),
+                        lineHeightStyle =
+                            LineHeightStyle(
+                                alignment = LineHeightStyle.Alignment.Center,
+                                trim = LineHeightStyle.Trim.None,
+                            ),
+                    ),
+                m_14 =
+                    TextStyle(
+                        fontFamily = PretendardFont.Medium,
+                        fontSize = 14.sp,
+                        lineHeight = 1.5.em,
+                        letterSpacing = (-0.01).em,
+                        platformStyle =
+                            PlatformTextStyle(
+                                includeFontPadding = false,
+                            ),
+                        lineHeightStyle =
+                            LineHeightStyle(
+                                alignment = LineHeightStyle.Alignment.Center,
+                                trim = LineHeightStyle.Trim.None,
+                            ),
+                    ),
+                r_14 =
+                    TextStyle(
+                        fontFamily = PretendardFont.Regular,
+                        fontSize = 14.sp,
+                        lineHeight = 1.5.em,
+                        letterSpacing = (-0.01).em,
+                        platformStyle =
+                            PlatformTextStyle(
+                                includeFontPadding = false,
+                            ),
+                        lineHeightStyle =
+                            LineHeightStyle(
+                                alignment = LineHeightStyle.Alignment.Center,
+                                trim = LineHeightStyle.Trim.None,
+                            ),
+                    ),
+            ),
+        caption =
+            TypographyTokens.Caption(
+                r_12 =
+                    TextStyle(
+                        fontFamily = PretendardFont.Regular,
+                        fontSize = 12.sp,
+                        lineHeight = 1.5.em,
+                        letterSpacing = (-0.01).em,
+                        platformStyle =
+                            PlatformTextStyle(
+                                includeFontPadding = false,
+                            ),
+                        lineHeightStyle =
+                            LineHeightStyle(
+                                alignment = LineHeightStyle.Alignment.Center,
+                                trim = LineHeightStyle.Trim.None,
+                            ),
+                    ),
+                m_10 =
+                    TextStyle(
+                        fontFamily = PretendardFont.Medium,
+                        fontSize = 10.sp,
+                        lineHeight = 1.5.em,
+                        letterSpacing = (-0.01).em,
+                        platformStyle =
+                            PlatformTextStyle(
+                                includeFontPadding = false,
+                            ),
+                        lineHeightStyle =
+                            LineHeightStyle(
+                                alignment = LineHeightStyle.Alignment.Center,
+                                trim = LineHeightStyle.Trim.None,
+                            ),
+                    ),
+                sb_8 =
+                    TextStyle(
+                        fontFamily = PretendardFont.SemiBold,
+                        fontSize = 8.sp,
+                        lineHeight = 1.5.em,
+                        letterSpacing = (-0.01).em,
+                        platformStyle =
+                            PlatformTextStyle(
+                                includeFontPadding = false,
+                            ),
+                        lineHeightStyle =
+                            LineHeightStyle(
+                                alignment = LineHeightStyle.Alignment.Center,
+                                trim = LineHeightStyle.Trim.None,
+                            ),
+                    ),
+            ),
     )
-     */
-    )
+
+val LocalMelonTypographyProvider = staticCompositionLocalOf { defaultMelonTypography }
