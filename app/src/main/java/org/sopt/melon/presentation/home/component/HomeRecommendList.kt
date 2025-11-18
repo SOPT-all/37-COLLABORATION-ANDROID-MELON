@@ -1,13 +1,17 @@
 package org.sopt.melon.presentation.home.component
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -28,7 +32,25 @@ import org.sopt.melon.core.designsystem.theme.MELONTheme
 import org.sopt.melon.presentation.home.model.RecommendSongItemData
 
 @Composable
-fun RecommendSongItem(
+fun HomeRecommendList(
+    recommendSongList: List<RecommendSongItemData>,
+    modifier: Modifier = Modifier,
+) {
+    LazyRow(
+        modifier = modifier,
+        contentPadding = PaddingValues(horizontal = 20.dp),
+        horizontalArrangement = Arrangement.spacedBy(10.dp),
+    ) {
+        items(recommendSongList) {
+            RecommendSongItem(
+                data = it,
+            )
+        }
+    }
+}
+
+@Composable
+private fun RecommendSongItem(
     data: RecommendSongItemData,
     modifier: Modifier = Modifier,
 ) {
@@ -68,12 +90,23 @@ fun RecommendSongItem(
 
 @Preview(showBackground = true, backgroundColor = 0xFF000000)
 @Composable
-private fun RecommendSongItemPreview() {
-    RecommendSongItem(
-        data =
-            RecommendSongItemData(
-                imageUrl = "TODO()",
-                description = "내가 아끼는 최애곡 모아모아모아모아모아모아",
+private fun HomeRecommendListPreview() {
+    MELONTheme {
+        HomeRecommendList(
+            recommendSongList = listOf(
+                RecommendSongItemData(
+                    imageUrl = "TODO()",
+                    description = "내가 아끼는 최애곡 모음",
+                ),
+                RecommendSongItemData(
+                    imageUrl = "TODO()",
+                    description = "내가 아끼는 최애곡 모음",
+                ),
+                RecommendSongItemData(
+                    imageUrl = "TODO()",
+                    description = "내가 아끼는 최애곡 모음",
+                ),
             ),
-    )
+        )
+    }
 }
