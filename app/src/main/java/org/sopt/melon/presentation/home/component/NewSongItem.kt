@@ -21,18 +21,19 @@ import org.sopt.melon.presentation.home.model.NewSongItemData
 @Composable
 fun NewSongItem(
     data: NewSongItemData,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = modifier.width(90.dp)
+        modifier = modifier.width(90.dp),
     ) {
         AsyncImage(
             model = data.imageUrl,
             contentDescription = null,
             contentScale = ContentScale.Crop,
-            modifier = Modifier
-                .aspectRatio(1f)
-                .clip(shape = RoundedCornerShape(6.dp)),
+            modifier =
+                Modifier
+                    .aspectRatio(1f)
+                    .clip(shape = RoundedCornerShape(6.dp)),
         )
         Spacer(Modifier.height(4.dp))
         Text(
@@ -40,14 +41,14 @@ fun NewSongItem(
             style = MELONTheme.typography.caption.r_12,
             color = MELONTheme.colors.white,
             maxLines = 1,
-            overflow = TextOverflow.Ellipsis
+            overflow = TextOverflow.Ellipsis,
         )
         Text(
             data.singer,
             style = MELONTheme.typography.caption.m_10,
             color = MELONTheme.colors.gray200,
             maxLines = 1,
-            overflow = TextOverflow.Ellipsis
+            overflow = TextOverflow.Ellipsis,
         )
     }
 }
@@ -57,11 +58,12 @@ fun NewSongItem(
 private fun NewSongItemPreview() {
     MELONTheme {
         NewSongItem(
-            data = NewSongItemData(
-                imageUrl = "TODO()",
-                songTitle = "Back to Life",
-                singer = "&TEAM"
-            )
+            data =
+                NewSongItemData(
+                    imageUrl = "TODO()",
+                    songTitle = "Back to Life",
+                    singer = "&TEAM",
+                ),
         )
     }
 }

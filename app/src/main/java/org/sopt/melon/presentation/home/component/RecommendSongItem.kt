@@ -30,9 +30,10 @@ fun RecommendSongItem(
             model = data.imageUrl,
             contentDescription = null,
             contentScale = ContentScale.Crop,
-            modifier = Modifier
-                .aspectRatio(1f)
-                .clip(shape = RoundedCornerShape(6.dp)),
+            modifier =
+                Modifier
+                    .aspectRatio(1f)
+                    .clip(shape = RoundedCornerShape(6.dp)),
         )
         Spacer(Modifier.height(4.dp))
         Text(
@@ -49,9 +50,10 @@ fun RecommendSongItem(
 @Composable
 private fun RecommendSongItemPreview() {
     RecommendSongItem(
-        data = RecommendSongItemData(
-            imageUrl = "TODO()",
-            description = "내가 아끼는 최애곡 모아모아모아모아모아모아",
-        ),
+        data =
+            RecommendSongItemData(
+                imageUrl = "TODO()",
+                description = "내가 아끼는 최애곡 모아모아모아모아모아모아",
+            ),
     )
 }

@@ -24,15 +24,15 @@ fun Chip(
         content,
         style = MELONTheme.typography.body.r_14,
         color = style.contentColor,
-        modifier = modifier
-            .clip(shape = RoundedCornerShape(32.dp))
-            .background(style.backgroundColor)
-            .border(
-                width = 0.5.dp,
-                color = style.borderColor,
-                shape = RoundedCornerShape(32.dp),
-            )
-            .padding(horizontal = 20.dp, vertical = 8.dp),
+        modifier =
+            modifier
+                .clip(shape = RoundedCornerShape(32.dp))
+                .background(style.backgroundColor)
+                .border(
+                    width = 0.5.dp,
+                    color = style.borderColor,
+                    shape = RoundedCornerShape(32.dp),
+                ).padding(horizontal = 20.dp, vertical = 8.dp),
     )
 }
 
@@ -44,22 +44,26 @@ data class ChipStyle(
 
 enum class ChipStatus {
     SELECTED,
-    DEFAULT;
+    DEFAULT,
+    ;
 
     @Composable
-    fun getStyle(): ChipStyle = when (this) {
-        DEFAULT -> ChipStyle(
-            contentColor = MELONTheme.colors.gray100,
-            backgroundColor = Color.Transparent,
-            borderColor = MELONTheme.colors.gray400,
-        )
+    fun getStyle(): ChipStyle =
+        when (this) {
+            DEFAULT ->
+                ChipStyle(
+                    contentColor = MELONTheme.colors.gray100,
+                    backgroundColor = Color.Transparent,
+                    borderColor = MELONTheme.colors.gray400,
+                )
 
-        SELECTED -> ChipStyle(
-            contentColor = MELONTheme.colors.gray100,
-            backgroundColor = MELONTheme.colors.primary,
-            borderColor = MELONTheme.colors.primary,
-        )
-    }
+            SELECTED ->
+                ChipStyle(
+                    contentColor = MELONTheme.colors.gray100,
+                    backgroundColor = MELONTheme.colors.primary,
+                    borderColor = MELONTheme.colors.primary,
+                )
+        }
 }
 
 @Preview(showBackground = true, backgroundColor = 0xFF000000)

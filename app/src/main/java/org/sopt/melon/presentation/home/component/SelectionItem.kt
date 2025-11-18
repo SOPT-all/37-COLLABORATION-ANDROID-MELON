@@ -23,19 +23,20 @@ import org.sopt.melon.presentation.home.model.SelectionItemData
 @Composable
 fun SelectionItem(
     data: SelectionItemData,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Row(
         modifier = modifier.height(56.dp),
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         AsyncImage(
             model = data.imageUrl,
             contentDescription = null,
             contentScale = ContentScale.Crop,
-            modifier = Modifier
-                .aspectRatio(1f)
-                .clip(shape = RoundedCornerShape(6.dp))
+            modifier =
+                Modifier
+                    .aspectRatio(1f)
+                    .clip(shape = RoundedCornerShape(6.dp)),
         )
         Spacer(Modifier.width(12.dp))
         Column {
@@ -44,21 +45,21 @@ fun SelectionItem(
                 style = MELONTheme.typography.caption.r_12,
                 color = MELONTheme.colors.gray200,
                 maxLines = 1,
-                overflow = TextOverflow.Ellipsis
+                overflow = TextOverflow.Ellipsis,
             )
             Text(
                 data.songTitle,
                 style = MELONTheme.typography.body.r_14,
                 color = MELONTheme.colors.white,
                 maxLines = 1,
-                overflow = TextOverflow.Ellipsis
+                overflow = TextOverflow.Ellipsis,
             )
             Text(
                 data.label,
                 style = MELONTheme.typography.caption.r_12,
                 color = MELONTheme.colors.gray200,
                 maxLines = 1,
-                overflow = TextOverflow.Ellipsis
+                overflow = TextOverflow.Ellipsis,
             )
         }
     }
@@ -69,12 +70,13 @@ fun SelectionItem(
 private fun SelectionItemPreview() {
     MELONTheme {
         SelectionItem(
-            data = SelectionItemData(
-                imageUrl = "TODO()",
-                label = "멜론DJ’s Pick",
-                songTitle = "XOXZ",
-                singer = "IVE (아이브)"
-            )
+            data =
+                SelectionItemData(
+                    imageUrl = "TODO()",
+                    label = "멜론DJ’s Pick",
+                    songTitle = "XOXZ",
+                    singer = "IVE (아이브)",
+                ),
         )
     }
 }

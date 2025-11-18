@@ -31,12 +31,13 @@ fun ChartButton(
     content: String = "TOP 100 전체듣기",
 ) {
     Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .height(44.dp)
-            .clip(shape = RoundedCornerShape(4.dp))
-            .background(MELONTheme.colors.gray500)
-            .padding(horizontal = 10.dp),
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .height(44.dp)
+                .clip(shape = RoundedCornerShape(4.dp))
+                .background(MELONTheme.colors.gray500)
+                .padding(horizontal = 10.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center,
     ) {

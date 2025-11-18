@@ -27,10 +27,11 @@ fun PreferenceSongCard(
     modifier: Modifier = Modifier,
 ) {
     Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .clip(shape = RoundedCornerShape(4.dp))
-            .background(MELONTheme.colors.gray600),
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .clip(shape = RoundedCornerShape(4.dp))
+                .background(MELONTheme.colors.gray600),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Image(
@@ -71,12 +72,13 @@ fun PreferenceSongCard(
 private fun PreferenceSongCardPreview() {
     MELONTheme {
         PreferenceSongCard(
-            data = PreferenceSongCardData(
-                image = R.drawable.img_preference_95,
-                description = "내 취향 기반 추천곡 내 취향 기반 추천곡 내 취향 기반 추천곡 내 취향 기반 추천곡",
-                songTitle = "The Day The Day",
-                singer = "DAY6(데이식스)",
-            ),
+            data =
+                PreferenceSongCardData(
+                    image = R.drawable.img_preference_95,
+                    description = "내 취향 기반 추천곡 내 취향 기반 추천곡 내 취향 기반 추천곡 내 취향 기반 추천곡",
+                    songTitle = "The Day The Day",
+                    singer = "DAY6(데이식스)",
+                ),
         )
     }
 }

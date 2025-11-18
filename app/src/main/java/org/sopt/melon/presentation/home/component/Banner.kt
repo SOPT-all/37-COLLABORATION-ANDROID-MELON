@@ -33,15 +33,16 @@ fun Banner(
     modifier: Modifier = Modifier,
 ) {
     Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .height(95.dp)
-            .clip(RoundedCornerShape(4.dp))
-            .background(data.backgroundColor)
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .height(95.dp)
+                .clip(RoundedCornerShape(4.dp))
+                .background(data.backgroundColor),
     ) {
         Row(
             modifier = modifier,
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             Image(
                 painter = painterResource(id = data.image),
@@ -85,13 +86,14 @@ private fun BannerChip(
         textAlign = TextAlign.Center,
         maxLines = 1,
         overflow = TextOverflow.Ellipsis,
-        modifier = modifier
-            .width(67.dp)
-            .border(
-                width = 1.dp,
-                color = MELONTheme.colors.white,
-                shape = RoundedCornerShape(999.dp),
-            ),
+        modifier =
+            modifier
+                .width(67.dp)
+                .border(
+                    width = 1.dp,
+                    color = MELONTheme.colors.white,
+                    shape = RoundedCornerShape(999.dp),
+                ),
     )
 }
 
@@ -100,13 +102,14 @@ private fun BannerChip(
 private fun BannerPreview() {
     MELONTheme {
         Banner(
-            data = BannerData(
-                image = R.drawable.ic_launcher_background,
-                category = "Melon Ticket",
-                headline = "우즈 CONCERT",
-                description = "멜론티켓에서 예매하기멜론티켓에서 예매하기멜론티켓에서 예매하기멜론티켓에서 예매하기",
-                backgroundColor = MELONTheme.colors.bar6,
-            ),
+            data =
+                BannerData(
+                    image = R.drawable.ic_launcher_background,
+                    category = "Melon Ticket",
+                    headline = "우즈 CONCERT",
+                    description = "멜론티켓에서 예매하기멜론티켓에서 예매하기멜론티켓에서 예매하기멜론티켓에서 예매하기",
+                    backgroundColor = MELONTheme.colors.bar6,
+                ),
         )
     }
 }

@@ -27,10 +27,11 @@ fun TopBar(
     modifier: Modifier = Modifier,
 ) {
     Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp)
-            .height(42.dp),
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp)
+                .height(42.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(
@@ -56,14 +57,14 @@ private fun TopBarChip(
     modifier: Modifier = Modifier,
 ) {
     Row(
-        modifier = modifier
-            .height(20.dp)
-            .border(
-                width = 1.dp,
-                color = MELONTheme.colors.white,
-                shape = RoundedCornerShape(3.dp),
-            )
-            .padding(horizontal = 4.dp),
+        modifier =
+            modifier
+                .height(20.dp)
+                .border(
+                    width = 1.dp,
+                    color = MELONTheme.colors.white,
+                    shape = RoundedCornerShape(3.dp),
+                ).padding(horizontal = 4.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(

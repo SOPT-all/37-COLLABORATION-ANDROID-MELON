@@ -29,22 +29,24 @@ fun EventBanner(
     modifier: Modifier = Modifier,
 ) {
     Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .clip(shape = RoundedCornerShape(4.dp))
-            .background(MELONTheme.colors.gray500)
-            .padding(horizontal = 8.dp, vertical = 6.dp),
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .clip(shape = RoundedCornerShape(4.dp))
+                .background(MELONTheme.colors.gray500)
+                .padding(horizontal = 8.dp, vertical = 6.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(
             imageVector = ImageVector.vectorResource(R.drawable.ic_bell),
             contentDescription = null,
             tint = MELONTheme.colors.primary,
-            modifier = Modifier
-                .size(24.dp)
-                .clip(shape = CircleShape)
-                .background(MELONTheme.colors.gray700)
-                .padding(4.dp),
+            modifier =
+                Modifier
+                    .size(24.dp)
+                    .clip(shape = CircleShape)
+                    .background(MELONTheme.colors.gray700)
+                    .padding(4.dp),
         )
         Spacer(Modifier.width(4.dp))
         Column {
