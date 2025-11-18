@@ -56,8 +56,7 @@ fun MainBottomBar(
                     .fillMaxWidth()
                     .background(
                         color = MELONTheme.colors.background,
-                    )
-                    .padding(
+                    ).padding(
                         start = 14.dp,
                         top = 4.dp,
                         end = 14.dp,

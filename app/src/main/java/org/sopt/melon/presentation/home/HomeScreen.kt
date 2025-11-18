@@ -17,8 +17,9 @@ fun HomeRoute(
     navigateToMixUp: () -> Unit,
 ) {
     HomeScreen(
-        modifier = Modifier
-            .padding(innerPadding),
+        modifier =
+            Modifier
+                .padding(innerPadding),
     )
 }
 
@@ -27,8 +28,9 @@ private fun HomeScreen(
     modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = modifier
-            .fillMaxSize(),
+        modifier =
+            modifier
+                .fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {

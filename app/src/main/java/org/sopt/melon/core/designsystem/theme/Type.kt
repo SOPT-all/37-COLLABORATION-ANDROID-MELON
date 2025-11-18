@@ -144,21 +144,22 @@ val defaultMelonTypography =
                                 trim = LineHeightStyle.Trim.None,
                             ),
                     ),
-                m_12 = TextStyle(
-                    fontFamily = PretendardFont.Medium,
-                    fontSize = 12.sp,
-                    lineHeight = 1.5.em,
-                    letterSpacing = (-0.01).em,
-                    platformStyle =
-                        PlatformTextStyle(
-                            includeFontPadding = false,
-                        ),
-                    lineHeightStyle =
-                        LineHeightStyle(
-                            alignment = LineHeightStyle.Alignment.Center,
-                            trim = LineHeightStyle.Trim.None,
-                        ),
-                ),
+                m_12 =
+                    TextStyle(
+                        fontFamily = PretendardFont.Medium,
+                        fontSize = 12.sp,
+                        lineHeight = 1.5.em,
+                        letterSpacing = (-0.01).em,
+                        platformStyle =
+                            PlatformTextStyle(
+                                includeFontPadding = false,
+                            ),
+                        lineHeightStyle =
+                            LineHeightStyle(
+                                alignment = LineHeightStyle.Alignment.Center,
+                                trim = LineHeightStyle.Trim.None,
+                            ),
+                    ),
                 r_14 =
                     TextStyle(
                         fontFamily = PretendardFont.Regular,
