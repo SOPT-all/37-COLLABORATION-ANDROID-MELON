@@ -12,10 +12,10 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.IntOffset
 import androidx.navigation.compose.NavHost
 import kotlinx.collections.immutable.toImmutableList
+import org.sopt.melon.core.designsystem.theme.MELONTheme
 import org.sopt.melon.presentation.drawer.drawerGraph
 import org.sopt.melon.presentation.foryou.navigation.forYouGraph
 import org.sopt.melon.presentation.home.navigation.homeGraph
@@ -46,7 +46,7 @@ fun MainScreen(
                 )
             }
         },
-        containerColor = Color.Black, // TODO: 색상 변경
+        containerColor = MELONTheme.colors.background,
     ) { innerPadding ->
         MainNavHost(
             navigator = navigator,

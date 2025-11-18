@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,7 +22,6 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.collections.immutable.ImmutableList
@@ -47,8 +45,9 @@ fun MainBottomBar(
                 Modifier
                     .fillMaxWidth()
                     .height(1.dp)
-                    .background(Color.DarkGray),
-            // TODO: COLOR 수정
+                    .background(
+                        color = MELONTheme.colors.gray600,
+                    ),
         )
 
         Row(
@@ -56,8 +55,9 @@ fun MainBottomBar(
                 Modifier
                     .fillMaxWidth()
                     .background(
-                        color = Color.Black, // TODO: COLOR 수정
-                    ).padding(
+                        color = MELONTheme.colors.background,
+                    )
+                    .padding(
                         start = 14.dp,
                         top = 4.dp,
                         end = 14.dp,
@@ -67,7 +67,7 @@ fun MainBottomBar(
         ) {
             tabs.forEach { tab ->
                 val selectedIcon = if (tab == currentTab) tab.selectedIconRes else tab.defaultIconRes
-                val selectedColor = if (tab == currentTab) Color.Green else Color.Gray // TODO: COLOR 수정
+                val selectedColor = if (tab == currentTab) MELONTheme.colors.primary else MELONTheme.colors.gray300
 
                 MainNavigationBarItem(
                     tab = tab,
@@ -106,7 +106,7 @@ private fun MainNavigationBarItem(
 
         Text(
             text = stringResource(tab.title),
-            style = TextStyle.Default, // TODO: TYPO 수정
+            style = MELONTheme.typography.body.m_12,
             color = selectedColor,
         )
     }
