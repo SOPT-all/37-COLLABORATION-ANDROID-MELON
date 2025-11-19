@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -26,7 +27,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
@@ -84,43 +87,50 @@ fun MelonBigPlayBar(
     @DrawableRes currentSongImg: Int,
     modifier: Modifier = Modifier,
 ) {
-    val settingIcon = painterResource(id = R.drawable.ic_settings)
-    val currentSong = painterResource(id = currentSongImg)
+    val settingIcon = R.drawable.ic_settings
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier =
             modifier
-                .size(width = 375.dp, height = 113.dp)
                 .background(color = defaultMelonColors.background2),
     ) {
-        ProgressBar(progressRatio = progressRatio, modifier = Modifier.size(width = 375.dp, height = 2.dp))
+        ProgressBar(
+            progressRatio = progressRatio,
+            modifier = Modifier.fillMaxWidth(),
+        )
+
         Spacer(Modifier.size(6.dp))
+
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceEvenly,
-            modifier = Modifier.size(width = 326.dp, height = 64.dp),
+            modifier = Modifier,
         ) {
             Image(
-                painter = settingIcon,
-                contentDescription = "setting icon",
+                imageVector = ImageVector.vectorResource(settingIcon),
+                contentDescription = null,
                 modifier =
                     Modifier
                         .size(24.dp)
                         .noRippleClickable(onSettingClock),
             )
+
             Spacer(Modifier.size(39.dp))
+
             MusicControlBar(
                 isPlaying = isPlaying,
                 onBackClick = onBackClick,
                 onPlayPauseClick = onPlayPauseClick,
                 onFrontClick = onFrontClick,
-                modifier = Modifier.size(width = 200.dp, height = 64.dp),
+                modifier = Modifier,
             )
+
             Spacer(Modifier.size(33.dp))
+
             Image(
-                painter = currentSong,
-                contentDescription = "Current Song Image",
+                painter = painterResource(currentSongImg),
+                contentDescription = null,
                 modifier =
                     Modifier
                         .size(30.dp)
@@ -147,7 +157,7 @@ fun ProgressBar(
                 .height(2.dp)
                 .background(color = defaultMelonColors.gray500),
     ) {
-        Spacer(
+        Box(
             modifier =
                 Modifier
                     .matchParentSize()
@@ -167,14 +177,14 @@ fun MusicControlBar(
     onFrontClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val backIcon = painterResource(id = R.drawable.ic_back_48)
+    val backIcon = R.drawable.ic_back_48
     val playPauseIcon =
         if (isPlaying) {
-            painterResource(id = R.drawable.ic_play_64)
+            R.drawable.ic_play_64
         } else {
-            painterResource(id = R.drawable.ic_pause_64)
+            R.drawable.ic_pause_64
         }
-    val frontIcon = painterResource(id = R.drawable.ic_front_48)
+    val frontIcon = R.drawable.ic_front_48
 
     Row(
         modifier = modifier,
@@ -182,24 +192,24 @@ fun MusicControlBar(
         horizontalArrangement = Arrangement.SpaceEvenly,
     ) {
         Image(
-            painter = backIcon,
-            contentDescription = "music back button",
+            imageVector = ImageVector.vectorResource(backIcon),
+            contentDescription = null,
             modifier =
                 Modifier.noRippleClickable(
                     onClick = onBackClick,
                 ),
         )
         Image(
-            painter = playPauseIcon,
-            contentDescription = "music ${if (isPlaying) "play" else "pause"} button",
+            imageVector = ImageVector.vectorResource(playPauseIcon),
+            contentDescription = null,
             modifier =
                 Modifier.noRippleClickable(
                     onClick = { onPlayPauseClick(isPlaying) },
                 ),
         )
         Image(
-            painter = frontIcon,
-            contentDescription = "music front button",
+            imageVector = ImageVector.vectorResource(frontIcon),
+            contentDescription = null,
             modifier =
                 Modifier.noRippleClickable(
                     onClick = onFrontClick,
