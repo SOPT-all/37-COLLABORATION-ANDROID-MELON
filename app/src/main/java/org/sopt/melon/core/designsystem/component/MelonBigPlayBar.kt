@@ -39,7 +39,7 @@ import org.sopt.melon.core.designsystem.theme.defaultMelonColors
 
 @Preview(showBackground = true)
 @Composable
-private fun PreviewMelonBigPlayBar() {
+private fun MelonBigPlayBarPreview() {
     var currentProgress by remember { mutableFloatStateOf(0.1f) }
     LaunchedEffect(Unit) {
         while (true) {
@@ -66,7 +66,7 @@ private fun PreviewMelonBigPlayBar() {
 
 @Preview(showBackground = true, backgroundColor = 2)
 @Composable
-private fun PreviewMusicControlBar() {
+private fun MusicControlBarPreview() {
     MusicControlBar(
         isPlaying = true,
         onBackClick = {},
