@@ -26,11 +26,12 @@ fun MelonActionSnackbar(
     modifier: Modifier = Modifier,
 ) {
     Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .clip(RoundedCornerShape(size = 4.dp))
-            .background(color = MELONTheme.colors.neonPink)
-            .padding(vertical = 14.dp, horizontal = 16.dp),
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(size = 4.dp))
+                .background(color = MELONTheme.colors.neonPink)
+                .padding(vertical = 14.dp, horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
@@ -44,8 +45,9 @@ fun MelonActionSnackbar(
             text = actionLabel,
             style = MELONTheme.typography.body.r_14,
             color = MELONTheme.colors.white,
-            modifier = Modifier
-                .noRippleClickable(onClick = action),
+            modifier =
+                Modifier
+                    .noRippleClickable(onClick = action),
         )
     }
 }

@@ -21,15 +21,16 @@ private fun MixUpScreen(
 ) {
     val colors = MELONTheme.colors
     Column(
-        modifier = modifier
-            .fillMaxSize()
-            .drawWithCache {
-                onDrawBehind {
-                    drawRect(
-                        brush = colors.gradient3,
-                    )
-                }
-            },
+        modifier =
+            modifier
+                .fillMaxSize()
+                .drawWithCache {
+                    onDrawBehind {
+                        drawRect(
+                            brush = colors.gradient3,
+                        )
+                    }
+                },
     ) {
     }
 }

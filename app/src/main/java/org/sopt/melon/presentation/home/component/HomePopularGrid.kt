@@ -43,8 +43,9 @@ fun HomePopularGrid(
 ) {
     LazyHorizontalGrid(
         rows = GridCells.Fixed(cellCount),
-        modifier = modifier
-            .height(203.dp),
+        modifier =
+            modifier
+                .height(203.dp),
         state = gridState,
         contentPadding = PaddingValues(horizontal = 20.dp),
         horizontalArrangement = Arrangement.spacedBy(24.dp),
@@ -78,18 +79,19 @@ private fun PopularSongItem(
             contentScale = ContentScale.Crop,
             contentDescription = null,
             error = painterResource(img_home2_56),
-            modifier = Modifier
-                .size(size = 56.dp)
-                .clip(RoundedCornerShape(6.dp)),
+            modifier =
+                Modifier
+                    .size(size = 56.dp)
+                    .clip(RoundedCornerShape(6.dp)),
         )
 
         Column(
-            modifier = Modifier
-                .padding(
-                    start = 12.dp,
-                    end = 24.dp,
-                )
-                .width(138.dp),
+            modifier =
+                Modifier
+                    .padding(
+                        start = 12.dp,
+                        end = 24.dp,
+                    ).width(138.dp),
         ) {
             Text(
                 text = subtitle,
@@ -113,8 +115,9 @@ private fun PopularSongItem(
         Image(
             painter = painterResource(id = img_mixup_36),
             contentDescription = null,
-            modifier = Modifier
-                .size(36.dp),
+            modifier =
+                Modifier
+                    .size(36.dp),
         )
     }
 }
@@ -123,48 +126,50 @@ private fun PopularSongItem(
 @Composable
 private fun HomePopularGridPreview() {
     MELONTheme {
-        val list = persistentListOf(
-            PopularSongData(
-                imgUrl = "",
-                subtitle = "멜론DJ's Pick",
-                title = "1XOXZ",
-                artistName = "IVE (아이브)",
-            ),
-            PopularSongData(
-                imgUrl = "",
-                subtitle = "멜론DJ's Pick",
-                title = "2XOXZ",
-                artistName = "IVE (아이브)",
-            ),
-            PopularSongData(
-                imgUrl = "",
-                subtitle = "멜론DJ's Pick",
-                title = "3XOXZ",
-                artistName = "Hearts2Hearts(하츠투하츠)",
-            ),
-            PopularSongData(
-                imgUrl = "",
-                subtitle = "멜론DJ's Pick",
-                title = "4XOXZ",
-                artistName = "IVE (아이브)",
-            ),
-            PopularSongData(
-                imgUrl = "",
-                subtitle = "멜론DJ's Pick",
-                title = "5XOXZ",
-                artistName = "IVE (아이브)",
-            ),
-            PopularSongData(
-                imgUrl = "",
-                subtitle = "멜론DJ's Pick",
-                title = "6XOXZ",
-                artistName = "IVE (아이브)",
-            ),
-        )
+        val list =
+            persistentListOf(
+                PopularSongData(
+                    imgUrl = "",
+                    subtitle = "멜론DJ's Pick",
+                    title = "1XOXZ",
+                    artistName = "IVE (아이브)",
+                ),
+                PopularSongData(
+                    imgUrl = "",
+                    subtitle = "멜론DJ's Pick",
+                    title = "2XOXZ",
+                    artistName = "IVE (아이브)",
+                ),
+                PopularSongData(
+                    imgUrl = "",
+                    subtitle = "멜론DJ's Pick",
+                    title = "3XOXZ",
+                    artistName = "Hearts2Hearts(하츠투하츠)",
+                ),
+                PopularSongData(
+                    imgUrl = "",
+                    subtitle = "멜론DJ's Pick",
+                    title = "4XOXZ",
+                    artistName = "IVE (아이브)",
+                ),
+                PopularSongData(
+                    imgUrl = "",
+                    subtitle = "멜론DJ's Pick",
+                    title = "5XOXZ",
+                    artistName = "IVE (아이브)",
+                ),
+                PopularSongData(
+                    imgUrl = "",
+                    subtitle = "멜론DJ's Pick",
+                    title = "6XOXZ",
+                    artistName = "IVE (아이브)",
+                ),
+            )
         Column(
-            modifier = Modifier
-                .background(color = MELONTheme.colors.background)
-                .fillMaxSize(),
+            modifier =
+                Modifier
+                    .background(color = MELONTheme.colors.background)
+                    .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
         ) {
