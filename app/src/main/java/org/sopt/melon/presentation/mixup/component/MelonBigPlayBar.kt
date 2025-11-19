@@ -1,4 +1,4 @@
-package org.sopt.melon.core.designsystem.component
+package org.sopt.melon.presentation.mixup.component
 
 import androidx.annotation.DrawableRes
 import androidx.compose.animation.core.LinearEasing
@@ -72,7 +72,7 @@ private fun MusicControlBarPreview() {
         onBackClick = {},
         onPlayPauseClick = {},
         onFrontClick = {},
-        modifier = Modifier.size(width = 326.dp, height = 64.dp),
+        modifier = Modifier.size(width = 200.dp, height = 64.dp),
     )
 }
 
@@ -104,8 +104,7 @@ fun MelonBigPlayBar(
 
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceEvenly,
-            modifier = Modifier,
+            horizontalArrangement = Arrangement.SpaceBetween,
         ) {
             Image(
                 imageVector = ImageVector.vectorResource(settingIcon),
@@ -123,7 +122,6 @@ fun MelonBigPlayBar(
                 onBackClick = onBackClick,
                 onPlayPauseClick = onPlayPauseClick,
                 onFrontClick = onFrontClick,
-                modifier = Modifier,
             )
 
             Spacer(Modifier.size(33.dp))
@@ -189,7 +187,7 @@ fun MusicControlBar(
     Row(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceEvenly,
+        horizontalArrangement = Arrangement.SpaceBetween,
     ) {
         Image(
             imageVector = ImageVector.vectorResource(backIcon),
@@ -199,6 +197,11 @@ fun MusicControlBar(
                     onClick = onBackClick,
                 ),
         )
+
+        Spacer(
+            modifier = Modifier.size(20.dp)
+        )
+
         Image(
             imageVector = ImageVector.vectorResource(playPauseIcon),
             contentDescription = null,
@@ -207,6 +210,11 @@ fun MusicControlBar(
                     onClick = { onPlayPauseClick(isPlaying) },
                 ),
         )
+
+        Spacer(
+            modifier = Modifier.size(20.dp)
+        )
+
         Image(
             imageVector = ImageVector.vectorResource(frontIcon),
             contentDescription = null,
