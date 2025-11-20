@@ -18,9 +18,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -43,7 +41,7 @@ private fun MelonSmallPlayBarPreview() {
         onPlayPauseClick = { isPlaying = !isPlaying },
         onFrontClick = {},
         onPlayMenuClick = {},
-        modifier = Modifier.size(width = 360.dp, height = 60.dp)
+        modifier = Modifier.size(width = 360.dp, height = 60.dp),
     )
 }
 
@@ -57,7 +55,7 @@ fun MelonSmallPlayBar(
     onPlayPauseClick: (Boolean) -> Unit,
     onFrontClick: () -> Unit,
     onPlayMenuClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     val playMenuIcon = R.drawable.ic_playmenu
 
@@ -69,31 +67,32 @@ fun MelonSmallPlayBar(
     ) {
         MelonProgressBar(
             progressRatio = progressRatio,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         )
 
         Row(
             horizontalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(
-                    top = 7.dp,
-                    start = 20.dp,
-                    end = 8.dp,
-                    bottom = 11.dp,
-                )
+            modifier =
+                Modifier
+                    .fillMaxSize()
+                    .padding(
+                        top = 7.dp,
+                        start = 20.dp,
+                        end = 8.dp,
+                        bottom = 11.dp,
+                    ),
         ) {
             // title & singer
             SongInfo(
                 title = title,
                 singer = singer,
-                modifier = Modifier
+                modifier = Modifier,
             )
 
             // Control Bar
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier
+                modifier = Modifier,
             ) {
                 MelonMusicControlBar(
                     isBig = false,
@@ -101,17 +100,18 @@ fun MelonSmallPlayBar(
                     onBackClick = onBackClick,
                     onPlayPauseClick = onPlayPauseClick,
                     onFrontClick = onFrontClick,
-                    modifier = Modifier
+                    modifier = Modifier,
                 )
 
                 Spacer(Modifier.size(4.dp))
 
                 Image(
-                    imageVector = ImageVector.vectorResource(playMenuIcon ),
+                    imageVector = ImageVector.vectorResource(playMenuIcon),
                     contentDescription = null,
-                    modifier = Modifier
-                        .size(40.dp)
-                        .noRippleClickable(onPlayMenuClick)
+                    modifier =
+                        Modifier
+                            .size(40.dp)
+                            .noRippleClickable(onPlayMenuClick),
                 )
             }
         }
@@ -124,17 +124,18 @@ private fun SongInfoPreview() {
     SongInfo(
         title = "Blue Valentine",
         singer = "NMIXX",
-        modifier = Modifier
+        modifier = Modifier,
     )
 }
+
 @Composable
 private fun SongInfo(
     title: String,
     singer: String,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = modifier
+        modifier = modifier,
     ) {
         Text(
             text = title,

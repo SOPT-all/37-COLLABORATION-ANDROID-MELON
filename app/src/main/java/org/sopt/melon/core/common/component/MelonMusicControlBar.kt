@@ -19,9 +19,8 @@ import org.sopt.melon.core.common.util.noRippleClickable
 @Preview(showBackground = true, backgroundColor = 0x121212)
 @Composable
 private fun MelonMusicControlBarPreview() {
-
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         MelonMusicControlBar(
             isBig = true,
@@ -29,7 +28,7 @@ private fun MelonMusicControlBarPreview() {
             onBackClick = {},
             onPlayPauseClick = {},
             onFrontClick = {},
-            modifier = Modifier.size(width = 200.dp, height = 64.dp)
+            modifier = Modifier.size(width = 200.dp, height = 64.dp),
         )
 
         Spacer(modifier = Modifier.size(20.dp))
@@ -40,7 +39,7 @@ private fun MelonMusicControlBarPreview() {
             onBackClick = {},
             onPlayPauseClick = {},
             onFrontClick = {},
-            modifier = Modifier.size(width = 108.dp, height = 32.dp)
+            modifier = Modifier.size(width = 108.dp, height = 32.dp),
         )
     }
 }
@@ -54,33 +53,39 @@ fun MelonMusicControlBar(
     onFrontClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    fun selectBySize(big: Int, small: Int) = if (isBig) big else small
+    fun selectBySize(
+        big: Int,
+        small: Int,
+    ) = if (isBig) big else small
 
-    val backIcon = selectBySize(
-        big = R.drawable.ic_back_48,
-        small = R.drawable.ic_back_32
-    )
+    val backIcon =
+        selectBySize(
+            big = R.drawable.ic_back_48,
+            small = R.drawable.ic_back_32,
+        )
     val playPauseIcon =
         if (isPlaying) {
             selectBySize(
                 big = R.drawable.ic_pause_64,
-                small = R.drawable.ic_pause_32
+                small = R.drawable.ic_pause_32,
             )
         } else {
             selectBySize(
                 big = R.drawable.ic_play_64,
-                small = R.drawable.ic_play_32
+                small = R.drawable.ic_play_32,
             )
         }
 
-    val frontIcon = selectBySize(
-        big = R.drawable.ic_front_48,
-        small = R.drawable.ic_front_32
-    )
-    val interval = selectBySize(
-        big = 20,
-        small = 6
-    )
+    val frontIcon =
+        selectBySize(
+            big = R.drawable.ic_front_48,
+            small = R.drawable.ic_front_32,
+        )
+    val interval =
+        selectBySize(
+            big = 20,
+            small = 6,
+        )
 
     Row(
         modifier = modifier,
@@ -97,7 +102,7 @@ fun MelonMusicControlBar(
         )
 
         Spacer(
-            modifier = Modifier.size(interval.dp)
+            modifier = Modifier.size(interval.dp),
         )
 
         Image(
@@ -110,7 +115,7 @@ fun MelonMusicControlBar(
         )
 
         Spacer(
-            modifier = Modifier.size(interval.dp)
+            modifier = Modifier.size(interval.dp),
         )
 
         Image(
