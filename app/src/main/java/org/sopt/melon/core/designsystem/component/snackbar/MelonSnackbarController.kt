@@ -8,6 +8,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -21,11 +22,13 @@ class MelonSnackbarController(
     var currentRequest by mutableStateOf<MelonSnackbarRequest?>(null)
         private set
 
+    private var actionJob: Job? = null
+    private var timerJob: Job? = null
     fun show(request: MelonSnackbarRequest) {
         currentRequest = request
 
         coroutineScope.launch {
-            snackbarHostState.currentSnackbarData?.dismiss()
+            clearCurrentSnackbar()
 
             val job = launch {
                 snackbarHostState.showSnackbar(
@@ -34,18 +37,24 @@ class MelonSnackbarController(
                     withDismissAction = true,
                 )
             }
+            actionJob = job
 
-            job.invokeOnCompletion {
-                if (currentRequest === request) {
+            timerJob = launch {
+                delay(SNACKBAR_AUTO_DISMISS_MS)
+                if (actionJob == job) {
+                    job.cancel()
                     currentRequest = null
+                    actionJob = null
+                    timerJob = null
                 }
             }
-
-            launch {
-                delay(SNACKBAR_AUTO_DISMISS_MS)
-                job.cancel()
-            }
         }
+    }
+
+    private fun clearCurrentSnackbar() {
+        actionJob?.cancel()
+        timerJob?.cancel()
+        snackbarHostState.currentSnackbarData?.dismiss()
     }
 
     fun performAction() {
