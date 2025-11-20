@@ -22,7 +22,7 @@ fun HomeChip(
     val style = status.getStyle()
 
     Text(
-        content,
+        text = content,
         style = MELONTheme.typography.body.r_14,
         color = style.contentColor,
         modifier =

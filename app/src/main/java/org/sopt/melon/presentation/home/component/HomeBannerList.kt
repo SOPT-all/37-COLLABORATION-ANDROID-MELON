@@ -114,7 +114,7 @@ private fun BannerChip(
     modifier: Modifier = Modifier,
 ) {
     Text(
-        content,
+        text = content,
         style = MELONTheme.typography.caption.m_10,
         color = MELONTheme.colors.white,
         textAlign = TextAlign.Center,

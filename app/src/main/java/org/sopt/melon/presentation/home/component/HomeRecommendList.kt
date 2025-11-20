@@ -58,7 +58,7 @@ private fun RecommendSongItem(
     modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = modifier.width(140.dp),
+        modifier = modifier.width(130.dp),
     ) {
         Box {
             AsyncImage(
@@ -78,7 +78,7 @@ private fun RecommendSongItem(
                 tint = Color.Unspecified,
                 modifier =
                     Modifier
-                        .size(32.dp)
+                        .size(28.dp)
                         .padding(top = 4.dp)
                         .align(Alignment.TopEnd),
             )

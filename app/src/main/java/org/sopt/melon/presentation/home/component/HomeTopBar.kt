@@ -31,8 +31,7 @@ fun HomeTopBar(
         modifier =
             modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp)
-                .height(42.dp),
+                .padding(horizontal = 16.dp, vertical = 5.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(

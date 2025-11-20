@@ -36,8 +36,8 @@ fun HomeNewSongGrid(
         rows = GridCells.Fixed(2),
         contentPadding = PaddingValues(horizontal = 20.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
-        verticalArrangement = Arrangement.spacedBy(15.dp),
-        modifier = modifier.height(290.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp),
+        modifier = modifier.height(296.dp),
     ) {
         items(newSongList) {
             NewSongItem(
@@ -53,7 +53,7 @@ private fun NewSongItem(
     modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = modifier.width(90.dp),
+        modifier = modifier.width(86.dp),
     ) {
         AsyncImage(
             model = data.imageUrl,
