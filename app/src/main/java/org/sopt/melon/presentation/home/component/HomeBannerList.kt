@@ -27,13 +27,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
 import org.sopt.melon.R
 import org.sopt.melon.core.designsystem.theme.MELONTheme
 import org.sopt.melon.presentation.home.model.BannerData
 
 @Composable
 fun HomeBannerList(
-    bannerDataList: List<BannerData>,
+    bannerDataList: ImmutableList<BannerData>,
     modifier: Modifier = Modifier,
 ) {
     LazyRow(
@@ -153,7 +155,7 @@ private fun BannerListPreview() {
     MELONTheme {
         HomeBannerList(
             bannerDataList =
-                listOf(
+                persistentListOf(
                     BannerData(
                         title = "2025 WOODZ PREVIEW CONCERT",
                         image = R.drawable.ic_launcher_background,
