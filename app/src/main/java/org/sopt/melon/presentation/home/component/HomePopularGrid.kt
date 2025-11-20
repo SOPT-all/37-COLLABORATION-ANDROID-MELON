@@ -95,8 +95,7 @@ private fun PopularSongItem(
                     .padding(
                         start = 12.dp,
                         end = 24.dp,
-                    )
-                    .width(138.dp),
+                    ).width(138.dp),
         ) {
             Text(
                 text = subtitle,
