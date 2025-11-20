@@ -1,4 +1,4 @@
-package org.sopt.melon.core.designsystem.component
+package org.sopt.melon.core.designsystem.component.snackbar
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
