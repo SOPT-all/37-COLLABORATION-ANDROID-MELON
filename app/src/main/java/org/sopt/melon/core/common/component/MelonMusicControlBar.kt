@@ -18,7 +18,7 @@ import org.sopt.melon.core.common.util.noRippleClickable
 
 @Preview(showBackground = true, backgroundColor = 0x121212)
 @Composable
-fun MelonMusicControlBarPreview() {
+private fun MelonMusicControlBarPreview() {
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally
