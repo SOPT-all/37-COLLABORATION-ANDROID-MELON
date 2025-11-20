@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -53,14 +54,14 @@ fun HomeEventBanner(
 
         Column {
             Text(
-                "지금 참여하면 MMA 초대권 선물",
+                stringResource(R.string.home_event_banner_title),
                 style = MELONTheme.typography.caption.r_12,
                 color = MELONTheme.colors.white,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
             Text(
-                "최애 입덕 포인트 남기고 실물 영접하러 가자!",
+                stringResource(R.string.home_event_banner_description),
                 style = MELONTheme.typography.caption.r_12,
                 color = MELONTheme.colors.gray200,
                 maxLines = 1,

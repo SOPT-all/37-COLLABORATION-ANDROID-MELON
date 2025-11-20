@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -28,7 +29,7 @@ import org.sopt.melon.core.designsystem.theme.MELONTheme
 fun HomeChartButton(
     modifier: Modifier = Modifier,
     @DrawableRes icon: Int = R.drawable.ic_play_24,
-    content: String = "TOP 100 전체듣기",
+    content: String = stringResource(R.string.home_chart_button_content),
 ) {
     Row(
         modifier =

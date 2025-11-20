@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -68,7 +69,8 @@ private fun TopBarChip(
                     width = 1.dp,
                     color = MELONTheme.colors.white,
                     shape = RoundedCornerShape(3.dp),
-                ).padding(horizontal = 4.dp),
+                )
+                .padding(horizontal = 4.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(
@@ -81,7 +83,7 @@ private fun TopBarChip(
         Spacer(Modifier.width(2.dp))
 
         Text(
-            "멜론혜택",
+            stringResource(R.string.home_topbar_chip_content),
             style = MELONTheme.typography.caption.m_10,
             color = MELONTheme.colors.white,
         )
