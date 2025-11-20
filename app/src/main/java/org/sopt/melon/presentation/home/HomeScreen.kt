@@ -40,7 +40,7 @@ fun HomeRoute(
 
 @Composable
 private fun HomeScreen(
-    onMixUpClick: () -> Unit = {},
+    onMixUpClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(
