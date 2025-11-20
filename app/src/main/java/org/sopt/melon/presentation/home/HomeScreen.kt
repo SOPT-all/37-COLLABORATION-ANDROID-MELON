@@ -10,13 +10,27 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import org.sopt.melon.R.string.snackbar_mixup_add_message
+import org.sopt.melon.R.string.snackbar_move_action_label
+import org.sopt.melon.core.common.util.noRippleClickable
+import org.sopt.melon.core.designsystem.component.snackbar.LocalMelonSnackbarTrigger
+import org.sopt.melon.core.designsystem.component.snackbar.MelonSnackbarRequest
 
 @Composable
 fun HomeRoute(
     innerPadding: PaddingValues,
     navigateToMixUp: () -> Unit,
 ) {
+    val snackbarTrigger = LocalMelonSnackbarTrigger.current
+    val snackbarRequest = MelonSnackbarRequest(
+        message = stringResource(snackbar_mixup_add_message),
+        actionLabel = stringResource(snackbar_move_action_label),
+        onClick = navigateToMixUp,
+    )
+
     HomeScreen(
+        onMixUpClick = { snackbarTrigger(snackbarRequest) },
         modifier =
             Modifier
                 .padding(innerPadding),
@@ -25,6 +39,7 @@ fun HomeRoute(
 
 @Composable
 private fun HomeScreen(
+    onMixUpClick: () -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -34,6 +49,13 @@ private fun HomeScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text("HOME", color = Color.White)
+        Text(
+            "HOME",
+            color = Color.White,
+            modifier = Modifier
+                .noRippleClickable(
+                    onClick = onMixUpClick,
+                ),
+        )
     }
 }
