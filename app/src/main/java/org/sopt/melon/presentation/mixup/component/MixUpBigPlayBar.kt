@@ -34,12 +34,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import org.sopt.melon.R
+import org.sopt.melon.core.common.component.MelonProgressBar
 import org.sopt.melon.core.common.util.noRippleClickable
 import org.sopt.melon.core.designsystem.theme.defaultMelonColors
 
 @Preview(showBackground = true)
 @Composable
-private fun MelonBigPlayBarPreview() {
+private fun MixUpBigPlayBarPreview() {
     var currentProgress by remember { mutableFloatStateOf(0.1f) }
     LaunchedEffect(Unit) {
         while (true) {
@@ -52,7 +53,7 @@ private fun MelonBigPlayBarPreview() {
     }
     var isPlaying by remember { mutableStateOf(true) }
 
-    MelonBigPlayBar(
+    MixUpBigPlayBar(
         progressRatio = currentProgress,
         isPlaying = isPlaying,
         onSettingClock = {},
@@ -77,7 +78,7 @@ private fun MusicControlBarPreview() {
 }
 
 @Composable
-fun MelonBigPlayBar(
+fun MixUpBigPlayBar(
     progressRatio: Float,
     isPlaying: Boolean,
     onSettingClock: () -> Unit,
@@ -95,7 +96,7 @@ fun MelonBigPlayBar(
             modifier
                 .background(color = defaultMelonColors.background2),
     ) {
-        ProgressBar(
+        MelonProgressBar(
             progressRatio = progressRatio,
             modifier = Modifier.fillMaxWidth(),
         )
@@ -135,35 +136,6 @@ fun MelonBigPlayBar(
                         .clip(RoundedCornerShape(4.dp)),
             )
         }
-    }
-}
-
-@Composable
-fun ProgressBar(
-    progressRatio: Float,
-    modifier: Modifier = Modifier,
-) {
-    val animatedProgress by animateFloatAsState(
-        targetValue = progressRatio,
-        animationSpec = tween(durationMillis = 1000, easing = LinearEasing),
-        label = "MusicProgress",
-    )
-
-    Box(
-        modifier =
-            modifier
-                .height(2.dp)
-                .background(color = defaultMelonColors.gray500),
-    ) {
-        Box(
-            modifier =
-                Modifier
-                    .matchParentSize()
-                    .graphicsLayer {
-                        scaleX = animatedProgress
-                        transformOrigin = TransformOrigin(0f, 0.5f)
-                    }.background(color = defaultMelonColors.primary),
-        )
     }
 }
 
