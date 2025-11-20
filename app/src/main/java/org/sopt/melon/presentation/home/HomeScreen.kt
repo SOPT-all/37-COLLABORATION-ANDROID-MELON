@@ -15,7 +15,7 @@ import org.sopt.melon.R.string.snackbar_mixup_add_message
 import org.sopt.melon.R.string.snackbar_move_action_label
 import org.sopt.melon.core.common.util.noRippleClickable
 import org.sopt.melon.core.designsystem.component.snackbar.LocalMelonSnackbarTrigger
-import org.sopt.melon.core.designsystem.component.snackbar.MelonSnackbarRequest
+import org.sopt.melon.core.designsystem.component.snackbar.MelonSnackbarActionRequest
 
 @Composable
 fun HomeRoute(
@@ -24,7 +24,7 @@ fun HomeRoute(
 ) {
     val snackbarTrigger = LocalMelonSnackbarTrigger.current
     val snackbarRequest =
-        MelonSnackbarRequest(
+        MelonSnackbarActionRequest(
             message = stringResource(snackbar_mixup_add_message),
             actionLabel = stringResource(snackbar_move_action_label),
             onClick = navigateToMixUp,

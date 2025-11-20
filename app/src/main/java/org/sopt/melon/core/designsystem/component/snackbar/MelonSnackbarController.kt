@@ -19,13 +19,13 @@ class MelonSnackbarController(
 ) {
     val snackbarHostState = SnackbarHostState()
 
-    var currentRequest by mutableStateOf<MelonSnackbarRequest?>(null)
+    var currentRequest by mutableStateOf<MelonSnackbarActionRequest?>(null)
         private set
 
     private var actionJob: Job? = null
     private var timerJob: Job? = null
 
-    fun show(request: MelonSnackbarRequest) {
+    fun show(request: MelonSnackbarActionRequest) {
         currentRequest = request
 
         coroutineScope.launch {

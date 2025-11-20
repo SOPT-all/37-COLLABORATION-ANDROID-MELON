@@ -22,7 +22,7 @@ import androidx.navigation.compose.NavHost
 import kotlinx.collections.immutable.toImmutableList
 import org.sopt.melon.core.designsystem.component.snackbar.LocalMelonSnackbarTrigger
 import org.sopt.melon.core.designsystem.component.snackbar.MelonActionSnackbar
-import org.sopt.melon.core.designsystem.component.snackbar.MelonSnackbarRequest
+import org.sopt.melon.core.designsystem.component.snackbar.MelonSnackbarActionRequest
 import org.sopt.melon.core.designsystem.component.snackbar.rememberMelonSnackbarController
 import org.sopt.melon.core.designsystem.theme.MELONTheme
 import org.sopt.melon.presentation.drawer.drawerGraph
@@ -39,7 +39,7 @@ fun MainScreen(
     navigator: MainNavigator = rememberMainNavigator(),
 ) {
     val snackbarController = rememberMelonSnackbarController()
-    val snackbarTrigger: (MelonSnackbarRequest) -> Unit =
+    val snackbarTrigger: (MelonSnackbarActionRequest) -> Unit =
         remember {
             { request -> snackbarController.show(request) }
         }

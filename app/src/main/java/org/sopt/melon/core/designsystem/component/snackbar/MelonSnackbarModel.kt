@@ -4,13 +4,13 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
 
 @Immutable
-data class MelonSnackbarRequest(
+data class MelonSnackbarActionRequest(
     val message: String,
     val actionLabel: String,
     val onClick: () -> Unit,
 )
 
 val LocalMelonSnackbarTrigger =
-    staticCompositionLocalOf<(MelonSnackbarRequest) -> Unit> {
+    staticCompositionLocalOf<(MelonSnackbarActionRequest) -> Unit> {
         error("No MelonSnackbarTrigger provided")
     }
