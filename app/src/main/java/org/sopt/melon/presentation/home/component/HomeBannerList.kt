@@ -62,6 +62,7 @@ private fun BannerItem(
             style = MELONTheme.typography.body.r_14,
             color = MELONTheme.colors.gray200,
         )
+
         Row(
             modifier =
                 Modifier
@@ -70,19 +71,21 @@ private fun BannerItem(
                     .clip(RoundedCornerShape(4.dp))
                     .background(data.backgroundColor),
             verticalAlignment = Alignment.CenterVertically,
-
-            ) {
+        ) {
             Image(
                 painter = painterResource(id = data.image),
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.aspectRatio(1f),
             )
+
             Column(
                 modifier = Modifier.padding(horizontal = 16.dp),
             ) {
                 BannerChip(data.category)
+
                 Spacer(Modifier.height(4.dp))
+
                 Text(
                     data.headline,
                     style = MELONTheme.typography.body.m_14,
@@ -90,6 +93,7 @@ private fun BannerItem(
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                 )
+
                 Text(
                     data.description,
                     style = MELONTheme.typography.caption.r_12,
@@ -148,32 +152,33 @@ private fun BannerItemPreview() {
 private fun BannerListPreview() {
     MELONTheme {
         HomeBannerList(
-            bannerDataList = listOf(
-                BannerData(
-                    title = "2025 WOODZ PREVIEW CONCERT",
-                    image = R.drawable.ic_launcher_background,
-                    category = "Melon Ticket",
-                    headline = "우즈 CONCERT",
-                    description = "멜론티켓에서 예매하기",
-                    backgroundColor = MELONTheme.colors.bar6,
+            bannerDataList =
+                listOf(
+                    BannerData(
+                        title = "2025 WOODZ PREVIEW CONCERT",
+                        image = R.drawable.ic_launcher_background,
+                        category = "Melon Ticket",
+                        headline = "우즈 CONCERT",
+                        description = "멜론티켓에서 예매하기",
+                        backgroundColor = MELONTheme.colors.bar6,
+                    ),
+                    BannerData(
+                        title = "2025 WOODZ PREVIEW CONCERT",
+                        image = R.drawable.ic_launcher_background,
+                        category = "Melon Ticket",
+                        headline = "우즈 CONCERT",
+                        description = "멜론티켓에서 예매하기멜론티켓에서 예매하기",
+                        backgroundColor = MELONTheme.colors.bar6,
+                    ),
+                    BannerData(
+                        title = "2025 WOODZ PREVIEW CONCERT",
+                        image = R.drawable.ic_launcher_background,
+                        category = "Melon Ticket",
+                        headline = "우즈 CONCERT",
+                        description = "멜론티켓에서 예매하기멜론티켓에서 예매하기멜론티켓에서 예매하기멜론티켓에서 예매하기",
+                        backgroundColor = MELONTheme.colors.bar6,
+                    ),
                 ),
-                BannerData(
-                    title = "2025 WOODZ PREVIEW CONCERT",
-                    image = R.drawable.ic_launcher_background,
-                    category = "Melon Ticket",
-                    headline = "우즈 CONCERT",
-                    description = "멜론티켓에서 예매하기멜론티켓에서 예매하기",
-                    backgroundColor = MELONTheme.colors.bar6,
-                ),
-                BannerData(
-                    title = "2025 WOODZ PREVIEW CONCERT",
-                    image = R.drawable.ic_launcher_background,
-                    category = "Melon Ticket",
-                    headline = "우즈 CONCERT",
-                    description = "멜론티켓에서 예매하기멜론티켓에서 예매하기멜론티켓에서 예매하기멜론티켓에서 예매하기",
-                    backgroundColor = MELONTheme.colors.bar6,
-                ),
-            ),
         )
     }
 }

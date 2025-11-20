@@ -39,6 +39,7 @@ fun PreferenceSongCard(
             contentDescription = null,
             modifier = Modifier.size(95.dp),
         )
+
         Column(
             modifier = Modifier.padding(horizontal = 16.dp),
         ) {
@@ -49,6 +50,7 @@ fun PreferenceSongCard(
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
+
             Text(
                 data.songTitle,
                 style = MELONTheme.typography.body.r_14,
@@ -56,6 +58,7 @@ fun PreferenceSongCard(
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
+
             Text(
                 data.singer,
                 style = MELONTheme.typography.caption.r_12,

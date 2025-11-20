@@ -40,9 +40,13 @@ fun TopBar(
             tint = Color.Unspecified,
             modifier = Modifier.size(32.dp),
         )
+
         Spacer(Modifier.weight(1f))
+
         TopBarChip()
+
         Spacer(Modifier.width(16.dp))
+
         Icon(
             imageVector = ImageVector.vectorResource(R.drawable.ic_cash),
             contentDescription = null,
@@ -73,7 +77,9 @@ private fun TopBarChip(
             tint = Color.Unspecified,
             modifier = Modifier.size(12.dp),
         )
+
         Spacer(Modifier.width(2.dp))
+
         Text(
             "멜론혜택",
             style = MELONTheme.typography.caption.m_10,

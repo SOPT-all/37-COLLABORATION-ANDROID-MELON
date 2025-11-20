@@ -27,13 +27,15 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
 import org.sopt.melon.R
 import org.sopt.melon.core.designsystem.theme.MELONTheme
 import org.sopt.melon.presentation.home.model.RecommendSongItemData
 
 @Composable
 fun HomeRecommendList(
-    recommendSongList: List<RecommendSongItemData>,
+    recommendSongList: ImmutableList<RecommendSongItemData>,
     modifier: Modifier = Modifier,
 ) {
     LazyRow(
@@ -67,17 +69,21 @@ private fun RecommendSongItem(
                         .aspectRatio(1f)
                         .clip(shape = RoundedCornerShape(6.dp)),
             )
+
             Icon(
                 imageVector = ImageVector.vectorResource(R.drawable.ic_play_28),
                 contentDescription = null,
                 tint = Color.Unspecified,
-                modifier = Modifier
-                    .size(32.dp)
-                    .padding(top = 4.dp)
-                    .align(Alignment.TopEnd),
+                modifier =
+                    Modifier
+                        .size(32.dp)
+                        .padding(top = 4.dp)
+                        .align(Alignment.TopEnd),
             )
         }
+
         Spacer(Modifier.height(4.dp))
+
         Text(
             data.description,
             style = MELONTheme.typography.body.m_14,
@@ -93,20 +99,21 @@ private fun RecommendSongItem(
 private fun HomeRecommendListPreview() {
     MELONTheme {
         HomeRecommendList(
-            recommendSongList = listOf(
-                RecommendSongItemData(
-                    imageUrl = "TODO()",
-                    description = "내가 아끼는 최애곡 모음",
+            recommendSongList =
+                persistentListOf(
+                    RecommendSongItemData(
+                        imageUrl = "TODO()",
+                        description = "내가 아끼는 최애곡 모음",
+                    ),
+                    RecommendSongItemData(
+                        imageUrl = "TODO()",
+                        description = "내가 아끼는 최애곡 모음",
+                    ),
+                    RecommendSongItemData(
+                        imageUrl = "TODO()",
+                        description = "내가 아끼는 최애곡 모음",
+                    ),
                 ),
-                RecommendSongItemData(
-                    imageUrl = "TODO()",
-                    description = "내가 아끼는 최애곡 모음",
-                ),
-                RecommendSongItemData(
-                    imageUrl = "TODO()",
-                    description = "내가 아끼는 최애곡 모음",
-                ),
-            ),
         )
     }
 }

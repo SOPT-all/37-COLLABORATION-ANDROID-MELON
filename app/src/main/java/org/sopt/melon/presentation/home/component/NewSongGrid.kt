@@ -103,63 +103,64 @@ private fun NewSongItemPreview() {
 private fun NewSongGridPreview() {
     MELONTheme {
         NewSongGrid(
-            newSongList = persistentListOf(
-                NewSongItemData(
-                    imageUrl = "TODO()",
-                    songTitle = "Back to Life",
-                    singer = "&TEAM",
+            newSongList =
+                persistentListOf(
+                    NewSongItemData(
+                        imageUrl = "TODO()",
+                        songTitle = "Back to Life",
+                        singer = "&TEAM",
+                    ),
+                    NewSongItemData(
+                        imageUrl = "TODO()",
+                        songTitle = "Back to Life",
+                        singer = "&TEAM",
+                    ),
+                    NewSongItemData(
+                        imageUrl = "TODO()",
+                        songTitle = "Back to Life",
+                        singer = "&TEAM",
+                    ),
+                    NewSongItemData(
+                        imageUrl = "TODO()",
+                        songTitle = "Back to Life",
+                        singer = "&TEAM",
+                    ),
+                    NewSongItemData(
+                        imageUrl = "TODO()",
+                        songTitle = "Back to Life",
+                        singer = "&TEAM",
+                    ),
+                    NewSongItemData(
+                        imageUrl = "TODO()",
+                        songTitle = "Back to Life",
+                        singer = "&TEAM",
+                    ),
+                    NewSongItemData(
+                        imageUrl = "TODO()",
+                        songTitle = "Back to Life",
+                        singer = "&TEAM",
+                    ),
+                    NewSongItemData(
+                        imageUrl = "TODO()",
+                        songTitle = "Back to Life",
+                        singer = "&TEAM",
+                    ),
+                    NewSongItemData(
+                        imageUrl = "TODO()",
+                        songTitle = "Back to Life",
+                        singer = "&TEAM",
+                    ),
+                    NewSongItemData(
+                        imageUrl = "TODO()",
+                        songTitle = "Back to Life",
+                        singer = "&TEAM",
+                    ),
+                    NewSongItemData(
+                        imageUrl = "TODO()",
+                        songTitle = "Back to Life",
+                        singer = "&TEAM",
+                    ),
                 ),
-                NewSongItemData(
-                    imageUrl = "TODO()",
-                    songTitle = "Back to Life",
-                    singer = "&TEAM",
-                ),
-                NewSongItemData(
-                    imageUrl = "TODO()",
-                    songTitle = "Back to Life",
-                    singer = "&TEAM",
-                ),
-                NewSongItemData(
-                    imageUrl = "TODO()",
-                    songTitle = "Back to Life",
-                    singer = "&TEAM",
-                ),
-                NewSongItemData(
-                    imageUrl = "TODO()",
-                    songTitle = "Back to Life",
-                    singer = "&TEAM",
-                ),
-                NewSongItemData(
-                    imageUrl = "TODO()",
-                    songTitle = "Back to Life",
-                    singer = "&TEAM",
-                ),
-                NewSongItemData(
-                    imageUrl = "TODO()",
-                    songTitle = "Back to Life",
-                    singer = "&TEAM",
-                ),
-                NewSongItemData(
-                    imageUrl = "TODO()",
-                    songTitle = "Back to Life",
-                    singer = "&TEAM",
-                ),
-                NewSongItemData(
-                    imageUrl = "TODO()",
-                    songTitle = "Back to Life",
-                    singer = "&TEAM",
-                ),
-                NewSongItemData(
-                    imageUrl = "TODO()",
-                    songTitle = "Back to Life",
-                    singer = "&TEAM",
-                ),
-                NewSongItemData(
-                    imageUrl = "TODO()",
-                    songTitle = "Back to Life",
-                    singer = "&TEAM",
-                ),
-            ),
         )
     }
 }

@@ -20,6 +20,7 @@ fun Chip(
     modifier: Modifier = Modifier,
 ) {
     val style = status.getStyle()
+
     Text(
         content,
         style = MELONTheme.typography.body.r_14,

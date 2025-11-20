@@ -46,7 +46,9 @@ fun ChartButton(
             contentDescription = null,
             tint = Color.Unspecified,
         )
+
         Spacer(Modifier.width(4.dp))
+
         Text(
             content,
             style = MELONTheme.typography.body.m_14,

@@ -48,7 +48,9 @@ fun EventBanner(
                     .background(MELONTheme.colors.gray700)
                     .padding(4.dp),
         )
+
         Spacer(Modifier.width(4.dp))
+
         Column {
             Text(
                 "지금 참여하면 MMA 초대권 선물",
@@ -65,7 +67,9 @@ fun EventBanner(
                 overflow = TextOverflow.Ellipsis,
             )
         }
+
         Spacer(Modifier.weight(1f))
+
         Icon(
             imageVector = ImageVector.vectorResource(R.drawable.ic_x),
             contentDescription = null,
