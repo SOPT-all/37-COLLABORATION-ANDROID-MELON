@@ -25,7 +25,7 @@ import org.sopt.melon.R
 import org.sopt.melon.core.designsystem.theme.MELONTheme
 
 @Composable
-fun ChartButton(
+fun HomeChartButton(
     modifier: Modifier = Modifier,
     @DrawableRes icon: Int = R.drawable.ic_play_24,
     content: String = "TOP 100 전체듣기",
@@ -59,8 +59,8 @@ fun ChartButton(
 
 @Preview
 @Composable
-private fun ChartButtonPreview() {
+private fun HomeChartButtonPreview() {
     MELONTheme {
-        ChartButton()
+        HomeChartButton()
     }
 }

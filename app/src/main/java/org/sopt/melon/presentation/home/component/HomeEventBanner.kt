@@ -25,7 +25,7 @@ import org.sopt.melon.R
 import org.sopt.melon.core.designsystem.theme.MELONTheme
 
 @Composable
-fun EventBanner(
+fun HomeEventBanner(
     modifier: Modifier = Modifier,
 ) {
     Row(
@@ -81,8 +81,8 @@ fun EventBanner(
 
 @Preview
 @Composable
-private fun EventBannerPreview() {
+private fun HomeEventBannerPreview() {
     MELONTheme {
-        EventBanner()
+        HomeEventBanner()
     }
 }

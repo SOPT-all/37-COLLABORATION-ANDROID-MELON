@@ -26,7 +26,7 @@ import org.sopt.melon.core.designsystem.theme.MELONTheme
 import org.sopt.melon.presentation.home.model.NewSongItemData
 
 @Composable
-fun NewSongGrid(
+fun HomeNewSongGrid(
     newSongList: ImmutableList<NewSongItemData>,
     modifier: Modifier = Modifier,
 ) {
@@ -100,9 +100,9 @@ private fun NewSongItemPreview() {
 
 @Preview(showBackground = true, backgroundColor = 0xFF000000)
 @Composable
-private fun NewSongGridPreview() {
+private fun HomeNewSongGridPreview() {
     MELONTheme {
-        NewSongGrid(
+        HomeNewSongGrid(
             newSongList =
                 persistentListOf(
                     NewSongItemData(

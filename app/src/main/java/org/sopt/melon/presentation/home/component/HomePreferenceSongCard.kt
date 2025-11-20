@@ -22,7 +22,7 @@ import org.sopt.melon.core.designsystem.theme.MELONTheme
 import org.sopt.melon.presentation.home.model.PreferenceSongCardData
 
 @Composable
-fun PreferenceSongCard(
+fun HomePreferenceSongCard(
     data: PreferenceSongCardData,
     modifier: Modifier = Modifier,
 ) {
@@ -72,9 +72,9 @@ fun PreferenceSongCard(
 
 @Preview
 @Composable
-private fun PreferenceSongCardPreview() {
+private fun HomePreferenceSongCardPreview() {
     MELONTheme {
-        PreferenceSongCard(
+        HomePreferenceSongCard(
             data =
                 PreferenceSongCardData(
                     image = R.drawable.img_preference_95,

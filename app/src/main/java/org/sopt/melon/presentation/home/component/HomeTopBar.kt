@@ -23,7 +23,7 @@ import org.sopt.melon.R
 import org.sopt.melon.core.designsystem.theme.MELONTheme
 
 @Composable
-fun TopBar(
+fun HomeTopBar(
     modifier: Modifier = Modifier,
 ) {
     Row(
@@ -90,8 +90,8 @@ private fun TopBarChip(
 
 @Preview(showBackground = true, backgroundColor = 0xFF000000)
 @Composable
-private fun TopBarPreview() {
+private fun HomeTopBarPreview() {
     MELONTheme {
-        TopBar()
+        HomeTopBar()
     }
 }

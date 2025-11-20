@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import org.sopt.melon.core.designsystem.theme.MELONTheme
 
 @Composable
-fun Chip(
+fun HomeChip(
     content: String,
     status: ChipStatus,
     modifier: Modifier = Modifier,
@@ -69,9 +69,9 @@ enum class ChipStatus {
 
 @Preview(showBackground = true, backgroundColor = 0xFF000000)
 @Composable
-private fun DefaultChipPreview() {
+private fun DefaultHomeChipPreview() {
     MELONTheme {
-        Chip(
+        HomeChip(
             content = "우하핳하",
             status = ChipStatus.DEFAULT,
         )
@@ -80,9 +80,9 @@ private fun DefaultChipPreview() {
 
 @Preview(showBackground = true, backgroundColor = 0xFF000000)
 @Composable
-private fun SelectedChipPreview() {
+private fun SelectedHomeChipPreview() {
     MELONTheme {
-        Chip(
+        HomeChip(
             content = "chip",
             status = ChipStatus.SELECTED,
         )
