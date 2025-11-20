@@ -69,8 +69,7 @@ private fun TopBarChip(
                     width = 1.dp,
                     color = MELONTheme.colors.white,
                     shape = RoundedCornerShape(3.dp),
-                )
-                .padding(horizontal = 4.dp),
+                ).padding(horizontal = 4.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(
