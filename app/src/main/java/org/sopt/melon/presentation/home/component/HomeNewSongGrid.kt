@@ -69,7 +69,7 @@ private fun NewSongItem(
         Spacer(Modifier.height(4.dp))
 
         Text(
-            data.songTitle,
+            text = data.songTitle,
             style = MELONTheme.typography.caption.r_12,
             color = MELONTheme.colors.white,
             maxLines = 2,
@@ -77,7 +77,7 @@ private fun NewSongItem(
         )
 
         Text(
-            data.singer,
+            text = data.singer,
             style = MELONTheme.typography.caption.m_10,
             color = MELONTheme.colors.gray200,
             maxLines = 1,

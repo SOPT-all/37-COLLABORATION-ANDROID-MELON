@@ -81,7 +81,7 @@ private fun TopBarChip(
         Spacer(Modifier.width(2.dp))
 
         Text(
-            stringResource(R.string.home_topbar_chip_content),
+            text = stringResource(R.string.home_topbar_chip_content),
             style = MELONTheme.typography.caption.m_10,
             color = MELONTheme.colors.white,
         )

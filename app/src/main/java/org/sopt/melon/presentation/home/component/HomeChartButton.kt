@@ -49,7 +49,7 @@ fun HomeChartButton(
         Spacer(Modifier.width(4.dp))
 
         Text(
-            content,
+            text = content,
             style = MELONTheme.typography.body.m_14,
             color = MELONTheme.colors.white,
         )

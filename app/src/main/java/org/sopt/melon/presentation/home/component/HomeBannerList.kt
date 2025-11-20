@@ -60,7 +60,7 @@ private fun BannerItem(
         modifier = modifier.width(313.dp),
     ) {
         Text(
-            data.title,
+            text = data.title,
             style = MELONTheme.typography.body.r_14,
             color = MELONTheme.colors.gray200,
         )
@@ -70,7 +70,7 @@ private fun BannerItem(
                 Modifier
                     .fillMaxWidth()
                     .height(95.dp)
-                    .clip(RoundedCornerShape(4.dp))
+                    .clip(shape = RoundedCornerShape(4.dp))
                     .background(data.backgroundColor),
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -89,7 +89,7 @@ private fun BannerItem(
                 Spacer(Modifier.height(4.dp))
 
                 Text(
-                    data.headline,
+                    text = data.headline,
                     style = MELONTheme.typography.body.m_14,
                     color = MELONTheme.colors.white,
                     maxLines = 1,
@@ -97,7 +97,7 @@ private fun BannerItem(
                 )
 
                 Text(
-                    data.description,
+                    text = data.description,
                     style = MELONTheme.typography.caption.r_12,
                     color = MELONTheme.colors.white,
                     maxLines = 1,

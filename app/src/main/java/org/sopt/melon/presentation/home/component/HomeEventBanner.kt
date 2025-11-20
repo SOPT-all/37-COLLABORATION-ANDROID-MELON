@@ -54,14 +54,14 @@ fun HomeEventBanner(
 
         Column {
             Text(
-                stringResource(R.string.home_event_banner_title),
+                text = stringResource(R.string.home_event_banner_title),
                 style = MELONTheme.typography.caption.r_12,
                 color = MELONTheme.colors.white,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
             Text(
-                stringResource(R.string.home_event_banner_description),
+                text = stringResource(R.string.home_event_banner_description),
                 style = MELONTheme.typography.caption.r_12,
                 color = MELONTheme.colors.gray200,
                 maxLines = 1,

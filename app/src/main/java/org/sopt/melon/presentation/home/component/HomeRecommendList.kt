@@ -87,7 +87,7 @@ private fun RecommendSongItem(
         Spacer(Modifier.height(4.dp))
 
         Text(
-            data.description,
+            text = data.description,
             style = MELONTheme.typography.body.m_14,
             color = MELONTheme.colors.white,
             maxLines = 1,

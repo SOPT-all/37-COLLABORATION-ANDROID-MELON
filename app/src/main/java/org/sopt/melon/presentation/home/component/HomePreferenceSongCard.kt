@@ -47,7 +47,7 @@ fun HomePreferenceSongCard(
             )
 
             Icon(
-                imageVector = ImageVector.vectorResource(R.drawable.ic_play_24),
+                imageVector = ImageVector.vectorResource(id = R.drawable.ic_play_24),
                 contentDescription = null,
                 tint = Color.Unspecified,
                 modifier =
@@ -61,7 +61,7 @@ fun HomePreferenceSongCard(
             modifier = Modifier.padding(horizontal = 16.dp),
         ) {
             Text(
-                data.description,
+                text = data.description,
                 style = MELONTheme.typography.caption.r_12,
                 color = MELONTheme.colors.white,
                 maxLines = 1,
@@ -69,7 +69,7 @@ fun HomePreferenceSongCard(
             )
 
             Text(
-                data.songTitle,
+                text = data.songTitle,
                 style = MELONTheme.typography.body.r_14,
                 color = MELONTheme.colors.white,
                 maxLines = 1,
@@ -77,7 +77,7 @@ fun HomePreferenceSongCard(
             )
 
             Text(
-                data.singer,
+                text = data.singer,
                 style = MELONTheme.typography.caption.r_12,
                 color = MELONTheme.colors.gray200,
                 maxLines = 1,
