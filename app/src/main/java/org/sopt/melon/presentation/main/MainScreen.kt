@@ -52,7 +52,7 @@ fun MainScreen(
                 val request = snackbarController.currentRequest ?: return@SnackbarHost
 
                 MelonActionSnackbar(
-                    message = data.visuals.message,
+                    message = request.message,
                     actionLabel = request.actionLabel,
                     action = snackbarController::performAction,
                     modifier =
