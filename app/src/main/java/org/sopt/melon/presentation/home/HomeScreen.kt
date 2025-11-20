@@ -23,11 +23,12 @@ fun HomeRoute(
     navigateToMixUp: () -> Unit,
 ) {
     val snackbarTrigger = LocalMelonSnackbarTrigger.current
-    val snackbarRequest = MelonSnackbarRequest(
-        message = stringResource(snackbar_mixup_add_message),
-        actionLabel = stringResource(snackbar_move_action_label),
-        onClick = navigateToMixUp,
-    )
+    val snackbarRequest =
+        MelonSnackbarRequest(
+            message = stringResource(snackbar_mixup_add_message),
+            actionLabel = stringResource(snackbar_move_action_label),
+            onClick = navigateToMixUp,
+        )
 
     HomeScreen(
         onMixUpClick = { snackbarTrigger(snackbarRequest) },
@@ -52,10 +53,11 @@ private fun HomeScreen(
         Text(
             "HOME",
             color = Color.White,
-            modifier = Modifier
-                .noRippleClickable(
-                    onClick = onMixUpClick,
-                ),
+            modifier =
+                Modifier
+                    .noRippleClickable(
+                        onClick = onMixUpClick,
+                    ),
         )
     }
 }

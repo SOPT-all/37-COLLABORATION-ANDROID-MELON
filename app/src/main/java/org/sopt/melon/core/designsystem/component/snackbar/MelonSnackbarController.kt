@@ -24,30 +24,33 @@ class MelonSnackbarController(
 
     private var actionJob: Job? = null
     private var timerJob: Job? = null
+
     fun show(request: MelonSnackbarRequest) {
         currentRequest = request
 
         coroutineScope.launch {
             clearCurrentSnackbar()
 
-            val job = launch {
-                snackbarHostState.showSnackbar(
-                    message = request.message,
-                    actionLabel = request.actionLabel,
-                    withDismissAction = true,
-                )
-            }
+            val job =
+                launch {
+                    snackbarHostState.showSnackbar(
+                        message = request.message,
+                        actionLabel = request.actionLabel,
+                        withDismissAction = true,
+                    )
+                }
             actionJob = job
 
-            timerJob = launch {
-                delay(SNACKBAR_AUTO_DISMISS_MS)
-                if (actionJob == job) {
-                    job.cancel()
-                    currentRequest = null
-                    actionJob = null
-                    timerJob = null
+            timerJob =
+                launch {
+                    delay(SNACKBAR_AUTO_DISMISS_MS)
+                    if (actionJob == job) {
+                        job.cancel()
+                        currentRequest = null
+                        actionJob = null
+                        timerJob = null
+                    }
                 }
-            }
         }
     }
 
@@ -70,6 +73,7 @@ class MelonSnackbarController(
 @Composable
 fun rememberMelonSnackbarController(
     scope: CoroutineScope = rememberCoroutineScope(),
-): MelonSnackbarController = remember {
-    MelonSnackbarController(scope)
-}
+): MelonSnackbarController =
+    remember {
+        MelonSnackbarController(scope)
+    }

@@ -10,6 +10,7 @@ data class MelonSnackbarRequest(
     val onClick: () -> Unit,
 )
 
-val LocalMelonSnackbarTrigger = staticCompositionLocalOf<(MelonSnackbarRequest) -> Unit> {
-    error("No MelonSnackbarTrigger provided")
-}
+val LocalMelonSnackbarTrigger =
+    staticCompositionLocalOf<(MelonSnackbarRequest) -> Unit> {
+        error("No MelonSnackbarTrigger provided")
+    }

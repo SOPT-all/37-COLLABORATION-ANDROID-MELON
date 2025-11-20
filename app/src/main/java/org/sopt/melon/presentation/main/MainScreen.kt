@@ -39,9 +39,10 @@ fun MainScreen(
     navigator: MainNavigator = rememberMainNavigator(),
 ) {
     val snackbarController = rememberMelonSnackbarController()
-    val snackbarTrigger: (MelonSnackbarRequest) -> Unit = remember {
-        { request -> snackbarController.show(request) }
-    }
+    val snackbarTrigger: (MelonSnackbarRequest) -> Unit =
+        remember {
+            { request -> snackbarController.show(request) }
+        }
 
     Scaffold(
         snackbarHost = {
