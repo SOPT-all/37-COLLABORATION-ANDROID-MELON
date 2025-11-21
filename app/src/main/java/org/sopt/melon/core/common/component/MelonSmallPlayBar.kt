@@ -95,7 +95,7 @@ fun MelonSmallPlayBar(
                 modifier = Modifier,
             ) {
                 MelonMusicControlBar(
-                    isBig = false,
+                    size = MelonMusicControlBarSize.SMALL,
                     isPlaying = isPlaying,
                     onBackClick = onBackClick,
                     onPlayPauseClick = onPlayPauseClick,

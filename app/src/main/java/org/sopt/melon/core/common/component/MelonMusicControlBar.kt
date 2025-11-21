@@ -23,7 +23,7 @@ private fun MelonMusicControlBarPreview() {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         MelonMusicControlBar(
-            isBig = true,
+            size = MelonMusicControlBarSize.BIG,
             isPlaying = true,
             onBackClick = {},
             onPlayPauseClick = {},
@@ -34,7 +34,7 @@ private fun MelonMusicControlBarPreview() {
         Spacer(modifier = Modifier.size(20.dp))
 
         MelonMusicControlBar(
-            isBig = false,
+            size = MelonMusicControlBarSize.SMALL,
             isPlaying = false,
             onBackClick = {},
             onPlayPauseClick = {},
@@ -46,63 +46,27 @@ private fun MelonMusicControlBarPreview() {
 
 @Composable
 fun MelonMusicControlBar(
-    isBig: Boolean,
+    size: MelonMusicControlBarSize,
     isPlaying: Boolean,
     onBackClick: () -> Unit,
     onPlayPauseClick: (Boolean) -> Unit,
     onFrontClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    fun selectBySize(
-        big: Int,
-        small: Int,
-    ) = if (isBig) big else small
-
-    val backIcon =
-        selectBySize(
-            big = R.drawable.ic_back_48,
-            small = R.drawable.ic_back_32,
-        )
-    val playPauseIcon =
-        if (isPlaying) {
-            selectBySize(
-                big = R.drawable.ic_pause_64,
-                small = R.drawable.ic_pause_32,
-            )
-        } else {
-            selectBySize(
-                big = R.drawable.ic_play_64,
-                small = R.drawable.ic_play_32,
-            )
-        }
-
-    val frontIcon =
-        selectBySize(
-            big = R.drawable.ic_front_48,
-            small = R.drawable.ic_front_32,
-        )
-    val interval =
-        selectBySize(
-            big = 20,
-            small = 6,
-        )
+    val playPauseIcon = if (isPlaying) size.pauseIcon else size.playIcon
 
     Row(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween,
+        horizontalArrangement = Arrangement.spacedBy(size.interval.dp),
     ) {
         Image(
-            imageVector = ImageVector.vectorResource(backIcon),
+            imageVector = ImageVector.vectorResource(size.backIcon),
             contentDescription = null,
             modifier =
                 Modifier.noRippleClickable(
                     onClick = onBackClick,
                 ),
-        )
-
-        Spacer(
-            modifier = Modifier.size(interval.dp),
         )
 
         Image(
@@ -114,12 +78,8 @@ fun MelonMusicControlBar(
                 ),
         )
 
-        Spacer(
-            modifier = Modifier.size(interval.dp),
-        )
-
         Image(
-            imageVector = ImageVector.vectorResource(frontIcon),
+            imageVector = ImageVector.vectorResource(size.frontIcon),
             contentDescription = null,
             modifier =
                 Modifier.noRippleClickable(
@@ -127,4 +87,27 @@ fun MelonMusicControlBar(
                 ),
         )
     }
+}
+
+enum class MelonMusicControlBarSize(
+    val backIcon: Int,
+    val playIcon: Int,
+    val pauseIcon: Int,
+    val frontIcon: Int,
+    val interval: Int,
+) {
+    BIG(
+        backIcon = R.drawable.ic_back_48,
+        playIcon = R.drawable.ic_play_64,
+        pauseIcon = R.drawable.ic_pause_64,
+        frontIcon = R.drawable.ic_front_48,
+        interval = 20,
+    ),
+    SMALL(
+        backIcon = R.drawable.ic_back_32,
+        playIcon = R.drawable.ic_play_32,
+        pauseIcon = R.drawable.ic_pause_32,
+        frontIcon = R.drawable.ic_front_32,
+        interval = 6,
+    ),
 }

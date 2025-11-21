@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import org.sopt.melon.R
 import org.sopt.melon.core.common.component.MelonMusicControlBar
+import org.sopt.melon.core.common.component.MelonMusicControlBarSize
 import org.sopt.melon.core.common.component.MelonProgressBar
 import org.sopt.melon.core.common.util.noRippleClickable
 import org.sopt.melon.core.designsystem.theme.defaultMelonColors
@@ -50,7 +51,7 @@ private fun MixUpBigPlayBarPreview() {
     MixUpBigPlayBar(
         progressRatio = currentProgress,
         isPlaying = isPlaying,
-        onSettingClock = {},
+        onSettingClick = {},
         onBackClick = {},
         onPlayPauseClick = { isPlaying = !isPlaying },
         onFrontClick = {},
@@ -63,7 +64,7 @@ private fun MixUpBigPlayBarPreview() {
 fun MixUpBigPlayBar(
     progressRatio: Float,
     isPlaying: Boolean,
-    onSettingClock: () -> Unit,
+    onSettingClick: () -> Unit,
     onBackClick: () -> Unit,
     onPlayPauseClick: (Boolean) -> Unit,
     onFrontClick: () -> Unit,
@@ -95,13 +96,13 @@ fun MixUpBigPlayBar(
                 modifier =
                     Modifier
                         .size(24.dp)
-                        .noRippleClickable(onSettingClock),
+                        .noRippleClickable(onSettingClick),
             )
 
             Spacer(Modifier.size(39.dp))
 
             MelonMusicControlBar(
-                isBig = true,
+                size = MelonMusicControlBarSize.BIG,
                 isPlaying = isPlaying,
                 onBackClick = onBackClick,
                 onPlayPauseClick = onPlayPauseClick,
