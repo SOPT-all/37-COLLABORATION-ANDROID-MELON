@@ -2,6 +2,10 @@
     <string name="app_name">MELON</string>
     <!--Home    -->
     <string name="home">홈</string>
+    <string name="home_chart_button_content">TOP 100 전체듣기</string>
+    <string name="home_event_banner_title">지금 참여하면 MMA 초대권 선물</string>
+    <string name="home_event_banner_description">최애 입덕 포인트 남기고 실물 영접하러 가자!</string>
+    <string name="home_topbar_chip_content">멜론혜택</string>
     <!--ForYou  -->
     <string name="foryou">ForYou</string>
     <!--MixUp   -->
@@ -11,4 +15,7 @@
     <string name="drawer">음악서랍</string>
     <!--ShortCut  -->
     <string name="shortcut">바로가기</string>
+    <!--Snackbar  -->
+    <string name="snackbar_mixup_add_message">믹스업에 추가되었어요</string>
+    <string name="snackbar_move_action_label">이동</string>
 </resources>
