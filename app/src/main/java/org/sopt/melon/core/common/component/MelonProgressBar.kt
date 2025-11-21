@@ -18,27 +18,6 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import org.sopt.melon.core.designsystem.theme.defaultMelonColors
 
-@Preview(showBackground = true, backgroundColor = 0x121212)
-@Composable
-private fun MelonProgressBarPreview() {
-    var currentProgress = 0f
-
-    LaunchedEffect(Unit) {
-        while (true) {
-            delay(1500)
-            currentProgress = 1f
-
-            delay(1500)
-            currentProgress = 0f
-        }
-    }
-
-    MelonProgressBar(
-        progressRatio = currentProgress,
-        modifier = Modifier.fillMaxWidth(),
-    )
-}
-
 @Composable
 fun MelonProgressBar(
     progressRatio: Float,
@@ -66,4 +45,25 @@ fun MelonProgressBar(
                     }.background(color = defaultMelonColors.primary),
         )
     }
+}
+
+@Preview(showBackground = true, backgroundColor = 0x121212)
+@Composable
+private fun MelonProgressBarPreview() {
+    var currentProgress = 0f
+
+    LaunchedEffect(Unit) {
+        while (true) {
+            delay(1500)
+            currentProgress = 1f
+
+            delay(1500)
+            currentProgress = 0f
+        }
+    }
+
+    MelonProgressBar(
+        progressRatio = currentProgress,
+        modifier = Modifier.fillMaxWidth(),
+    )
 }

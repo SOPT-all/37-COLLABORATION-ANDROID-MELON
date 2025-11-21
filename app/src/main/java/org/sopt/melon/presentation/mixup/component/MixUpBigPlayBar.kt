@@ -33,33 +33,6 @@ import org.sopt.melon.core.common.component.MelonProgressBar
 import org.sopt.melon.core.common.util.noRippleClickable
 import org.sopt.melon.core.designsystem.theme.defaultMelonColors
 
-@Preview(showBackground = true)
-@Composable
-private fun MixUpBigPlayBarPreview() {
-    var currentProgress by remember { mutableFloatStateOf(0.1f) }
-    LaunchedEffect(Unit) {
-        while (true) {
-            delay(1500)
-            currentProgress = 1f
-
-            delay(1500)
-            currentProgress = 0f
-        }
-    }
-    var isPlaying by remember { mutableStateOf(true) }
-
-    MixUpBigPlayBar(
-        progressRatio = currentProgress,
-        isPlaying = isPlaying,
-        onSettingClick = {},
-        onBackClick = {},
-        onPlayPauseClick = { isPlaying = !isPlaying },
-        onFrontClick = {},
-        currentSongImg = R.drawable.img_home2_56,
-        modifier = Modifier.size(width = 375.dp, height = 113.dp),
-    )
-}
-
 @Composable
 fun MixUpBigPlayBar(
     progressRatio: Float,
@@ -121,4 +94,31 @@ fun MixUpBigPlayBar(
             )
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun MixUpBigPlayBarPreview() {
+    var currentProgress by remember { mutableFloatStateOf(0.1f) }
+    LaunchedEffect(Unit) {
+        while (true) {
+            delay(1500)
+            currentProgress = 1f
+
+            delay(1500)
+            currentProgress = 0f
+        }
+    }
+    var isPlaying by remember { mutableStateOf(true) }
+
+    MixUpBigPlayBar(
+        progressRatio = currentProgress,
+        isPlaying = isPlaying,
+        onSettingClick = {},
+        onBackClick = {},
+        onPlayPauseClick = { isPlaying = !isPlaying },
+        onFrontClick = {},
+        currentSongImg = R.drawable.img_home2_56,
+        modifier = Modifier.size(width = 375.dp, height = 113.dp),
+    )
 }

@@ -16,34 +16,6 @@ import androidx.compose.ui.unit.dp
 import org.sopt.melon.R
 import org.sopt.melon.core.common.util.noRippleClickable
 
-@Preview(showBackground = true, backgroundColor = 0x121212)
-@Composable
-private fun MelonMusicControlBarPreview() {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        MelonMusicControlBar(
-            size = MelonMusicControlBarSize.BIG,
-            isPlaying = true,
-            onBackClick = {},
-            onPlayPauseClick = {},
-            onFrontClick = {},
-            modifier = Modifier.size(width = 200.dp, height = 64.dp),
-        )
-
-        Spacer(modifier = Modifier.size(20.dp))
-
-        MelonMusicControlBar(
-            size = MelonMusicControlBarSize.SMALL,
-            isPlaying = false,
-            onBackClick = {},
-            onPlayPauseClick = {},
-            onFrontClick = {},
-            modifier = Modifier.size(width = 108.dp, height = 32.dp),
-        )
-    }
-}
-
 @Composable
 fun MelonMusicControlBar(
     size: MelonMusicControlBarSize,
@@ -110,4 +82,32 @@ enum class MelonMusicControlBarSize(
         frontIcon = R.drawable.ic_front_32,
         interval = 6,
     ),
+}
+
+@Preview(showBackground = true, backgroundColor = 0x121212)
+@Composable
+private fun MelonMusicControlBarPreview() {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        MelonMusicControlBar(
+            size = MelonMusicControlBarSize.BIG,
+            isPlaying = true,
+            onBackClick = {},
+            onPlayPauseClick = {},
+            onFrontClick = {},
+            modifier = Modifier.size(width = 200.dp, height = 64.dp),
+        )
+
+        Spacer(modifier = Modifier.size(20.dp))
+
+        MelonMusicControlBar(
+            size = MelonMusicControlBarSize.SMALL,
+            isPlaying = false,
+            onBackClick = {},
+            onPlayPauseClick = {},
+            onFrontClick = {},
+            modifier = Modifier.size(width = 108.dp, height = 32.dp),
+        )
+    }
 }

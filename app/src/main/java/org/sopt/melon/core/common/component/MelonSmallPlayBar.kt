@@ -27,24 +27,6 @@ import org.sopt.melon.core.common.util.noRippleClickable
 import org.sopt.melon.core.designsystem.theme.MELONTheme
 import org.sopt.melon.core.designsystem.theme.defaultMelonColors
 
-@Preview(showBackground = true, backgroundColor = 0x121212)
-@Composable
-private fun MelonSmallPlayBarPreview() {
-    var isPlaying by remember { mutableStateOf(true) }
-
-    MelonSmallPlayBar(
-        title = "Blue Valentine",
-        singer = "NMIXX",
-        progressRatio = 0.5f,
-        isPlaying = isPlaying,
-        onBackClick = {},
-        onPlayPauseClick = { isPlaying = !isPlaying },
-        onFrontClick = {},
-        onPlayMenuClick = {},
-        modifier = Modifier.size(width = 360.dp, height = 60.dp),
-    )
-}
-
 @Composable
 fun MelonSmallPlayBar(
     title: String,
@@ -118,16 +100,6 @@ fun MelonSmallPlayBar(
     }
 }
 
-@Preview
-@Composable
-private fun SongInfoPreview() {
-    SongInfo(
-        title = "Blue Valentine",
-        singer = "NMIXX",
-        modifier = Modifier,
-    )
-}
-
 @Composable
 private fun SongInfo(
     title: String,
@@ -150,4 +122,32 @@ private fun SongInfo(
             modifier = Modifier,
         )
     }
+}
+
+@Preview(showBackground = true, backgroundColor = 0x121212)
+@Composable
+private fun MelonSmallPlayBarPreview() {
+    var isPlaying by remember { mutableStateOf(true) }
+
+    MelonSmallPlayBar(
+        title = "Blue Valentine",
+        singer = "NMIXX",
+        progressRatio = 0.5f,
+        isPlaying = isPlaying,
+        onBackClick = {},
+        onPlayPauseClick = { isPlaying = !isPlaying },
+        onFrontClick = {},
+        onPlayMenuClick = {},
+        modifier = Modifier.size(width = 360.dp, height = 60.dp),
+    )
+}
+
+@Preview
+@Composable
+private fun SongInfoPreview() {
+    SongInfo(
+        title = "Blue Valentine",
+        singer = "NMIXX",
+        modifier = Modifier,
+    )
 }
