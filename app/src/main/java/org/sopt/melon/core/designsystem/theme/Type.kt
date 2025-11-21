@@ -32,7 +32,7 @@ sealed interface TypographyTokens {
     @Immutable
     data class Body(
         val sb_16: TextStyle,
-        val sb_14: TextStyle,
+        val b_14: TextStyle,
         val m_14: TextStyle,
         val m_12: TextStyle,
         val r_14: TextStyle,
@@ -112,7 +112,7 @@ val defaultMelonTypography =
                                 trim = LineHeightStyle.Trim.None,
                             ),
                     ),
-                sb_14 =
+                b_14 =
                     TextStyle(
                         fontFamily = PretendardFont.SemiBold,
                         fontSize = 14.sp,
