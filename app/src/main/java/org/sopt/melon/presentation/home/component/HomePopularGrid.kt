@@ -31,6 +31,7 @@ import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import org.sopt.melon.R.drawable.img_home2_56
 import org.sopt.melon.R.drawable.img_mixup_36
+import org.sopt.melon.core.common.util.noRippleClickable
 import org.sopt.melon.core.designsystem.theme.MELONTheme
 import org.sopt.melon.presentation.home.model.PopularSongData
 
@@ -38,6 +39,7 @@ import org.sopt.melon.presentation.home.model.PopularSongData
 fun HomePopularGrid(
     popularSongList: ImmutableList<PopularSongData>,
     gridState: LazyGridState,
+    onMixUpClick: () -> Unit,
     modifier: Modifier = Modifier,
     cellCount: Int = 3,
 ) {
@@ -57,6 +59,7 @@ fun HomePopularGrid(
                 subtitle = song.subtitle,
                 title = song.title,
                 artistName = song.artistName,
+                onMixUpClick = onMixUpClick,
             )
         }
     }
@@ -68,6 +71,7 @@ private fun PopularSongItem(
     subtitle: String,
     title: String,
     artistName: String,
+    onMixUpClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Row(
@@ -117,7 +121,8 @@ private fun PopularSongItem(
             contentDescription = null,
             modifier =
                 Modifier
-                    .size(36.dp),
+                    .size(36.dp)
+                    .noRippleClickable(onClick = onMixUpClick),
         )
     }
 }
@@ -176,6 +181,7 @@ private fun HomePopularGridPreview() {
             HomePopularGrid(
                 popularSongList = list,
                 gridState = rememberLazyGridState(),
+                onMixUpClick = {},
             )
         }
     }
