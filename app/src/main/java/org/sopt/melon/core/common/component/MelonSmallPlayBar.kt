@@ -20,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.sopt.melon.R
@@ -39,8 +40,6 @@ fun MelonSmallPlayBar(
     onPlayMenuClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val playMenuIcon = R.drawable.ic_playmenu
-
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier =
@@ -88,7 +87,7 @@ fun MelonSmallPlayBar(
                 Spacer(Modifier.size(4.dp))
 
                 Image(
-                    imageVector = ImageVector.vectorResource(playMenuIcon),
+                    imageVector = ImageVector.vectorResource(R.drawable.ic_playmenu),
                     contentDescription = null,
                     modifier =
                         Modifier
@@ -113,13 +112,15 @@ private fun SongInfo(
             text = title,
             style = MELONTheme.typography.body.m_14,
             color = MELONTheme.colors.white,
-            modifier = Modifier,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
         )
         Text(
             text = singer,
             style = MELONTheme.typography.caption.r_12,
             color = MELONTheme.colors.gray300,
-            modifier = Modifier,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
         )
     }
 }
