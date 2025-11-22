@@ -9,13 +9,13 @@
     <!--ForYou  -->
     <string name="foryou">ForYou</string>
     <string name="foryou_recommend_button">추천 바로 듣기</string>
-    <string name="foryou_taste_button">취향 설정하기</string>
+    <string name="foryou_preference_button">취향 설정하기</string>
     <string name="foryou_today_recommend_title">오늘의 추천</string>
-    <string name="foryou_my_taste_label">내 취향 기반</string>
-    <string name="foryou__situation_base_label">상황 기반</string>
+    <string name="foryou_my_preference_label">내 취향 기반</string>
+    <string name="foryou_situation_label">상황 기반</string>
     <string name="foryou_reload_label">새로 고침</string>
     <string name="foryou_custom_song_title">맞춤 선곡</string>
-    <string name="foryou_latest_album_title">팬맺은 아티스트의 최신앨범</string>
+    <string name="foryou_newest_album_title">팬맺은 아티스트의 최신앨범</string>
     <!--MixUp   -->
     <!--Search  -->
     <string name="search">탐색</string>
