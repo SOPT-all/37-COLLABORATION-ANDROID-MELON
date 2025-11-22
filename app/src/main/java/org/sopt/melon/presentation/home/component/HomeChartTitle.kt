@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import org.sopt.melon.R
@@ -33,7 +34,7 @@ fun HomeChartTitle(
     ) {
         Column {
             Text(
-                text = "오늘 10:00시 기준",
+                text = stringResource(R.string.home_melon_chart_description),
                 style = MELONTheme.typography.body.r_14,
                 color = MELONTheme.colors.gray200,
             )
@@ -44,7 +45,7 @@ fun HomeChartTitle(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
-                    text = "멜론차트",
+                    text = stringResource(R.string.home_melon_chart_title),
                     style = MELONTheme.typography.heading.b_20,
                     color = MELONTheme.colors.white,
                 )
@@ -65,7 +66,7 @@ fun HomeChartTitle(
         Spacer(Modifier.weight(1f))
 
         Text(
-            text = "전체보기",
+            text = stringResource(R.string.home_title_all),
             style = MELONTheme.typography.body.m_14,
             color = MELONTheme.colors.gray200,
         )

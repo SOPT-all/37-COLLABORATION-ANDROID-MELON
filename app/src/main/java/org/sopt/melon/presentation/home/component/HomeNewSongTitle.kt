@@ -9,8 +9,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import org.sopt.melon.R
 import org.sopt.melon.core.common.util.noRippleClickable
 import org.sopt.melon.core.designsystem.theme.MELONTheme
 import org.sopt.melon.presentation.home.NewSongFilter
@@ -28,7 +30,7 @@ fun HomeNewSongTitle(
                 .padding(horizontal = 20.dp),
     ) {
         Text(
-            text = "최신음악",
+            text = stringResource(R.string.home_new_song_title),
             style = MELONTheme.typography.heading.b_20,
             color = MELONTheme.colors.white,
         )
@@ -43,7 +45,7 @@ fun HomeNewSongTitle(
         Spacer(Modifier.weight(1f))
 
         Text(
-            text = "전체보기",
+            text = stringResource(R.string.home_title_all),
             style = MELONTheme.typography.body.m_14,
             color = MELONTheme.colors.gray200,
         )
