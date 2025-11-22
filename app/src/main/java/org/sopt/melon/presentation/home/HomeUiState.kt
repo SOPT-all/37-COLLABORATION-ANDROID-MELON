@@ -25,5 +25,14 @@ data class HomeUiState(
     val bannerList: ImmutableList<BannerData> = persistentListOf(),
     val newSongData: ImmutableList<NewSongItemData> = persistentListOf(),
     val chipContentList: ImmutableList<String> = persistentListOf(),
+    val selectedNewSongFilter: NewSongFilter = NewSongFilter.ALL,
     // 멜론 차트 데이터
 )
+
+enum class NewSongFilter(
+    val displayName: String,
+) {
+    ALL(displayName = "전체"),
+    DOMESTIC(displayName = "국내"),
+    OVERSEAS(displayName = "해외"),
+}

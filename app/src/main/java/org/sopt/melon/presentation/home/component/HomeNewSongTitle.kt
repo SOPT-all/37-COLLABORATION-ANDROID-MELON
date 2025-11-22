@@ -11,10 +11,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import org.sopt.melon.core.common.util.noRippleClickable
 import org.sopt.melon.core.designsystem.theme.MELONTheme
+import org.sopt.melon.presentation.home.NewSongFilter
 
 @Composable
 fun HomeNewSongTitle(
+    selectedNewSongFilter: NewSongFilter,
+    onFilterClick: (NewSongFilter) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Row(
@@ -31,7 +35,10 @@ fun HomeNewSongTitle(
 
         Spacer(Modifier.width(8.dp))
 
-        FilterTab()
+        FilterTab(
+            selectedNewSongFilter = selectedNewSongFilter,
+            onFilterClick = onFilterClick,
+        )
 
         Spacer(Modifier.weight(1f))
 
@@ -44,47 +51,41 @@ fun HomeNewSongTitle(
 }
 
 @Composable
-private fun FilterTab() {
+private fun FilterTab(
+    selectedNewSongFilter: NewSongFilter,
+    onFilterClick: (NewSongFilter) -> Unit,
+) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(6.dp),
     ) {
-        Text(
-            text = "전체",
-            style = MELONTheme.typography.body.sb_16,
-            color = MELONTheme.colors.primary,
-        )
+        NewSongFilter.entries.forEachIndexed { index, filter ->
+            val isSelected = filter == selectedNewSongFilter
+            Text(
+                text = filter.displayName,
+                style = if (isSelected) MELONTheme.typography.body.sb_16 else MELONTheme.typography.body.m_14,
+                color = if (isSelected) MELONTheme.colors.primary else MELONTheme.colors.gray200,
+                modifier = Modifier.noRippleClickable { onFilterClick(filter) },
+            )
 
-        Text(
-            text = "|",
-            style = MELONTheme.typography.caption.r_12,
-            color = MELONTheme.colors.gray400,
-        )
-
-        Text(
-            text = "국내",
-            style = MELONTheme.typography.body.m_14,
-            color = MELONTheme.colors.gray200,
-        )
-
-        Text(
-            text = "|",
-            style = MELONTheme.typography.caption.r_12,
-            color = MELONTheme.colors.gray400,
-        )
-
-        Text(
-            text = "해외",
-            style = MELONTheme.typography.body.m_14,
-            color = MELONTheme.colors.gray200,
-        )
+            if (index != NewSongFilter.entries.lastIndex) {
+                Text(
+                    text = "|",
+                    style = MELONTheme.typography.caption.r_12,
+                    color = MELONTheme.colors.gray400,
+                )
+            }
+        }
     }
 }
 
-@Preview
+@Preview(showBackground = true, backgroundColor = 0xFF000000)
 @Composable
 private fun HomeNewSongTitlePreview() {
     MELONTheme {
-        HomeNewSongTitle()
+        HomeNewSongTitle(
+            selectedNewSongFilter = NewSongFilter.ALL,
+            onFilterClick = {},
+        )
     }
 }

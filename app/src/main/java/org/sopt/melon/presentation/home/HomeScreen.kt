@@ -63,6 +63,7 @@ fun HomeRoute(
         uiState = uiState,
         onMixUpClick = { snackbarTrigger(snackbarRequest) },
         popularGridState = popularGridState,
+        onNewSongFilterClick = viewModel::onNewSongFilterClick,
         modifier =
             Modifier
                 .padding(innerPadding),
@@ -74,6 +75,7 @@ private fun HomeScreen(
     uiState: HomeUiState,
     onMixUpClick: () -> Unit,
     popularGridState: LazyGridState,
+    onNewSongFilterClick: (NewSongFilter) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     LazyColumn(
@@ -164,6 +166,8 @@ private fun HomeScreen(
 
         item {
             HomeNewSongTitle(
+                selectedNewSongFilter = uiState.selectedNewSongFilter,
+                onFilterClick = onNewSongFilterClick,
                 modifier =
                     Modifier
                         .padding(bottom = 14.dp),
@@ -364,6 +368,7 @@ private fun HomeScreenPreview() {
                     ),
                 onMixUpClick = {},
                 popularGridState = rememberLazyGridState(),
+                onNewSongFilterClick = {},
             )
         }
     }
