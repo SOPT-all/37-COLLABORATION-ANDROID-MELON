@@ -33,12 +33,14 @@ fun HomeChipList(
         modifier = modifier.horizontalScroll(rememberScrollState()),
     ) {
         Spacer(Modifier.width(16.dp))
+
         chipContentList.forEachIndexed { index, content ->
             HomeChip(
                 content = content,
                 status = if (index == 0) ChipStatus.SELECTED else ChipStatus.DEFAULT,
             )
         }
+
         Spacer(Modifier.width(16.dp))
     }
 }
