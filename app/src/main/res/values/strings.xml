@@ -6,6 +6,10 @@
     <string name="home_event_banner_title">지금 참여하면 MMA 초대권 선물</string>
     <string name="home_event_banner_description">최애 입덕 포인트 남기고 실물 영접하러 가자!</string>
     <string name="home_topbar_chip_content">멜론혜택</string>
+    <string name="home_melon_chart_description">오늘 10:00시 기준</string>
+    <string name="home_melon_chart_title">멜론차트</string>
+    <string name="home_title_all">전체보기</string>
+    <string name="home_new_song_title">최신음악</string>
     <!--ForYou  -->
     <string name="foryou">ForYou</string>
     <!--MixUp   -->
@@ -18,8 +22,4 @@
     <!--Snackbar  -->
     <string name="snackbar_mixup_add_message">믹스업에 추가되었어요</string>
     <string name="snackbar_move_action_label">이동</string>
-    <string name="home_melon_chart_description">오늘 10:00시 기준</string>
-    <string name="home_melon_chart_title">멜론차트</string>
-    <string name="home_title_all">전체보기</string>
-    <string name="home_new_song_title">최신음악</string>
 </resources>
