@@ -24,7 +24,7 @@ import org.sopt.melon.core.common.util.noRippleClickable
 import org.sopt.melon.core.designsystem.theme.MELONTheme
 
 @Composable
-fun MixupTopBar(
+fun MixUpTopBar(
     onSearchClick: () -> Unit,
     onChevronClick: () -> Unit,
     modifier: Modifier = Modifier
@@ -33,11 +33,11 @@ fun MixupTopBar(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier.fillMaxWidth()
     ) {
-        MixupTopbarTexts()
+        MixUpTopbarTexts()
 
         Spacer(Modifier.size(37.dp))
 
-        MixupTopbarIcons(
+        MixUpTopbarIcons(
             onSearchClick = onSearchClick,
             onChevronClick = onChevronClick,
         )
@@ -45,7 +45,7 @@ fun MixupTopBar(
 }
 
 @Composable
-fun MixupTopbarTexts(
+fun MixUpTopbarTexts(
     modifier: Modifier = Modifier
 ) {
     var current by remember { mutableStateOf(MixUpTopBarActivated.MIXUP) }
@@ -96,7 +96,7 @@ private enum class MixUpTopBarActivated {
 }
 
 @Composable
-fun MixupTopbarIcons(
+fun MixUpTopbarIcons(
     onSearchClick: () -> Unit,
     onChevronClick: () -> Unit,
     modifier: Modifier = Modifier
@@ -121,7 +121,7 @@ fun MixupTopbarIcons(
 @Preview(showBackground = true, backgroundColor = 0x12121212)
 @Composable
 fun MixUpBarPreview() {
-    MixupTopBar(
+    MixUpTopBar(
         onSearchClick = {},
         onChevronClick = {},
         modifier = Modifier.size(width = 320.dp, height = 30.dp),
