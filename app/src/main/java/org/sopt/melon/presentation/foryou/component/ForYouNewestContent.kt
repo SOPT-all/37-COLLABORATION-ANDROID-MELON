@@ -6,7 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -63,6 +63,7 @@ fun ForYouNewestContent(
                 contentScale = ContentScale.FillBounds,
                 modifier =
                     Modifier
+                        .aspectRatio(320 / 448f)
                         .clip(RoundedCornerShape(8.dp)),
             )
 
@@ -102,6 +103,7 @@ fun ForYouNewestContent(
                         .matchParentSize()
                         .drawWithCache {
                             val inset = 0.5.dp.toPx()
+                            val radius = 8.dp.toPx()
 
                             onDrawBehind {
                                 drawRoundRect(
@@ -111,7 +113,7 @@ fun ForYouNewestContent(
                                             width = size.width - inset * 2,
                                             height = size.height - inset * 2,
                                         ),
-                                    cornerRadius = CornerRadius(8.dp.toPx(), 8.dp.toPx()),
+                                    cornerRadius = CornerRadius(radius, radius),
                                 )
                             }
                         },
@@ -120,7 +122,6 @@ fun ForYouNewestContent(
             Column(
                 modifier =
                     Modifier
-                        .fillMaxWidth()
                         .padding(
                             top = 226.dp,
                             start = 12.dp,
@@ -231,7 +232,6 @@ private fun ForYouNewestCardPreview() {
         Box(
             modifier =
                 Modifier
-                    .fillMaxSize()
                     .background(MELONTheme.colors.background),
             contentAlignment = Alignment.Center,
         ) {
@@ -264,9 +264,6 @@ private fun ForYouNewestCardPreview() {
                                 ),
                             ),
                     ),
-                modifier =
-                    Modifier
-                        .padding(horizontal = 20.dp),
             )
         }
     }
