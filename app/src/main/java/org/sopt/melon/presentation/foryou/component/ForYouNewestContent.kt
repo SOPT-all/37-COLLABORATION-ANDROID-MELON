@@ -56,7 +56,6 @@ fun ForYouNewestContent(
 
         Box(
             modifier = Modifier
-                .aspectRatio(320/448f)
         ) {
             AsyncImage(
                 model = newestAlbum.imageUrl,
