@@ -55,8 +55,9 @@ val LightGray = Color(0xFF70737C)
 // Gradient Color
 val GradientLine =
     Brush.linearGradient(
-        0.0f to LightGray,
-        0.3f to LightGray.copy(alpha = 0f),
+        0.0f to LightGray.copy(alpha = 0.3f),
+        0.53f to LightGray.copy(alpha = 0f),
+        1.0f to LightGray.copy(alpha = 0.3f),
     )
 
 val Gradient1 =
