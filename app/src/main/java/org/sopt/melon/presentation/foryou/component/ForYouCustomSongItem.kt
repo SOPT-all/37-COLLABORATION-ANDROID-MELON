@@ -52,8 +52,7 @@ fun ForYouCustomSongItem(
                     .padding(
                         start = 10.dp,
                         end = 27.dp,
-                    )
-                    .weight(1f),
+                    ).weight(1f),
         ) {
             Text(
                 text = subtitle,
@@ -95,8 +94,9 @@ private fun ForYouCustomSongItemPreview() {
             title = "Blue Valentine",
             artistName = "NMIXX",
             onMixUpClick = {},
-            modifier = Modifier
-                .background(MELONTheme.colors.background),
+            modifier =
+                Modifier
+                    .background(MELONTheme.colors.background),
         )
     }
 }

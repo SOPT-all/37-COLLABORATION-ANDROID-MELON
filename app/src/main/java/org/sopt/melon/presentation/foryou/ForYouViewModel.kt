@@ -13,9 +13,7 @@ import org.sopt.melon.presentation.foryou.model.NewestMusicItemData
 import javax.inject.Inject
 
 @HiltViewModel
-class ForYouViewModel @Inject constructor(
-) : ViewModel() {
-
+class ForYouViewModel @Inject constructor() : ViewModel() {
     private val _uiState = MutableStateFlow(ForYouUiState())
     val uiState = _uiState.asStateFlow()
 
@@ -47,34 +45,35 @@ class ForYouViewModel @Inject constructor(
             ),
         )
 
-
     // TODO: API 연동 예정
-    fun fetchNewestAlbum() = NewestAlbumData(
-        imageUrl = "",
-        title = "THERE'S A GHOST IN MY\nHOUSE.",
-        newestMusicList = persistentListOf(
-            NewestMusicItemData(
-                title = "HOME.",
-                artistName = "Armani White",
-                imageUrl = "",
-            ),
-            NewestMusicItemData(
-                title = "GHOST.",
-                artistName = "Armani White",
-                imageUrl = "",
-            ),
-            NewestMusicItemData(
-                title = "CUT THE LIGHTS.(CHAMPIONSIP VERVERVERVERVER)",
-                artistName = "Armani White",
-                imageUrl = "",
-            ),
-            NewestMusicItemData(
-                title = "HOME.",
-                artistName = "Armani White",
-                imageUrl = "",
-            ),
-        ),
-    )
+    fun fetchNewestAlbum() =
+        NewestAlbumData(
+            imageUrl = "",
+            title = "THERE'S A GHOST IN MY\nHOUSE.",
+            newestMusicList =
+                persistentListOf(
+                    NewestMusicItemData(
+                        title = "HOME.",
+                        artistName = "Armani White",
+                        imageUrl = "",
+                    ),
+                    NewestMusicItemData(
+                        title = "GHOST.",
+                        artistName = "Armani White",
+                        imageUrl = "",
+                    ),
+                    NewestMusicItemData(
+                        title = "CUT THE LIGHTS.(CHAMPIONSIP VERVERVERVERVER)",
+                        artistName = "Armani White",
+                        imageUrl = "",
+                    ),
+                    NewestMusicItemData(
+                        title = "HOME.",
+                        artistName = "Armani White",
+                        imageUrl = "",
+                    ),
+                ),
+        )
 
     private fun updateCustomSongList(
         customSongList: ImmutableList<CustomSongData>,

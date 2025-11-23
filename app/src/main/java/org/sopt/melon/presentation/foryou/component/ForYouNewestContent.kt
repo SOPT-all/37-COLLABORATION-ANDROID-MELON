@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -55,24 +54,26 @@ fun ForYouNewestContent(
         )
 
         Box(
-            modifier = Modifier
+            modifier = Modifier,
         ) {
             AsyncImage(
                 model = newestAlbum.imageUrl,
                 contentDescription = null,
                 error = painterResource(img_newest_album_background),
                 contentScale = ContentScale.FillBounds,
-                modifier = Modifier
-                    .clip(RoundedCornerShape(8.dp)),
+                modifier =
+                    Modifier
+                        .clip(RoundedCornerShape(8.dp)),
             )
 
             Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(
-                        vertical = 18.dp,
-                        horizontal = 12.dp,
-                    ),
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(
+                            vertical = 18.dp,
+                            horizontal = 12.dp,
+                        ),
             ) {
                 Text(
                     text = newestAlbum.title,
@@ -86,42 +87,45 @@ fun ForYouNewestContent(
                     model = newestAlbum.imageUrl,
                     contentDescription = null,
                     error = painterResource(img_newest_title_album),
-                    modifier = Modifier
-                        .padding(top = 9.dp)
-                        .size(160.dp)
-                        .clip(RoundedCornerShape(8.dp))
-                        .align(Alignment.CenterHorizontally),
+                    modifier =
+                        Modifier
+                            .padding(top = 9.dp)
+                            .size(160.dp)
+                            .clip(RoundedCornerShape(8.dp))
+                            .align(Alignment.CenterHorizontally),
                 )
             }
 
             Box(
-                modifier = Modifier
-                    .matchParentSize()
-                    .drawWithCache {
-                        val inset = 0.5.dp.toPx()
+                modifier =
+                    Modifier
+                        .matchParentSize()
+                        .drawWithCache {
+                            val inset = 0.5.dp.toPx()
 
-                        onDrawBehind {
-                            drawRoundRect(
-                                brush = colors.gradient4,
-                                size = Size(
-                                    width = size.width - inset * 2,
-                                    height = size.height - inset * 2,
-                                ),
-                                cornerRadius = CornerRadius(8.dp.toPx(), 8.dp.toPx()),
-                            )
-                        }
-                    },
+                            onDrawBehind {
+                                drawRoundRect(
+                                    brush = colors.gradient4,
+                                    size =
+                                        Size(
+                                            width = size.width - inset * 2,
+                                            height = size.height - inset * 2,
+                                        ),
+                                    cornerRadius = CornerRadius(8.dp.toPx(), 8.dp.toPx()),
+                                )
+                            }
+                        },
             )
 
-
             Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(
-                        top = 226.dp,
-                        start = 12.dp,
-                        end = 12.dp,
-                    ),
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(
+                            top = 226.dp,
+                            start = 12.dp,
+                            end = 12.dp,
+                        ),
                 verticalArrangement = Arrangement.spacedBy(10.dp),
             ) {
                 newestAlbum.newestMusicList.forEachIndexed { idx, music ->
@@ -146,14 +150,18 @@ private fun ForYouNestAlbumItem(
     modifier: Modifier = Modifier,
 ) {
     val (titleColor, artistColor) =
-        if (isTitle) MELONTheme.colors.primary to MELONTheme.colors.primary
-        else MELONTheme.colors.white to MELONTheme.colors.opacity1
+        if (isTitle) {
+            MELONTheme.colors.primary to MELONTheme.colors.primary
+        } else {
+            MELONTheme.colors.white to MELONTheme.colors.opacity1
+        }
 
     val titleTypo = if (isTitle) MELONTheme.typography.body.b_14 else MELONTheme.typography.body.r_14
 
     Row(
-        modifier = modifier
-            .fillMaxWidth(),
+        modifier =
+            modifier
+                .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
@@ -161,19 +169,21 @@ private fun ForYouNestAlbumItem(
             model = albumUrl,
             contentDescription = null,
             error = painterResource(img_newest_album),
-            modifier = Modifier
-                .size(28.dp)
-                .clip(RoundedCornerShape(4.dp))
-                .border(
-                    width = 0.5.dp,
-                    brush = MELONTheme.colors.gradientVerticalLine,
-                    shape = RoundedCornerShape(4.dp),
-                ),
+            modifier =
+                Modifier
+                    .size(28.dp)
+                    .clip(RoundedCornerShape(4.dp))
+                    .border(
+                        width = 0.5.dp,
+                        brush = MELONTheme.colors.gradientVerticalLine,
+                        shape = RoundedCornerShape(4.dp),
+                    ),
         )
 
         Row(
-            modifier = Modifier
-                .weight(1f),
+            modifier =
+                Modifier
+                    .weight(1f),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(4.dp),
         ) {
@@ -182,16 +192,16 @@ private fun ForYouNestAlbumItem(
                     text = stringResource(foryou_newest_chip_title),
                     style = MELONTheme.typography.caption.sb_8,
                     color = MELONTheme.colors.primary,
-                    modifier = Modifier
-                        .border(
-                            width = 1.dp,
-                            color = MELONTheme.colors.primary,
-                            shape = RoundedCornerShape(8.dp),
-                        )
-                        .padding(
-                            vertical = 1.dp,
-                            horizontal = 3.5.dp,
-                        ),
+                    modifier =
+                        Modifier
+                            .border(
+                                width = 1.dp,
+                                color = MELONTheme.colors.primary,
+                                shape = RoundedCornerShape(8.dp),
+                            ).padding(
+                                vertical = 1.dp,
+                                horizontal = 3.5.dp,
+                            ),
                 )
             }
 
@@ -219,40 +229,44 @@ private fun ForYouNestAlbumItem(
 private fun ForYouNewestCardPreview() {
     MELONTheme {
         Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(MELONTheme.colors.background),
+            modifier =
+                Modifier
+                    .fillMaxSize()
+                    .background(MELONTheme.colors.background),
             contentAlignment = Alignment.Center,
         ) {
             ForYouNewestContent(
-                newestAlbum = NewestAlbumData(
-                    imageUrl = "",
-                    title = "THERE'S A GHOST IN MY\nHOUSE.",
-                    newestMusicList = persistentListOf(
-                        NewestMusicItemData(
-                            title = "HOME.",
-                            artistName = "Armani White",
-                            imageUrl = "",
-                        ),
-                        NewestMusicItemData(
-                            title = "GHOST.",
-                            artistName = "Armani White",
-                            imageUrl = "",
-                        ),
-                        NewestMusicItemData(
-                            title = "CUT THE LIGHTS.(CHAMPIONSIP VERVERVERVERVER)",
-                            artistName = "Armani White",
-                            imageUrl = "",
-                        ),
-                        NewestMusicItemData(
-                            title = "HOME.",
-                            artistName = "Armani White",
-                            imageUrl = "",
-                        ),
+                newestAlbum =
+                    NewestAlbumData(
+                        imageUrl = "",
+                        title = "THERE'S A GHOST IN MY\nHOUSE.",
+                        newestMusicList =
+                            persistentListOf(
+                                NewestMusicItemData(
+                                    title = "HOME.",
+                                    artistName = "Armani White",
+                                    imageUrl = "",
+                                ),
+                                NewestMusicItemData(
+                                    title = "GHOST.",
+                                    artistName = "Armani White",
+                                    imageUrl = "",
+                                ),
+                                NewestMusicItemData(
+                                    title = "CUT THE LIGHTS.(CHAMPIONSIP VERVERVERVERVER)",
+                                    artistName = "Armani White",
+                                    imageUrl = "",
+                                ),
+                                NewestMusicItemData(
+                                    title = "HOME.",
+                                    artistName = "Armani White",
+                                    imageUrl = "",
+                                ),
+                            ),
                     ),
-                ),
-                modifier = Modifier
-                    .padding(horizontal = 20.dp),
+                modifier =
+                    Modifier
+                        .padding(horizontal = 20.dp),
             )
         }
     }

@@ -43,39 +43,42 @@ fun ForYouTodayCard(
     val colors = MELONTheme.colors
 
     Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .drawWithCache {
-                onDrawBehind {
-                    val borderWidth = 1.dp.toPx()
-                    val radius = 8.dp.toPx()
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .drawWithCache {
+                    onDrawBehind {
+                        val borderWidth = 1.dp.toPx()
+                        val radius = 8.dp.toPx()
 
-                    drawRoundRect(
-                        brush = colors.gradient3,
-                        cornerRadius = CornerRadius(radius, radius),
-                    )
+                        drawRoundRect(
+                            brush = colors.gradient3,
+                            cornerRadius = CornerRadius(radius, radius),
+                        )
 
-                    drawRoundRect(
-                        brush = colors.gradientLine,
-                        cornerRadius = CornerRadius(radius, radius),
-                        topLeft = Offset(borderWidth / 2, borderWidth / 2),
-                        size = Size(
-                            width = size.width - borderWidth,
-                            height = size.height - borderWidth,
-                        ),
-                        style = Stroke(borderWidth),
-                    )
-                }
-            },
+                        drawRoundRect(
+                            brush = colors.gradientLine,
+                            cornerRadius = CornerRadius(radius, radius),
+                            topLeft = Offset(borderWidth / 2, borderWidth / 2),
+                            size =
+                                Size(
+                                    width = size.width - borderWidth,
+                                    height = size.height - borderWidth,
+                                ),
+                            style = Stroke(borderWidth),
+                        )
+                    }
+                },
     ) {
         Row(
-            modifier = Modifier
-                .padding(
-                    top = 17.5.dp,
-                    start = 12.dp,
-                    end = 12.dp,
-                    bottom = 22.5.dp,
-                ),
+            modifier =
+                Modifier
+                    .padding(
+                        top = 17.5.dp,
+                        start = 12.dp,
+                        end = 12.dp,
+                        bottom = 22.5.dp,
+                    ),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Absolute.SpaceBetween,
         ) {
@@ -90,11 +93,11 @@ fun ForYouTodayCard(
             Image(
                 imageVector = ImageVector.vectorResource(ic_refresh),
                 contentDescription = null,
-                modifier = Modifier
-                    .padding(
-                        end = 4.dp,
-                    )
-                    .size(16.dp),
+                modifier =
+                    Modifier
+                        .padding(
+                            end = 4.dp,
+                        ).size(16.dp),
             )
 
             Text(
@@ -107,35 +110,37 @@ fun ForYouTodayCard(
         ForYouTodayChipContent(
             title = stringResource(foryou_my_preference_label),
             recommendationList = myPreferenceList,
-            modifier = Modifier
-                .padding(
-                    start = 12.dp,
-                    bottom = 16.dp,
-                ),
+            modifier =
+                Modifier
+                    .padding(
+                        start = 12.dp,
+                        bottom = 16.dp,
+                    ),
         )
 
         ForYouTodayChipContent(
             title = stringResource(foryou_situation_label),
             recommendationList = situationList,
-            modifier = Modifier
-                .padding(
-                    start = 12.dp,
-                    bottom = 19.dp,
-                ),
+            modifier =
+                Modifier
+                    .padding(
+                        start = 12.dp,
+                        bottom = 19.dp,
+                    ),
         )
     }
 }
-
 
 @Preview(showBackground = true)
 @Composable
 private fun ForYouTodayCardPreview() {
     MELONTheme {
         Box(
-            modifier = Modifier
-                .background(MELONTheme.colors.background)
-                .padding(horizontal = 20.dp)
-                .fillMaxSize(),
+            modifier =
+                Modifier
+                    .background(MELONTheme.colors.background)
+                    .padding(horizontal = 20.dp)
+                    .fillMaxSize(),
             contentAlignment = Alignment.Center,
         ) {
             ForYouTodayCard(

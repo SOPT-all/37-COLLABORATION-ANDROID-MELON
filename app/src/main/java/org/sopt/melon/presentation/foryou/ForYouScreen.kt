@@ -61,23 +61,25 @@ private fun ForYouScreen(
     val scrollState = rememberScrollState()
 
     Column(
-        modifier = modifier
-            .fillMaxSize()
-            .verticalScroll(state = scrollState)
-            .padding(
-                start = 20.dp,
-                top = 22.dp,
-                end = 20.dp,
-                bottom = 36.dp,
-            ),
+        modifier =
+            modifier
+                .fillMaxSize()
+                .verticalScroll(state = scrollState)
+                .padding(
+                    start = 20.dp,
+                    top = 22.dp,
+                    end = 20.dp,
+                    bottom = 36.dp,
+                ),
     ) {
         Text(
             text = stringResource(foryou),
             color = MELONTheme.colors.white,
             style = MELONTheme.typography.title.b_24,
-            modifier = Modifier.padding(
-                bottom = 8.dp,
-            ),
+            modifier =
+                Modifier.padding(
+                    bottom = 8.dp,
+                ),
         )
 
         Column(

@@ -69,44 +69,53 @@ private fun ForYouChip(
 ) {
     var isSelected by rememberSaveable { mutableStateOf(isChipSelected) }
 
-    val (backgroundColor, borderColor) = if (isSelected)
-        MELONTheme.colors.secondary to MELONTheme.colors.primary
-    else Color.Transparent to MELONTheme.colors.gray400
+    val (backgroundColor, borderColor) =
+        if (isSelected) {
+            MELONTheme.colors.secondary to MELONTheme.colors.primary
+        } else {
+            Color.Transparent to MELONTheme.colors.gray400
+        }
 
-    val horizontalPadding = if (imageRes == null) PaddingValues(
-        horizontal = 16.dp,
-    ) else PaddingValues(
-        start = 4.dp,
-        end = 12.dp,
-    )
+    val horizontalPadding =
+        if (imageRes == null) {
+            PaddingValues(
+                horizontal = 16.dp,
+            )
+        } else {
+            PaddingValues(
+                start = 4.dp,
+                end = 12.dp,
+            )
+        }
 
     Row(
-        modifier = modifier
-            .background(
-                color = backgroundColor,
-                shape = RoundedCornerShape(24.dp),
-            )
-            .border(
-                width = 0.3.dp,
-                color = borderColor,
-                shape = RoundedCornerShape(24.dp),
-            )
-            .padding(horizontalPadding)
-            .noRippleClickable({ isSelected = !isSelected }),
+        modifier =
+            modifier
+                .background(
+                    color = backgroundColor,
+                    shape = RoundedCornerShape(24.dp),
+                ).border(
+                    width = 0.3.dp,
+                    color = borderColor,
+                    shape = RoundedCornerShape(24.dp),
+                ).padding(horizontalPadding)
+                .noRippleClickable({ isSelected = !isSelected }),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement
-            .spacedBy(
-                space = 8.dp,
-                alignment = Alignment.CenterHorizontally,
-            ),
+        horizontalArrangement =
+            Arrangement
+                .spacedBy(
+                    space = 8.dp,
+                    alignment = Alignment.CenterHorizontally,
+                ),
     ) {
         imageRes?.let {
             Image(
                 painter = painterResource(it),
                 contentDescription = null,
-                modifier = Modifier
-                    .size(36.dp)
-                    .clip(CircleShape),
+                modifier =
+                    Modifier
+                        .size(36.dp)
+                        .clip(CircleShape),
             )
         }
 
@@ -116,10 +125,11 @@ private fun ForYouChip(
             color = MELONTheme.colors.white,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
-            modifier = Modifier
-                .padding(
-                    vertical = 11.5.dp,
-                ),
+            modifier =
+                Modifier
+                    .padding(
+                        vertical = 11.5.dp,
+                    ),
         )
     }
 }

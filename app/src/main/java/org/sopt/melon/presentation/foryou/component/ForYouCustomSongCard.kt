@@ -30,25 +30,25 @@ fun ForYouCustomSongCard(
     modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .background(
-                color = MELONTheme.colors.blue,
-                shape = RoundedCornerShape(8.dp),
-            )
-            .padding(
-                top = 15.dp,
-                start = 13.dp,
-                end = 13.dp,
-                bottom = 12.5.dp,
-            ),
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .background(
+                    color = MELONTheme.colors.blue,
+                    shape = RoundedCornerShape(8.dp),
+                ).padding(
+                    top = 15.dp,
+                    start = 13.dp,
+                    end = 13.dp,
+                    bottom = 12.5.dp,
+                ),
     ) {
         Row(
-            modifier = Modifier
-                .padding(
-                    bottom = 20.5.dp,
-                )
-                .fillMaxWidth(),
+            modifier =
+                Modifier
+                    .padding(
+                        bottom = 20.5.dp,
+                    ).fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
@@ -81,32 +81,39 @@ fun ForYouCustomSongCard(
 private fun ForYouIndicator(
     modifier: Modifier = Modifier,
 ) {
-    val selectedList = persistentListOf(
-        true,
-        false,
-        false,
-        false,
-        false,
-    )
+    val selectedList =
+        persistentListOf(
+            true,
+            false,
+            false,
+            false,
+            false,
+        )
 
     Row(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement
-            .spacedBy(
-                space = 5.dp,
-                alignment = Alignment.CenterHorizontally,
-            ),
+        horizontalArrangement =
+            Arrangement
+                .spacedBy(
+                    space = 5.dp,
+                    alignment = Alignment.CenterHorizontally,
+                ),
     ) {
         selectedList.forEach { selected ->
             Box(
-                modifier = Modifier
-                    .size(5.dp)
-                    .background(
-                        color = if (selected) MELONTheme.colors.white
-                        else MELONTheme.colors.opacity1,
-                        shape = CircleShape,
-                    ),
+                modifier =
+                    Modifier
+                        .size(5.dp)
+                        .background(
+                            color =
+                                if (selected) {
+                                    MELONTheme.colors.white
+                                } else {
+                                    MELONTheme.colors.opacity1
+                                },
+                            shape = CircleShape,
+                        ),
             )
         }
     }
@@ -118,26 +125,27 @@ private fun ForYouCustomSongCardPreview() {
     MELONTheme {
         ForYouCustomSongCard(
             onMixUpClick = {},
-            customSongList = persistentListOf(
-                CustomSongData(
-                    imgUrl = "",
-                    subtitle = "내 취향곡",
-                    title = "Blue Valentine",
-                    artistName = "NMIXX",
+            customSongList =
+                persistentListOf(
+                    CustomSongData(
+                        imgUrl = "",
+                        subtitle = "내 취향곡",
+                        title = "Blue Valentine",
+                        artistName = "NMIXX",
+                    ),
+                    CustomSongData(
+                        imgUrl = "",
+                        subtitle = "내 취향곡",
+                        title = "Blue Valentine",
+                        artistName = "NMIXX",
+                    ),
+                    CustomSongData(
+                        imgUrl = "",
+                        subtitle = "내 취향곡",
+                        title = "Blue Valentine",
+                        artistName = "NMIXX",
+                    ),
                 ),
-                CustomSongData(
-                    imgUrl = "",
-                    subtitle = "내 취향곡",
-                    title = "Blue Valentine",
-                    artistName = "NMIXX",
-                ),
-                CustomSongData(
-                    imgUrl = "",
-                    subtitle = "내 취향곡",
-                    title = "Blue Valentine",
-                    artistName = "NMIXX",
-                ),
-            ),
         )
     }
 }

@@ -31,48 +31,50 @@ fun ForYouMalangCard(
     modifier: Modifier = Modifier,
 ) {
     Box(
-        modifier = modifier
-            .clip(
-                shape = RoundedCornerShape(8.dp),
-            ),
+        modifier =
+            modifier
+                .clip(
+                    shape = RoundedCornerShape(8.dp),
+                ),
     ) {
         Image(
             painter = painterResource(img_malang_card),
             contentDescription = null,
-            modifier = Modifier
-                .aspectRatio(1f),
+            modifier =
+                Modifier
+                    .aspectRatio(1f),
         )
 
         Row(
-            modifier = Modifier
-                .padding(
-                    start = 16.dp,
-                    end = 12.dp,
-                    bottom = 14.dp,
-                )
-                .fillMaxWidth()
-                .background(
-                    color = MELONTheme.colors.white,
-                    shape = RoundedCornerShape(8.dp),
-                )
-                .padding(
-                    vertical = 4.dp,
-                )
-                .noRippleClickable(onClick = onMixUpClick)
-                .align(alignment = Alignment.BottomCenter),
-            horizontalArrangement = Arrangement
-                .spacedBy(
-                    space = 2.dp,
-                    alignment = Alignment.CenterHorizontally,
-                ),
+            modifier =
+                Modifier
+                    .padding(
+                        start = 16.dp,
+                        end = 12.dp,
+                        bottom = 14.dp,
+                    ).fillMaxWidth()
+                    .background(
+                        color = MELONTheme.colors.white,
+                        shape = RoundedCornerShape(8.dp),
+                    ).padding(
+                        vertical = 4.dp,
+                    ).noRippleClickable(onClick = onMixUpClick)
+                    .align(alignment = Alignment.BottomCenter),
+            horizontalArrangement =
+                Arrangement
+                    .spacedBy(
+                        space = 2.dp,
+                        alignment = Alignment.CenterHorizontally,
+                    ),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Image(
                 painter = painterResource(img_mixup_24),
                 contentDescription = null,
-                modifier = Modifier
-                    .padding(vertical = 4.dp)
-                    .size(32.dp),
+                modifier =
+                    Modifier
+                        .padding(vertical = 4.dp)
+                        .size(32.dp),
             )
 
             Text(

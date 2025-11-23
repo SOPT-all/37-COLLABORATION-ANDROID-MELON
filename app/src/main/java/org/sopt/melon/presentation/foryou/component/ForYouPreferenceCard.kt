@@ -29,28 +29,27 @@ fun ForYouPreferenceCard(
         Image(
             painter = painterResource(img_mixup_card),
             contentDescription = null,
-            modifier = Modifier
-                .aspectRatio(320 / 204f),
+            modifier =
+                Modifier
+                    .aspectRatio(320 / 204f),
         )
 
         Box(
-            modifier = Modifier
-                .padding(
-                    start = 15.dp,
-                    end = 15.dp,
-                    bottom = 15.dp,
-                )
-                .fillMaxWidth()
-                .border(
-                    width = 0.3.dp,
-                    color = MELONTheme.colors.gray200,
-                    shape = RoundedCornerShape(4.dp),
-                )
-                .padding(
-                    top = 10.dp,
-                    bottom = 9.dp,
-                )
-                .align(alignment = Alignment.BottomCenter),
+            modifier =
+                Modifier
+                    .padding(
+                        start = 15.dp,
+                        end = 15.dp,
+                        bottom = 15.dp,
+                    ).fillMaxWidth()
+                    .border(
+                        width = 0.3.dp,
+                        color = MELONTheme.colors.gray200,
+                        shape = RoundedCornerShape(4.dp),
+                    ).padding(
+                        top = 10.dp,
+                        bottom = 9.dp,
+                    ).align(alignment = Alignment.BottomCenter),
             contentAlignment = Alignment.Center,
         ) {
             Text(

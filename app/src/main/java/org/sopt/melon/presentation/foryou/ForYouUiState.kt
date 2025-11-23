@@ -7,9 +7,10 @@ import org.sopt.melon.presentation.foryou.model.NewestAlbumData
 
 data class ForYouUiState(
     val customSongList: ImmutableList<CustomSongData> = persistentListOf(),
-    val newestAlbum: NewestAlbumData = NewestAlbumData(
-        title = "",
-        imageUrl = "",
-        newestMusicList = persistentListOf(),
-    ),
+    val newestAlbum: NewestAlbumData =
+        NewestAlbumData(
+            title = "",
+            imageUrl = "",
+            newestMusicList = persistentListOf(),
+        ),
 )
