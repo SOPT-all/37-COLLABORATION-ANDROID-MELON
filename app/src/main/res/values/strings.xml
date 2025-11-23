@@ -16,6 +16,7 @@
     <string name="foryou_reload_label">새로 고침</string>
     <string name="foryou_custom_song_title">맞춤 선곡</string>
     <string name="foryou_newest_album_title">팬맺은 아티스트의 최신앨범</string>
+    <string name="foryou_newest_chip_title">TITLE</string>
     <!--MixUp   -->
     <!--Search  -->
     <string name="search">탐색</string>
