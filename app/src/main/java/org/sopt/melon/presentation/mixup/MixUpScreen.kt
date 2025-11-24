@@ -1,12 +1,22 @@
 package org.sopt.melon.presentation.mixup
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import org.sopt.melon.R
 import org.sopt.melon.core.designsystem.theme.MELONTheme
+import org.sopt.melon.presentation.mixup.component.MixUpList
+import org.sopt.melon.presentation.mixup.component.MixUpPlayingMusic
+import org.sopt.melon.presentation.mixup.component.MixUpTopBar
+import org.sopt.melon.presentation.mixup.data.MusicInfo
 
 @Composable
 fun MixUpRoute(
@@ -30,8 +40,98 @@ private fun MixUpScreen(
                             brush = colors.gradient3,
                         )
                     }
-                },
+                }
     ) {
+        MixUpTopBar(
+            onSearchClick = {},
+            onChevronClick = {},
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        MixUpPlayingMusic(
+            musicInfo = MusicInfo(
+                image = R.drawable.img_chart1_42,
+                title = "Blue Valentine",
+                singer = "NMIXX",
+                isPlaying = true,
+                isSelected = false,
+            ),
+            onAddAllClick = {},
+            isAllSelected = true,
+            onAllSelectClick = {},
+            isCurrentMusicSelected = false,
+            onSelectClick = {},
+            onMenuClick = {},
+            modifier = Modifier.fillMaxWidth()
+        )
+        MixUpList(
+            musicInfos = listOf(
+                MusicInfo(
+                    image = R.drawable.img_chart1_42,
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                    isPlaying = true,
+                    isSelected = false,
+                ),
+                MusicInfo(
+                    image = R.drawable.img_chart1_42,
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                    isPlaying = false,
+                    isSelected = true
+                ),
+                MusicInfo(
+                    image = R.drawable.img_chart1_42,
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                    isPlaying = true,
+                    isSelected = true,
+                ),
+                MusicInfo(
+                    image = R.drawable.img_chart1_42,
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                    isPlaying = true,
+                    isSelected = false,
+                ),
+                MusicInfo(
+                    image = R.drawable.img_chart1_42,
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                    isPlaying = false,
+                    isSelected = true,
+                ),
+                MusicInfo(
+                    image = R.drawable.img_chart1_42,
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                    isPlaying = true,
+                    isSelected = true
+                ),
+                MusicInfo(
+                    image = R.drawable.img_chart1_42,
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                    isPlaying = false,
+                    isSelected = true
+                ),
+                MusicInfo(
+                    image = R.drawable.img_chart1_42,
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                    isPlaying = false,
+                    isSelected = false,
+                ),
+                MusicInfo(
+                    image = R.drawable.img_chart1_42,
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                    isPlaying = true,
+                    isSelected = true
+                ),
+            ),
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }
 
@@ -39,6 +139,9 @@ private fun MixUpScreen(
 @Composable
 private fun MixUpPreview() {
     MELONTheme {
-        MixUpScreen()
+        MixUpScreen(
+            modifier = Modifier
+                .size(width = 360.dp, height = 780.dp)
+        )
     }
 }
