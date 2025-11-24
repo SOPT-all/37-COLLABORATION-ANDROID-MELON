@@ -24,8 +24,10 @@ fun HomeChipList(
     modifier: Modifier = Modifier,
 ) {
     Row(
-        modifier = modifier.horizontalScroll(rememberScrollState())
-            .padding(horizontal = 20.dp),
+        modifier =
+            modifier
+                .horizontalScroll(rememberScrollState())
+                .padding(horizontal = 20.dp),
     ) {
         chipContentList.forEachIndexed { index, content ->
             HomeChip(

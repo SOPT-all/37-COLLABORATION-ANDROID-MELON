@@ -15,23 +15,24 @@ data class BannerData(
     val backgroundColor: Color,
 ) {
     companion object {
-        val dummyBannerData = persistentListOf(
-            BannerData(
-                title = "2025 WOODZ PREVIEW CONCERT",
-                image = R.drawable.img_banner1_95,
-                category = "Melon Ticket",
-                headline = "우즈 CONCERT",
-                description = "멜론티켓에서 예매하기",
-                backgroundColor = Bar6
-            ),
-            BannerData(
-                title = "데이터랩 이벤트 참여하고 선물 받자",
-                image = R.drawable.img_banner2_95,
-                category = "데이터랩 11월",
-                headline = "우즈 CONCERT",
-                description = "2025년을 빛낸 데이터",
-                backgroundColor = Blue
+        val dummyBannerData =
+            persistentListOf(
+                BannerData(
+                    title = "2025 WOODZ PREVIEW CONCERT",
+                    image = R.drawable.img_banner1_95,
+                    category = "Melon Ticket",
+                    headline = "우즈 CONCERT",
+                    description = "멜론티켓에서 예매하기",
+                    backgroundColor = Bar6,
+                ),
+                BannerData(
+                    title = "데이터랩 이벤트 참여하고 선물 받자",
+                    image = R.drawable.img_banner2_95,
+                    category = "데이터랩 11월",
+                    headline = "우즈 CONCERT",
+                    description = "2025년을 빛낸 데이터",
+                    backgroundColor = Blue,
+                ),
             )
-        )
     }
 }

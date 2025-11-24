@@ -29,7 +29,6 @@ class HomeViewModel @Inject constructor() : ViewModel() {
         }
     }
 
-
     fun getBannerList() {
         _uiState.update { currentState ->
             currentState.copy(
