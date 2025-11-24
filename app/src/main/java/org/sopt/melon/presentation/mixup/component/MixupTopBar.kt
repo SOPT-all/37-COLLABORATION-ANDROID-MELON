@@ -27,11 +27,11 @@ import org.sopt.melon.core.designsystem.theme.MELONTheme
 fun MixUpTopBar(
     onSearchClick: () -> Unit,
     onChevronClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        modifier = modifier.fillMaxWidth()
+        modifier = modifier.fillMaxWidth(),
     ) {
         MixUpTopbarTexts()
 
@@ -46,74 +46,91 @@ fun MixUpTopBar(
 
 @Composable
 fun MixUpTopbarTexts(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     var current by remember { mutableStateOf(MixUpTopBarActivated.MIXUP) }
 
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(12.dp),
-        modifier = modifier
+        modifier = modifier,
     ) {
         Text(
             text = "재생목록",
             style = MELONTheme.typography.heading.b_20,
             color =
-                if(current == MixUpTopBarActivated.PLAYLIST) MELONTheme.colors.white
-                    else MELONTheme.colors.gray200,
+                if (current == MixUpTopBarActivated.PLAYLIST) {
+                    MELONTheme.colors.white
+                } else {
+                    MELONTheme.colors.gray200
+                },
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
-            modifier = Modifier.noRippleClickable(
-                { current = MixUpTopBarActivated.PLAYLIST }
-            )
+            modifier =
+                Modifier.noRippleClickable(
+                    { current = MixUpTopBarActivated.PLAYLIST },
+                ),
         )
         Text(
             text = "음악서랍",
             style = MELONTheme.typography.heading.b_20,
-            color = if(current == MixUpTopBarActivated.MUSIC_SHELF) MELONTheme.colors.white
-            else MELONTheme.colors.gray200,
+            color =
+                if (current == MixUpTopBarActivated.MUSIC_SHELF) {
+                    MELONTheme.colors.white
+                } else {
+                    MELONTheme.colors.gray200
+                },
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
-            modifier = Modifier.noRippleClickable(
-                { current = MixUpTopBarActivated.MUSIC_SHELF }
-            )
+            modifier =
+                Modifier.noRippleClickable(
+                    { current = MixUpTopBarActivated.MUSIC_SHELF },
+                ),
         )
         Text(
             text = "믹스업",
             style = MELONTheme.typography.heading.b_20,
-            color = if(current == MixUpTopBarActivated.MIXUP) MELONTheme.colors.white
-            else MELONTheme.colors.gray200,
+            color =
+                if (current == MixUpTopBarActivated.MIXUP) {
+                    MELONTheme.colors.white
+                } else {
+                    MELONTheme.colors.gray200
+                },
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
-            modifier = Modifier.noRippleClickable(
-                { current = MixUpTopBarActivated.MIXUP }
-            )
+            modifier =
+                Modifier.noRippleClickable(
+                    { current = MixUpTopBarActivated.MIXUP },
+                ),
         )
     }
 }
+
 private enum class MixUpTopBarActivated {
-    PLAYLIST, MUSIC_SHELF, MIXUP
+    PLAYLIST,
+    MUSIC_SHELF,
+    MIXUP,
 }
 
 @Composable
 fun MixUpTopbarIcons(
     onSearchClick: () -> Unit,
     onChevronClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Row(
         horizontalArrangement = Arrangement.spacedBy(16.dp),
-        modifier = modifier
+        modifier = modifier,
     ) {
         Image(
             imageVector = ImageVector.vectorResource(R.drawable.ic_search),
             contentDescription = null,
-            modifier = Modifier.noRippleClickable(onSearchClick)
+            modifier = Modifier.noRippleClickable(onSearchClick),
         )
         Image(
             imageVector = ImageVector.vectorResource(R.drawable.ic_chevron_down),
             contentDescription = null,
-            modifier = Modifier.noRippleClickable(onChevronClick)
+            modifier = Modifier.noRippleClickable(onChevronClick),
         )
     }
 }

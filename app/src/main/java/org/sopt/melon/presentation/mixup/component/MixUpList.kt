@@ -19,24 +19,24 @@ import org.sopt.melon.presentation.mixup.data.MusicInfo
 @Composable
 fun MixUpList(
     musicInfos: List<MusicInfo>,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
-        modifier = modifier
+        modifier = modifier,
     ) {
         Text(
             text = "믹스업 목록",
             style = MELONTheme.typography.body.sb_16,
             color = MELONTheme.colors.white,
             maxLines = 1,
-            overflow = TextOverflow.Ellipsis
+            overflow = TextOverflow.Ellipsis,
         )
 
         LazyColumn(
             contentPadding = PaddingValues(vertical = 16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
-            modifier = Modifier
+            modifier = Modifier,
         ) {
             items(8) { index ->
                 MixUpItem(
@@ -45,7 +45,7 @@ fun MixUpList(
                     isSelected = musicInfos[index].isSelected,
                     onSelectClick = {},
                     onMenuClick = {},
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
                 )
             }
         }
@@ -56,71 +56,72 @@ fun MixUpList(
 @Composable
 fun MixUpListPreview() {
     MixUpList(
-        musicInfos = listOf(
-            MusicInfo(
-                image = R.drawable.img_chart1_42,
-                title = "Blue Valentine",
-                singer = "NMIXX",
-                isPlaying = true,
-                isSelected = false,
+        musicInfos =
+            listOf(
+                MusicInfo(
+                    image = R.drawable.img_chart1_42,
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                    isPlaying = true,
+                    isSelected = false,
+                ),
+                MusicInfo(
+                    image = R.drawable.img_chart1_42,
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                    isPlaying = false,
+                    isSelected = true,
+                ),
+                MusicInfo(
+                    image = R.drawable.img_chart1_42,
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                    isPlaying = true,
+                    isSelected = true,
+                ),
+                MusicInfo(
+                    image = R.drawable.img_chart1_42,
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                    isPlaying = true,
+                    isSelected = false,
+                ),
+                MusicInfo(
+                    image = R.drawable.img_chart1_42,
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                    isPlaying = false,
+                    isSelected = true,
+                ),
+                MusicInfo(
+                    image = R.drawable.img_chart1_42,
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                    isPlaying = true,
+                    isSelected = true,
+                ),
+                MusicInfo(
+                    image = R.drawable.img_chart1_42,
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                    isPlaying = false,
+                    isSelected = true,
+                ),
+                MusicInfo(
+                    image = R.drawable.img_chart1_42,
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                    isPlaying = false,
+                    isSelected = false,
+                ),
+                MusicInfo(
+                    image = R.drawable.img_chart1_42,
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                    isPlaying = true,
+                    isSelected = true,
+                ),
             ),
-            MusicInfo(
-                image = R.drawable.img_chart1_42,
-                title = "Blue Valentine",
-                singer = "NMIXX",
-                isPlaying = false,
-                isSelected = true
-            ),
-            MusicInfo(
-                image = R.drawable.img_chart1_42,
-                title = "Blue Valentine",
-                singer = "NMIXX",
-                isPlaying = true,
-                isSelected = true,
-            ),
-            MusicInfo(
-                image = R.drawable.img_chart1_42,
-                title = "Blue Valentine",
-                singer = "NMIXX",
-                isPlaying = true,
-                isSelected = false,
-            ),
-            MusicInfo(
-                image = R.drawable.img_chart1_42,
-                title = "Blue Valentine",
-                singer = "NMIXX",
-                isPlaying = false,
-                isSelected = true,
-            ),
-            MusicInfo(
-                image = R.drawable.img_chart1_42,
-                title = "Blue Valentine",
-                singer = "NMIXX",
-                isPlaying = true,
-                isSelected = true
-            ),
-            MusicInfo(
-                image = R.drawable.img_chart1_42,
-                title = "Blue Valentine",
-                singer = "NMIXX",
-                isPlaying = false,
-                isSelected = true
-            ),
-            MusicInfo(
-                image = R.drawable.img_chart1_42,
-                title = "Blue Valentine",
-                singer = "NMIXX",
-                isPlaying = false,
-                isSelected = false,
-            ),
-            MusicInfo(
-                image = R.drawable.img_chart1_42,
-                title = "Blue Valentine",
-                singer = "NMIXX",
-                isPlaying = true,
-                isSelected = true
-            ),
-        ),
-        modifier = Modifier.size(width = 320.dp, height = 372.dp)
+        modifier = Modifier.size(width = 320.dp, height = 372.dp),
     )
 }

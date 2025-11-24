@@ -12,14 +12,18 @@ import org.sopt.melon.core.common.util.noRippleClickable
 fun MixUpCheckBox(
     isSelected: Boolean,
     onSelectClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Image(
-        imageVector = ImageVector.vectorResource(
-            if(isSelected) R.drawable.ic_checkbox_selected
-            else R.drawable.ic_checkbox_default
-        ),
+        imageVector =
+            ImageVector.vectorResource(
+                if (isSelected) {
+                    R.drawable.ic_checkbox_selected
+                } else {
+                    R.drawable.ic_checkbox_default
+                },
+            ),
         contentDescription = null,
-        modifier = modifier.noRippleClickable(onSelectClick)
+        modifier = modifier.noRippleClickable(onSelectClick),
     )
 }

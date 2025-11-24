@@ -38,12 +38,12 @@ fun MixUpItem(
     isSelected: Boolean,
     onSelectClick: () -> Unit,
     onMenuClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
-        modifier = modifier
+        modifier = modifier,
     ) {
         Row(
             horizontalArrangement = Arrangement.SpaceBetween,
@@ -52,21 +52,21 @@ fun MixUpItem(
             MixUpCheckBox(
                 isSelected = isSelected,
                 onSelectClick = onSelectClick,
-                modifier = Modifier.size(20.dp)
+                modifier = Modifier.size(20.dp),
             )
 
             Spacer(Modifier.size(10.dp))
 
             Music(
                 musicInfo = musicInfo,
-                isPlaying = isPlaying
+                isPlaying = isPlaying,
             )
         }
 
         Image(
             imageVector = ImageVector.vectorResource(R.drawable.ic_menu),
             contentDescription = null,
-            modifier = Modifier.noRippleClickable(onMenuClick)
+            modifier = Modifier.noRippleClickable(onMenuClick),
         )
     }
 }
@@ -75,26 +75,28 @@ fun MixUpItem(
 private fun Music(
     musicInfo: MusicInfo,
     isPlaying: Boolean,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Row(
-        modifier = modifier
+        modifier = modifier,
     ) {
         Box(
             contentAlignment = Alignment.Center,
-            modifier = Modifier
-                .size(42.dp)
-                .clip(RoundedCornerShape(4.dp))
+            modifier =
+                Modifier
+                    .size(42.dp)
+                    .clip(RoundedCornerShape(4.dp)),
         ) {
             Image(
                 painter = painterResource(musicInfo.image),
                 contentDescription = null,
             )
-            if(isPlaying) {
+            if (isPlaying) {
                 Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(MELONTheme.colors.opacity2)
+                    modifier =
+                        Modifier
+                            .fillMaxSize()
+                            .background(MELONTheme.colors.opacity2),
                 )
                 Image(
                     imageVector = ImageVector.vectorResource(R.drawable.ic_playing),
@@ -106,21 +108,21 @@ private fun Music(
         Spacer(Modifier.size(10.dp))
 
         Column(
-            horizontalAlignment = Alignment.Start
+            horizontalAlignment = Alignment.Start,
         ) {
             Text(
                 text = musicInfo.title,
                 style = MELONTheme.typography.body.m_14,
-                color = if(isPlaying) MELONTheme.colors.primary else MELONTheme.colors.white,
+                color = if (isPlaying) MELONTheme.colors.primary else MELONTheme.colors.white,
                 maxLines = 1,
-                overflow = TextOverflow.Ellipsis
+                overflow = TextOverflow.Ellipsis,
             )
             Text(
                 text = musicInfo.singer,
                 style = MELONTheme.typography.caption.r_12,
                 color = MELONTheme.colors.gray200,
                 maxLines = 1,
-                overflow = TextOverflow.Ellipsis
+                overflow = TextOverflow.Ellipsis,
             )
         }
     }
@@ -132,9 +134,9 @@ fun MixUpItemPreview() {
     var isPlaying by remember { mutableStateOf(false) }
     var isSelected by remember { mutableStateOf(false) }
 
-    Column() {
+    Column {
         Button(
-            onClick = { isPlaying = !isPlaying }
+            onClick = { isPlaying = !isPlaying },
         ) {
             Text("playing")
         }
@@ -142,18 +144,19 @@ fun MixUpItemPreview() {
         Spacer(Modifier.size(20.dp))
 
         MixUpItem(
-            musicInfo = MusicInfo(
-                image = R.drawable.img_chart1_42,
-                title = "Blue Valentine",
-                singer = "NMIXX",
-                isPlaying = false,
-                isSelected = true
-            ),
+            musicInfo =
+                MusicInfo(
+                    image = R.drawable.img_chart1_42,
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                    isPlaying = false,
+                    isSelected = true,
+                ),
             isPlaying = isPlaying,
             isSelected = isSelected,
             onSelectClick = { isSelected = !isSelected },
             onMenuClick = {},
-            modifier = Modifier.size(width = 320.dp, height = 42.dp)
+            modifier = Modifier.size(width = 320.dp, height = 42.dp),
         )
     }
 }
@@ -162,14 +165,15 @@ fun MixUpItemPreview() {
 @Composable
 fun MusicPreview() {
     Music(
-        musicInfo = MusicInfo(
-            image = R.drawable.img_chart1_42,
-            title = "Blue Valentine",
-            singer = "NMIXX",
-            isPlaying = false,
-            isSelected = false
-        ),
+        musicInfo =
+            MusicInfo(
+                image = R.drawable.img_chart1_42,
+                title = "Blue Valentine",
+                singer = "NMIXX",
+                isPlaying = false,
+                isSelected = false,
+            ),
         isPlaying = true,
-        modifier = Modifier
+        modifier = Modifier,
     )
 }

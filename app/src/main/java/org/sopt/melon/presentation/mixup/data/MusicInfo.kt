@@ -5,5 +5,5 @@ data class MusicInfo(
     val title: String,
     val singer: String,
     val isPlaying: Boolean,
-    val isSelected: Boolean
+    val isSelected: Boolean,
 )
