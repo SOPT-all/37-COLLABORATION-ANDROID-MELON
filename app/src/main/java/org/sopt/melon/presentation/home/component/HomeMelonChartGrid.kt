@@ -134,47 +134,48 @@ private fun MelonChartItem(
 @Composable
 private fun HomeMelonChartGridPreview() {
     HomeMelonChartGrid(
-        melonChartList = persistentListOf(
-            MelonChartItemData(
-                imgUrl = "TODO()",
-                title = "Blue Valentine",
-                singer = "NMIXX",
-            ),
-            MelonChartItemData(
-                imgUrl = "TODO()",
-                title = "Blue Valentine",
-                singer = "NMIXX",
-            ),
-            MelonChartItemData(
-                imgUrl = "TODO()",
-                title = "Blue Valentine",
-                singer = "NMIXX",
-            ),
-            MelonChartItemData(
-                imgUrl = "TODO()",
-                title = "Blue Valentine",
-                singer = "NMIXX",
-            ),
-            MelonChartItemData(
-                imgUrl = "TODO()",
-                title = "Blue Valentine",
-                singer = "NMIXX",
-            ),
-            MelonChartItemData(
-                imgUrl = "TODO()",
-                title = "Blue Valentine",
-                singer = "NMIXX",
-            ),
-            MelonChartItemData(
-                imgUrl = "TODO()",
-                title = "Blue Valentine",
-                singer = "NMIXX",
-            ),
-            MelonChartItemData(
-                imgUrl = "TODO()",
-                title = "Blue Valentine",
-                singer = "NMIXX",
-            ),
+        melonChartList =
+            persistentListOf(
+                MelonChartItemData(
+                    imgUrl = "TODO()",
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                ),
+                MelonChartItemData(
+                    imgUrl = "TODO()",
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                ),
+                MelonChartItemData(
+                    imgUrl = "TODO()",
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                ),
+                MelonChartItemData(
+                    imgUrl = "TODO()",
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                ),
+                MelonChartItemData(
+                    imgUrl = "TODO()",
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                ),
+                MelonChartItemData(
+                    imgUrl = "TODO()",
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                ),
+                MelonChartItemData(
+                    imgUrl = "TODO()",
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                ),
+                MelonChartItemData(
+                    imgUrl = "TODO()",
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                ),
             ),
         gridState = rememberLazyGridState(),
     )

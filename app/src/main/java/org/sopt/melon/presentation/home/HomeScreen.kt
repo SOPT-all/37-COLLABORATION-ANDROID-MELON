@@ -378,48 +378,49 @@ private fun HomeScreenPreview() {
                                 "월드뮤직",
                                 "한강에서 즐기기 좋은 음악",
                             ),
-                        melonChartList = persistentListOf(
-                            MelonChartItemData(
-                                imgUrl = "TODO()",
-                                title = "Blue Valentine",
-                                singer = "NMIXX",
+                        melonChartList =
+                            persistentListOf(
+                                MelonChartItemData(
+                                    imgUrl = "TODO()",
+                                    title = "Blue Valentine",
+                                    singer = "NMIXX",
+                                ),
+                                MelonChartItemData(
+                                    imgUrl = "TODO()",
+                                    title = "Blue Valentine",
+                                    singer = "NMIXX",
+                                ),
+                                MelonChartItemData(
+                                    imgUrl = "TODO()",
+                                    title = "Blue Valentine",
+                                    singer = "NMIXX",
+                                ),
+                                MelonChartItemData(
+                                    imgUrl = "TODO()",
+                                    title = "Blue Valentine",
+                                    singer = "NMIXX",
+                                ),
+                                MelonChartItemData(
+                                    imgUrl = "TODO()",
+                                    title = "Blue Valentine",
+                                    singer = "NMIXX",
+                                ),
+                                MelonChartItemData(
+                                    imgUrl = "TODO()",
+                                    title = "Blue Valentine",
+                                    singer = "NMIXX",
+                                ),
+                                MelonChartItemData(
+                                    imgUrl = "TODO()",
+                                    title = "Blue Valentine",
+                                    singer = "NMIXX",
+                                ),
+                                MelonChartItemData(
+                                    imgUrl = "TODO()",
+                                    title = "Blue Valentine",
+                                    singer = "NMIXX",
+                                ),
                             ),
-                            MelonChartItemData(
-                                imgUrl = "TODO()",
-                                title = "Blue Valentine",
-                                singer = "NMIXX",
-                            ),
-                            MelonChartItemData(
-                                imgUrl = "TODO()",
-                                title = "Blue Valentine",
-                                singer = "NMIXX",
-                            ),
-                            MelonChartItemData(
-                                imgUrl = "TODO()",
-                                title = "Blue Valentine",
-                                singer = "NMIXX",
-                            ),
-                            MelonChartItemData(
-                                imgUrl = "TODO()",
-                                title = "Blue Valentine",
-                                singer = "NMIXX",
-                            ),
-                            MelonChartItemData(
-                                imgUrl = "TODO()",
-                                title = "Blue Valentine",
-                                singer = "NMIXX",
-                            ),
-                            MelonChartItemData(
-                                imgUrl = "TODO()",
-                                title = "Blue Valentine",
-                                singer = "NMIXX",
-                            ),
-                            MelonChartItemData(
-                                imgUrl = "TODO()",
-                                title = "Blue Valentine",
-                                singer = "NMIXX",
-                            ),
-                        ),
                     ),
                 onMixUpClick = {},
                 popularGridState = rememberLazyGridState(),
