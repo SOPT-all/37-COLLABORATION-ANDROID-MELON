@@ -49,7 +49,7 @@ fun MixUpItem(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            CheckBox(
+            MixUpCheckBox(
                 isSelected = isSelected,
                 onSelectClick = onSelectClick,
                 modifier = Modifier.size(20.dp)
@@ -69,22 +69,6 @@ fun MixUpItem(
             modifier = Modifier.noRippleClickable(onMenuClick)
         )
     }
-}
-
-@Composable
-private fun CheckBox(
-    isSelected: Boolean,
-    onSelectClick: () -> Unit,
-    modifier: Modifier = Modifier
-) {
-    Image(
-        imageVector = ImageVector.vectorResource(
-            if(isSelected) R.drawable.ic_checkbox_selected
-            else R.drawable.ic_checkbox_default
-        ),
-        contentDescription = null,
-        modifier = modifier.noRippleClickable(onSelectClick)
-    )
 }
 
 @Composable
