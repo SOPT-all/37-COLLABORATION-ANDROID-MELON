@@ -28,6 +28,7 @@ import org.sopt.melon.presentation.home.component.HomeChartButton
 import org.sopt.melon.presentation.home.component.HomeChartTitle
 import org.sopt.melon.presentation.home.component.HomeChipList
 import org.sopt.melon.presentation.home.component.HomeEventBanner
+import org.sopt.melon.presentation.home.component.HomeMelonChartGrid
 import org.sopt.melon.presentation.home.component.HomeNewSongGrid
 import org.sopt.melon.presentation.home.component.HomeNewSongTitle
 import org.sopt.melon.presentation.home.component.HomePopularGrid
@@ -36,6 +37,7 @@ import org.sopt.melon.presentation.home.component.HomeRecommendList
 import org.sopt.melon.presentation.home.component.HomeTitle
 import org.sopt.melon.presentation.home.component.HomeTopBar
 import org.sopt.melon.presentation.home.model.BannerData
+import org.sopt.melon.presentation.home.model.MelonChartItemData
 import org.sopt.melon.presentation.home.model.NewSongItemData
 import org.sopt.melon.presentation.home.model.PopularSongData
 import org.sopt.melon.presentation.home.model.PreferenceSongCardData
@@ -59,11 +61,13 @@ fun HomeRoute(
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     val popularGridState = rememberLazyGridState()
+    val melonChartGridState = rememberLazyGridState()
 
     HomeScreen(
         uiState = uiState,
         onMixUpClick = { snackbarTrigger(snackbarRequest) },
         popularGridState = popularGridState,
+        melonChartGridState = melonChartGridState,
         onNewSongFilterClick = viewModel::onNewSongFilterClick,
         modifier =
             Modifier
@@ -76,6 +80,7 @@ private fun HomeScreen(
     uiState: HomeUiState,
     onMixUpClick: () -> Unit,
     popularGridState: LazyGridState,
+    melonChartGridState: LazyGridState,
     onNewSongFilterClick: (NewSongFilter) -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -188,10 +193,17 @@ private fun HomeScreen(
             HomeChartTitle(
                 modifier = Modifier.padding(bottom = 12.dp),
             )
+
             HomeChipList(
                 chipContentList = uiState.chipContentList,
             )
-            // TODO: 멜론 차트 그리드
+
+            HomeMelonChartGrid(
+                melonChartList = uiState.melonChartList,
+                gridState = melonChartGridState,
+                modifier = Modifier.padding(vertical = 20.dp),
+            )
+
             HomeChartButton(
                 modifier = Modifier.padding(start = 20.dp, end = 20.dp, bottom = 60.dp),
             )
@@ -366,10 +378,53 @@ private fun HomeScreenPreview() {
                                 "월드뮤직",
                                 "한강에서 즐기기 좋은 음악",
                             ),
+                        melonChartList = persistentListOf(
+                            MelonChartItemData(
+                                imgUrl = "TODO()",
+                                title = "Blue Valentine",
+                                singer = "NMIXX",
+                            ),
+                            MelonChartItemData(
+                                imgUrl = "TODO()",
+                                title = "Blue Valentine",
+                                singer = "NMIXX",
+                            ),
+                            MelonChartItemData(
+                                imgUrl = "TODO()",
+                                title = "Blue Valentine",
+                                singer = "NMIXX",
+                            ),
+                            MelonChartItemData(
+                                imgUrl = "TODO()",
+                                title = "Blue Valentine",
+                                singer = "NMIXX",
+                            ),
+                            MelonChartItemData(
+                                imgUrl = "TODO()",
+                                title = "Blue Valentine",
+                                singer = "NMIXX",
+                            ),
+                            MelonChartItemData(
+                                imgUrl = "TODO()",
+                                title = "Blue Valentine",
+                                singer = "NMIXX",
+                            ),
+                            MelonChartItemData(
+                                imgUrl = "TODO()",
+                                title = "Blue Valentine",
+                                singer = "NMIXX",
+                            ),
+                            MelonChartItemData(
+                                imgUrl = "TODO()",
+                                title = "Blue Valentine",
+                                singer = "NMIXX",
+                            ),
+                        ),
                     ),
                 onMixUpClick = {},
                 popularGridState = rememberLazyGridState(),
                 onNewSongFilterClick = {},
+                melonChartGridState = rememberLazyGridState(),
             )
         }
     }

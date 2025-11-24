@@ -5,6 +5,7 @@ import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import org.sopt.melon.R
 import org.sopt.melon.presentation.home.model.BannerData
+import org.sopt.melon.presentation.home.model.MelonChartItemData
 import org.sopt.melon.presentation.home.model.NewSongItemData
 import org.sopt.melon.presentation.home.model.PopularSongData
 import org.sopt.melon.presentation.home.model.PreferenceSongCardData
@@ -27,5 +28,5 @@ data class HomeUiState(
     val newSongData: ImmutableList<NewSongItemData> = persistentListOf(),
     val chipContentList: ImmutableList<String> = persistentListOf(),
     val selectedNewSongTab: NewSongFilter = NewSongFilter.ALL,
-    // 멜론 차트 데이터
+    val melonChartList: ImmutableList<MelonChartItemData> = persistentListOf(),
 )
