@@ -40,6 +40,7 @@ import org.sopt.melon.presentation.home.model.NewSongItemData
 import org.sopt.melon.presentation.home.model.PopularSongData
 import org.sopt.melon.presentation.home.model.PreferenceSongCardData
 import org.sopt.melon.presentation.home.model.RecommendSongItemData
+import org.sopt.melon.presentation.home.type.NewSongFilter
 
 @Composable
 fun HomeRoute(

@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import org.sopt.melon.R
 import org.sopt.melon.core.common.util.noRippleClickable
 import org.sopt.melon.core.designsystem.theme.MELONTheme
-import org.sopt.melon.presentation.home.NewSongFilter
+import org.sopt.melon.presentation.home.type.NewSongFilter
 
 @Composable
 fun HomeNewSongTitle(

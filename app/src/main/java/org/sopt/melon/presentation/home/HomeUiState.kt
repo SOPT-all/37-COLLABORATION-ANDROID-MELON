@@ -9,6 +9,7 @@ import org.sopt.melon.presentation.home.model.NewSongItemData
 import org.sopt.melon.presentation.home.model.PopularSongData
 import org.sopt.melon.presentation.home.model.PreferenceSongCardData
 import org.sopt.melon.presentation.home.model.RecommendSongItemData
+import org.sopt.melon.presentation.home.type.NewSongFilter
 
 @Immutable
 data class HomeUiState(
@@ -28,11 +29,3 @@ data class HomeUiState(
     val selectedNewSongFilter: NewSongFilter = NewSongFilter.ALL,
     // 멜론 차트 데이터
 )
-
-enum class NewSongFilter(
-    val displayName: String,
-) {
-    ALL(displayName = "전체"),
-    DOMESTIC(displayName = "국내"),
-    OVERSEAS(displayName = "해외"),
-}
