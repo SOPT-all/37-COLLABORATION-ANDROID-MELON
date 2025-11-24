@@ -145,7 +145,9 @@ fun MixUpItemPreview() {
             musicInfo = MusicInfo(
                 image = R.drawable.img_chart1_42,
                 title = "Blue Valentine",
-                singer = "NMIXX"
+                singer = "NMIXX",
+                isPlaying = false,
+                isSelected = true
             ),
             isPlaying = isPlaying,
             isSelected = isSelected,
@@ -163,7 +165,10 @@ fun MusicPreview() {
         musicInfo = MusicInfo(
             image = R.drawable.img_chart1_42,
             title = "Blue Valentine",
-            singer = "NMIXX"),
+            singer = "NMIXX",
+            isPlaying = false,
+            isSelected = false
+        ),
         isPlaying = true,
         modifier = Modifier
     )

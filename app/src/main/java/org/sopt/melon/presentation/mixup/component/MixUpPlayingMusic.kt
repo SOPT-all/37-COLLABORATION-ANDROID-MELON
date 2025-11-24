@@ -146,7 +146,10 @@ fun MixUpPlayingMusicPreview() {
         musicInfo = MusicInfo(
             image = R.drawable.img_chart1_42,
             title = "Blue Valentine",
-            singer = "NMIXX"),
+            singer = "NMIXX",
+            isPlaying = false,
+            isSelected = true
+        ),
         onAddAllClick = {},
         isAllSelected = true,
         onAllSelectClick = {},
