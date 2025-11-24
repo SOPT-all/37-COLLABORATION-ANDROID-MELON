@@ -16,7 +16,7 @@ class HomeViewModel @Inject constructor() : ViewModel() {
     fun onNewSongFilterClick(newSongFilter: NewSongFilter) {
         _uiState.update { currentState ->
             currentState.copy(
-                selectedNewSongFilter = newSongFilter,
+                selectedNewSongTab = newSongFilter,
             )
         }
     }

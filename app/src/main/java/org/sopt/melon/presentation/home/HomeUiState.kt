@@ -26,6 +26,6 @@ data class HomeUiState(
     val bannerList: ImmutableList<BannerData> = persistentListOf(),
     val newSongData: ImmutableList<NewSongItemData> = persistentListOf(),
     val chipContentList: ImmutableList<String> = persistentListOf(),
-    val selectedNewSongFilter: NewSongFilter = NewSongFilter.ALL,
+    val selectedNewSongTab: NewSongFilter = NewSongFilter.ALL,
     // 멜론 차트 데이터
 )

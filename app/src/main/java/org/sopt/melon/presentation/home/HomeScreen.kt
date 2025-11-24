@@ -167,7 +167,7 @@ private fun HomeScreen(
 
         item {
             HomeNewSongTitle(
-                selectedNewSongFilter = uiState.selectedNewSongFilter,
+                selectedNewSongTab = uiState.selectedNewSongTab,
                 onFilterClick = onNewSongFilterClick,
                 modifier =
                     Modifier

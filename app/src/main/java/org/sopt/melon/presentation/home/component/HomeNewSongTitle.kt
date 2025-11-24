@@ -19,7 +19,7 @@ import org.sopt.melon.presentation.home.type.NewSongFilter
 
 @Composable
 fun HomeNewSongTitle(
-    selectedNewSongFilter: NewSongFilter,
+    selectedNewSongTab: NewSongFilter,
     onFilterClick: (NewSongFilter) -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -38,8 +38,8 @@ fun HomeNewSongTitle(
         Spacer(Modifier.width(8.dp))
 
         FilterTab(
-            selectedNewSongFilter = selectedNewSongFilter,
-            onFilterClick = onFilterClick,
+            selectedNewSongTab = selectedNewSongTab,
+            onTabClick = onFilterClick,
         )
 
         Spacer(Modifier.weight(1f))
@@ -54,20 +54,20 @@ fun HomeNewSongTitle(
 
 @Composable
 private fun FilterTab(
-    selectedNewSongFilter: NewSongFilter,
-    onFilterClick: (NewSongFilter) -> Unit,
+    selectedNewSongTab: NewSongFilter,
+    onTabClick: (NewSongFilter) -> Unit,
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(6.dp),
     ) {
         NewSongFilter.entries.forEachIndexed { index, filter ->
-            val isSelected = filter == selectedNewSongFilter
+            val isSelected = filter == selectedNewSongTab
             Text(
                 text = filter.displayName,
                 style = if (isSelected) MELONTheme.typography.body.sb_16 else MELONTheme.typography.body.m_14,
                 color = if (isSelected) MELONTheme.colors.primary else MELONTheme.colors.gray200,
-                modifier = Modifier.noRippleClickable { onFilterClick(filter) },
+                modifier = Modifier.noRippleClickable { onTabClick(filter) },
             )
 
             if (index != NewSongFilter.entries.lastIndex) {
@@ -86,7 +86,7 @@ private fun FilterTab(
 private fun HomeNewSongTitlePreview() {
     MELONTheme {
         HomeNewSongTitle(
-            selectedNewSongFilter = NewSongFilter.ALL,
+            selectedNewSongTab = NewSongFilter.ALL,
             onFilterClick = {},
         )
     }
