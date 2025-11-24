@@ -72,7 +72,7 @@ private fun FilterTab(
 
             if (index != NewSongFilter.entries.lastIndex) {
                 Text(
-                    text = "|",
+                    text = stringResource(R.string.home_new_song_title_divider),
                     style = MELONTheme.typography.caption.r_12,
                     color = MELONTheme.colors.gray400,
                 )

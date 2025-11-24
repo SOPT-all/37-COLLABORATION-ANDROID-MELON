@@ -10,6 +10,7 @@
     <string name="home_melon_chart_title">멜론차트</string>
     <string name="home_title_all">전체보기</string>
     <string name="home_new_song_title">최신음악</string>
+    <string name="home_new_song_title_divider">|</string>
     <!--ForYou  -->
     <string name="foryou">ForYou</string>
     <!--MixUp   -->
