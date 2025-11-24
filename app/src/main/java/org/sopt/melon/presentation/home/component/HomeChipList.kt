@@ -27,21 +27,15 @@ fun HomeChipList(
     modifier: Modifier = Modifier,
 ) {
     Row(
-        horizontalArrangement =
-            Arrangement
-                .spacedBy(4.dp),
-        modifier = modifier.horizontalScroll(rememberScrollState()),
+        modifier = modifier.horizontalScroll(rememberScrollState())
+            .padding(horizontal = 20.dp),
     ) {
-        Spacer(Modifier.width(16.dp))
-
         chipContentList.forEachIndexed { index, content ->
             HomeChip(
                 content = content,
                 status = if (index == 0) ChipStatus.SELECTED else ChipStatus.DEFAULT,
             )
         }
-
-        Spacer(Modifier.width(16.dp))
     }
 }
 
