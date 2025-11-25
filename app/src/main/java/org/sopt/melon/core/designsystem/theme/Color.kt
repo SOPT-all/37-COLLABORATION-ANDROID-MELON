@@ -55,8 +55,16 @@ val LightGray = Color(0xFF70737C)
 // Gradient Color
 val GradientLine =
     Brush.linearGradient(
-        0.0f to LightGray,
-        0.3f to LightGray.copy(alpha = 0f),
+        0.0f to LightGray.copy(alpha = 0.3f),
+        0.53f to LightGray.copy(alpha = 0f),
+        1.0f to LightGray.copy(alpha = 0.3f),
+    )
+
+val GradientVerticalLine =
+    Brush.verticalGradient(
+        0.0f to LightGray.copy(alpha = 0.3f),
+        0.5f to LightGray.copy(alpha = 0f),
+        1.0f to LightGray.copy(alpha = 0.3f),
     )
 
 val Gradient1 =
@@ -78,6 +86,12 @@ val Gradient3 =
         0.0f to BlueGray,
         0.53f to Gray500,
         1.0f to Background,
+    )
+
+val Gradient4 =
+    Brush.verticalGradient(
+        0.4f to Navy.copy(alpha = 0f),
+        0.65f to Navy,
     )
 
 @Immutable
@@ -114,9 +128,11 @@ data class MelonColors(
     val yellow: Color = Yellow,
     val redOrange: Color = RedOrange,
     val gradientLine: Brush = GradientLine,
+    val gradientVerticalLine: Brush = GradientVerticalLine,
     val gradient1: Brush = Gradient1,
     val gradient2: Brush = Gradient2,
     val gradient3: Brush = Gradient3,
+    val gradient4: Brush = Gradient4,
 )
 
 val defaultMelonColors =
@@ -153,9 +169,11 @@ val defaultMelonColors =
         yellow = Yellow,
         redOrange = RedOrange,
         gradientLine = GradientLine,
+        gradientVerticalLine = GradientVerticalLine,
         gradient1 = Gradient1,
         gradient2 = Gradient2,
         gradient3 = Gradient3,
+        gradient4 = Gradient4,
     )
 
 val LocalMelonColorsProvider = staticCompositionLocalOf { defaultMelonColors }
