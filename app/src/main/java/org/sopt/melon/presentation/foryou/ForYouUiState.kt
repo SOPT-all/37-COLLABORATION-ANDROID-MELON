@@ -11,6 +11,7 @@ data class ForYouUiState(
         NewestAlbumData(
             title = "",
             imageUrl = "",
+            coverImageUrl = "",
             newestMusicList = persistentListOf(),
         ),
 )
