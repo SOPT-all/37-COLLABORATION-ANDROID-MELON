@@ -4,8 +4,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import org.sopt.melon.data.remote.datasource.DummyDataSource
-import org.sopt.melon.data.remote.datasourceimpl.DummyDataSourceImpl
+import org.sopt.melon.data.remote.datasource.MusicDataSource
+import org.sopt.melon.data.remote.datasourceimpl.MusicDataSourceImpl
 import javax.inject.Singleton
 
 @Module
@@ -13,7 +13,7 @@ import javax.inject.Singleton
 abstract class DataSourceModule {
     @Binds
     @Singleton
-    abstract fun bindsDummyDataSource(
-        dataSourceImpl: DummyDataSourceImpl,
-    ): DummyDataSource
+    abstract fun bindsMusicDataSource(
+        dataSourceImpl: MusicDataSourceImpl,
+    ): MusicDataSource
 }
