@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.sopt.melon.R
@@ -67,7 +68,11 @@ private fun FilterTab(
                 text = filter.displayName,
                 style = if (isSelected) MELONTheme.typography.body.sb_16 else MELONTheme.typography.body.m_14,
                 color = if (isSelected) MELONTheme.colors.primary else MELONTheme.colors.gray200,
-                modifier = Modifier.noRippleClickable { onTabClick(filter) },
+                textAlign = TextAlign.Center,
+                modifier =
+                    Modifier
+                        .width(28.dp)
+                        .noRippleClickable { onTabClick(filter) },
             )
 
             if (index != NewSongFilter.entries.lastIndex) {
