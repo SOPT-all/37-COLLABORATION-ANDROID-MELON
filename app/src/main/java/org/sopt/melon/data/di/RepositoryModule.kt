@@ -4,8 +4,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import org.sopt.melon.data.repository.DummyRepository
-import org.sopt.melon.data.repositoryimpl.DummyRepositoryImpl
+import org.sopt.melon.data.repository.MusicRepository
+import org.sopt.melon.data.repositoryimpl.MusicRepositoryImpl
 import javax.inject.Singleton
 
 @Module
@@ -13,7 +13,7 @@ import javax.inject.Singleton
 abstract class RepositoryModule {
     @Binds
     @Singleton
-    abstract fun bindsDummyRepository(
-        dummyRepositoryImpl: DummyRepositoryImpl,
-    ): DummyRepository
+    abstract fun bindsMusicRepository(
+        musicRepositoryImpl: MusicRepositoryImpl,
+    ): MusicRepository
 }
