@@ -1,13 +1,18 @@
 package org.sopt.melon.presentation.foryou.component
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -16,16 +21,23 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import kotlinx.collections.immutable.persistentListOf
+import org.sopt.melon.R.drawable.ic_preview
+import org.sopt.melon.R.drawable.img_mixup_24
 import org.sopt.melon.R.drawable.img_newest_album_background
 import org.sopt.melon.R.drawable.img_newest_title_album
 import org.sopt.melon.R.string.foryou_newest_album_title
+import org.sopt.melon.R.string.foryou_newest_mixup_button
+import org.sopt.melon.R.string.foryou_newest_preview_button
 import org.sopt.melon.core.designsystem.theme.MELONTheme
 import org.sopt.melon.presentation.foryou.model.NewestAlbumData
 import org.sopt.melon.presentation.foryou.model.NewestMusicItemData
@@ -112,9 +124,101 @@ fun ForYouNewestContent(
                             isTitle = idx == 0,
                         )
                     }
+
+                    Spacer(Modifier.height(6.dp))
+
+                    Row(
+                        modifier =
+                            Modifier
+                                .fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    ) {
+                        ForYouNewestButton(
+                            text = stringResource(foryou_newest_preview_button),
+                            textColor = MELONTheme.colors.white,
+                            backgroundColor = Color.Transparent,
+                            borderColor = MELONTheme.colors.gray200,
+                            leadingIcon = {
+                                Icon(
+                                    imageVector = ImageVector.vectorResource(ic_preview),
+                                    contentDescription = null,
+                                    tint = Color.Unspecified,
+                                    modifier =
+                                        Modifier
+                                            .size(24.dp),
+                                )
+                            },
+                            modifier =
+                                Modifier
+                                    .weight(1f),
+                        )
+
+                        ForYouNewestButton(
+                            text = stringResource(foryou_newest_mixup_button),
+                            textColor = MELONTheme.colors.black,
+                            backgroundColor = MELONTheme.colors.white,
+                            borderColor = MELONTheme.colors.white,
+                            leadingIcon = {
+                                Icon(
+                                    painter = painterResource(img_mixup_24),
+                                    contentDescription = null,
+                                    tint = Color.Unspecified,
+                                    modifier =
+                                        Modifier
+                                            .size(32.dp),
+                                )
+                            },
+                            modifier =
+                                Modifier
+                                    .weight(1f),
+                        )
+                    }
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun ForYouNewestButton(
+    text: String,
+    textColor: Color,
+    backgroundColor: Color,
+    borderColor: Color,
+    leadingIcon: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Row(
+        modifier =
+            modifier
+                .background(
+                    color = backgroundColor,
+                    shape = RoundedCornerShape(4.dp),
+                ).border(
+                    width = 0.3.dp,
+                    color = borderColor,
+                    shape = RoundedCornerShape(4.dp),
+                ),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement =
+            Arrangement
+                .spacedBy(
+                    space = 4.dp,
+                    alignment = Alignment.CenterHorizontally,
+                ),
+    ) {
+        leadingIcon.invoke()
+
+        Text(
+            text = text,
+            style = MELONTheme.typography.body.r_14,
+            color = textColor,
+            modifier =
+                Modifier
+                    .padding(
+                        vertical = 8.5.dp,
+                    ),
+        )
     }
 }
 
