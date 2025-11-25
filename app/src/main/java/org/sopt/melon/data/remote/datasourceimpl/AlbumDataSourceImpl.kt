@@ -9,6 +9,5 @@ import javax.inject.Inject
 class AlbumDataSourceImpl @Inject constructor(
     private val service: AlbumService,
 ) : AlbumDataSource {
-    override suspend fun getAlbum(albumId: Int): BaseResponse<AlbumDto> =
-        service.getAlbum(albumId = albumId)
+    override suspend fun getAlbum(albumId: Int): BaseResponse<AlbumDto> = service.getAlbum(albumId = albumId)
 }

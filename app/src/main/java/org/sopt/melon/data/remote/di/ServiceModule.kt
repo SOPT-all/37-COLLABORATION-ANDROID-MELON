@@ -14,11 +14,9 @@ import javax.inject.Singleton
 object ServiceModule {
     @Provides
     @Singleton
-    fun providesMusicService(retrofit: Retrofit): MusicService =
-        retrofit.create(MusicService::class.java)
+    fun providesMusicService(retrofit: Retrofit): MusicService = retrofit.create(MusicService::class.java)
 
     @Provides
     @Singleton
-    fun providesAlbumService(retrofit: Retrofit): AlbumService =
-        retrofit.create(AlbumService::class.java)
+    fun providesAlbumService(retrofit: Retrofit): AlbumService = retrofit.create(AlbumService::class.java)
 }
