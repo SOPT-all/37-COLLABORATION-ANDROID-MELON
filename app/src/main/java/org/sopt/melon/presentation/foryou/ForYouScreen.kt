@@ -10,11 +10,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
 fun ForYouRoute(
     innerPadding: PaddingValues,
     navigateToMixUp: () -> Unit,
+    viewModel: ForYouViewModel = hiltViewModel(),
 ) {
     ForYouScreen(
         modifier =
