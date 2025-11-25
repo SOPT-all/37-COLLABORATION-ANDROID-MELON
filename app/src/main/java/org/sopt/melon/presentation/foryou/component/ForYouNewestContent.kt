@@ -59,7 +59,7 @@ fun ForYouNewestContent(
 
         Box {
             AsyncImage(
-                model = newestAlbum.imageUrl,
+                model = newestAlbum.coverImageUrl,
                 contentDescription = null,
                 error = painterResource(img_newest_album_background),
                 modifier =
@@ -263,6 +263,7 @@ private fun ForYouNewestCardPreview() {
                 newestAlbum =
                     NewestAlbumData(
                         imageUrl = "",
+                        coverImageUrl = "",
                         title = "THERE'S A GHOST IN MY\nHOUSE.",
                         newestMusicList =
                             persistentListOf(
