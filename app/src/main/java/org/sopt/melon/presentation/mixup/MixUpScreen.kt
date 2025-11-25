@@ -14,7 +14,7 @@ import org.sopt.melon.core.designsystem.theme.MELONTheme
 import org.sopt.melon.presentation.mixup.component.MixUpList
 import org.sopt.melon.presentation.mixup.component.MixUpPlayingMusic
 import org.sopt.melon.presentation.mixup.component.MixUpTopBar
-import org.sopt.melon.presentation.mixup.data.MusicInfo
+import org.sopt.melon.presentation.mixup.model.MusicInfo
 
 @Composable
 fun MixUpRoute(

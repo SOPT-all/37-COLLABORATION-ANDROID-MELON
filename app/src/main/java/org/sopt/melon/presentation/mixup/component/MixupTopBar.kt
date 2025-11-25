@@ -15,6 +15,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -22,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import org.sopt.melon.R
 import org.sopt.melon.core.common.util.noRippleClickable
 import org.sopt.melon.core.designsystem.theme.MELONTheme
+import org.sopt.melon.presentation.mixup.type.MixUpTopBar
 
 @Composable
 fun MixUpTopBar(
@@ -31,11 +33,10 @@ fun MixUpTopBar(
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween,
         modifier = modifier.fillMaxWidth(),
     ) {
-        MixUpTopbarTexts()
-
-        Spacer(Modifier.size(37.dp))
+        MixUpTopbarTab()
 
         MixUpTopbarIcons(
             onSearchClick = onSearchClick,
@@ -45,75 +46,39 @@ fun MixUpTopBar(
 }
 
 @Composable
-fun MixUpTopbarTexts(
+fun MixUpTopbarTab(
     modifier: Modifier = Modifier,
 ) {
-    var current by remember { mutableStateOf(MixUpTopBarActivated.MIXUP) }
+    var current by remember { mutableStateOf(MixUpTopBar.MIXUP) }
 
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(12.dp),
         modifier = modifier,
     ) {
-        Text(
-            text = "재생목록",
-            style = MELONTheme.typography.heading.b_20,
-            color =
-                if (current == MixUpTopBarActivated.PLAYLIST) {
-                    MELONTheme.colors.white
-                } else {
-                    MELONTheme.colors.gray200
-                },
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
-            modifier =
-                Modifier.noRippleClickable(
-                    { current = MixUpTopBarActivated.PLAYLIST },
-                ),
-        )
-        Text(
-            text = "음악서랍",
-            style = MELONTheme.typography.heading.b_20,
-            color =
-                if (current == MixUpTopBarActivated.MUSIC_SHELF) {
-                    MELONTheme.colors.white
-                } else {
-                    MELONTheme.colors.gray200
-                },
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
-            modifier =
-                Modifier.noRippleClickable(
-                    { current = MixUpTopBarActivated.MUSIC_SHELF },
-                ),
-        )
-        Text(
-            text = "믹스업",
-            style = MELONTheme.typography.heading.b_20,
-            color =
-                if (current == MixUpTopBarActivated.MIXUP) {
-                    MELONTheme.colors.white
-                } else {
-                    MELONTheme.colors.gray200
-                },
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
-            modifier =
-                Modifier.noRippleClickable(
-                    { current = MixUpTopBarActivated.MIXUP },
-                ),
-        )
+        MixUpTopBar.entries.forEach {
+            Text(
+                text = stringResource(it.displayName),
+                style = MELONTheme.typography.heading.b_20,
+                color =
+                    if (current == it) {
+                        MELONTheme.colors.white
+                    } else {
+                        MELONTheme.colors.gray200
+                    },
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                modifier =
+                    Modifier.noRippleClickable(
+                        { current = MixUpTopBar.PLAYLIST },
+                    ),
+            )
+        }
     }
 }
 
-private enum class MixUpTopBarActivated {
-    PLAYLIST,
-    MUSIC_SHELF,
-    MIXUP,
-}
-
 @Composable
-fun MixUpTopbarIcons(
+private fun MixUpTopbarIcons(
     onSearchClick: () -> Unit,
     onChevronClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -130,7 +95,8 @@ fun MixUpTopbarIcons(
         Image(
             imageVector = ImageVector.vectorResource(R.drawable.ic_chevron_down),
             contentDescription = null,
-            modifier = Modifier.noRippleClickable(onChevronClick),
+            modifier = Modifier
+                .noRippleClickable(onChevronClick),
         )
     }
 }

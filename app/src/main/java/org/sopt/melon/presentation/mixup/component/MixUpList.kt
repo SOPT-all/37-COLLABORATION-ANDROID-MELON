@@ -14,7 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.sopt.melon.R
 import org.sopt.melon.core.designsystem.theme.MELONTheme
-import org.sopt.melon.presentation.mixup.data.MusicInfo
+import org.sopt.melon.presentation.mixup.model.MusicInfo
 
 @Composable
 fun MixUpList(

@@ -1,6 +1,5 @@
 package org.sopt.melon.presentation.mixup.component
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -11,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -20,7 +20,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.paint
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -29,7 +32,7 @@ import androidx.compose.ui.unit.dp
 import org.sopt.melon.R
 import org.sopt.melon.core.common.util.noRippleClickable
 import org.sopt.melon.core.designsystem.theme.MELONTheme
-import org.sopt.melon.presentation.mixup.data.MusicInfo
+import org.sopt.melon.presentation.mixup.model.MusicInfo
 
 @Composable
 fun MixUpItem(
@@ -52,7 +55,7 @@ fun MixUpItem(
             MixUpCheckBox(
                 isSelected = isSelected,
                 onSelectClick = onSelectClick,
-                modifier = Modifier.size(20.dp),
+                modifier = Modifier.size(24.dp),
             )
 
             Spacer(Modifier.size(10.dp))
@@ -63,9 +66,10 @@ fun MixUpItem(
             )
         }
 
-        Image(
+        Icon(
             imageVector = ImageVector.vectorResource(R.drawable.ic_menu),
             contentDescription = null,
+            tint = Color.Unspecified,
             modifier = Modifier.noRippleClickable(onMenuClick),
         )
     }
@@ -85,12 +89,10 @@ private fun Music(
             modifier =
                 Modifier
                     .size(42.dp)
-                    .clip(RoundedCornerShape(4.dp)),
+                    .clip(RoundedCornerShape(4.dp))
+                    .paint(painterResource(musicInfo.image),
+                        contentScale = ContentScale.Crop),
         ) {
-            Image(
-                painter = painterResource(musicInfo.image),
-                contentDescription = null,
-            )
             if (isPlaying) {
                 Box(
                     modifier =
@@ -98,9 +100,10 @@ private fun Music(
                             .fillMaxSize()
                             .background(MELONTheme.colors.opacity2),
                 )
-                Image(
+                Icon(
                     imageVector = ImageVector.vectorResource(R.drawable.ic_playing),
                     contentDescription = null,
+                    tint = Color.Unspecified
                 )
             }
         }

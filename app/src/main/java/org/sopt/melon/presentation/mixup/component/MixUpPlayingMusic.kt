@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -22,7 +23,7 @@ import androidx.compose.ui.unit.dp
 import org.sopt.melon.R
 import org.sopt.melon.core.common.util.noRippleClickable
 import org.sopt.melon.core.designsystem.theme.MELONTheme
-import org.sopt.melon.presentation.mixup.data.MusicInfo
+import org.sopt.melon.presentation.mixup.model.MusicInfo
 
 @Composable
 fun MixUpPlayingMusic(
@@ -47,14 +48,18 @@ fun MixUpPlayingMusic(
         Spacer(Modifier.size(16.dp))
 
         // select all
-        Row {
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             MixUpCheckBox(
                 isSelected = isAllSelected,
                 onSelectClick = onAllSelectClick,
             )
 
+            Spacer(Modifier.size(4.dp))
+
             Text(
-                text = "전체선택",
+                text = stringResource(R.string.mix_up_select_all),
                 style = MELONTheme.typography.caption.r_12,
                 color = MELONTheme.colors.white,
                 maxLines = 1,
@@ -87,7 +92,7 @@ private fun MixUpPlayingMusicTopBar(
         modifier = modifier,
     ) {
         Text(
-            text = "재생 중인 곡",
+            text = stringResource(R.string.mix_up_current_sing),
             style = MELONTheme.typography.body.sb_16,
             color = MELONTheme.colors.white,
             maxLines = 1,
@@ -115,7 +120,8 @@ fun AllSelectButton(
                     width = 0.5.dp,
                     color = MELONTheme.colors.gray300,
                     shape = RoundedCornerShape(4.dp),
-                ).padding(start = 6.dp, end = 6.dp, top = 4.dp, bottom = 4.dp),
+                )
+                .padding(start = 6.dp, end = 6.dp, top = 4.dp, bottom = 4.dp),
     ) {
         Image(
             imageVector = ImageVector.vectorResource(R.drawable.ic_plus),
