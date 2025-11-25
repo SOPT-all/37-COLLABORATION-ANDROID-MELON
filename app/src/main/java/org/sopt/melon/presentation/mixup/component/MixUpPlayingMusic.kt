@@ -10,10 +10,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
@@ -23,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import org.sopt.melon.R
 import org.sopt.melon.core.common.util.noRippleClickable
 import org.sopt.melon.core.designsystem.theme.MELONTheme
+import org.sopt.melon.core.designsystem.theme.Primary
 import org.sopt.melon.presentation.mixup.model.MusicInfo
 
 @Composable
@@ -107,7 +110,7 @@ private fun MixUpPlayingMusicTopBar(
 }
 
 @Composable
-fun AllSelectButton(
+private fun AllSelectButton(
     onAllSelectClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -123,8 +126,9 @@ fun AllSelectButton(
                 )
                 .padding(start = 6.dp, end = 6.dp, top = 4.dp, bottom = 4.dp),
     ) {
-        Image(
+        Icon(
             imageVector = ImageVector.vectorResource(R.drawable.ic_plus),
+            tint = Color.Unspecified,
             contentDescription = null,
             modifier =
                 Modifier
@@ -146,11 +150,11 @@ fun AllSelectButton(
 
 @Preview(showBackground = true, backgroundColor = 0x121212)
 @Composable
-fun MixUpPlayingMusicPreview() {
+private fun MixUpPlayingMusicPreview() {
     MixUpPlayingMusic(
         musicInfo =
             MusicInfo(
-                image = R.drawable.img_chart1_42,
+                imageUrl = "TODO()",
                 title = "Blue Valentine",
                 singer = "NMIXX",
                 isPlaying = false,

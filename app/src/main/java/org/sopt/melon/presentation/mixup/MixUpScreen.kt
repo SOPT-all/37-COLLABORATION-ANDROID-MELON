@@ -49,7 +49,7 @@ private fun MixUpScreen(
         MixUpPlayingMusic(
             musicInfo =
                 MusicInfo(
-                    image = R.drawable.img_chart1_42,
+                    imageUrl = "TODO()",
                     title = "Blue Valentine",
                     singer = "NMIXX",
                     isPlaying = true,
@@ -67,63 +67,63 @@ private fun MixUpScreen(
             musicInfos =
                 listOf(
                     MusicInfo(
-                        image = R.drawable.img_chart1_42,
+                        imageUrl = "TODO()",
                         title = "Blue Valentine",
                         singer = "NMIXX",
                         isPlaying = true,
                         isSelected = false,
                     ),
                     MusicInfo(
-                        image = R.drawable.img_chart1_42,
+                        imageUrl = "TODO()",
                         title = "Blue Valentine",
                         singer = "NMIXX",
                         isPlaying = false,
                         isSelected = true,
                     ),
                     MusicInfo(
-                        image = R.drawable.img_chart1_42,
+                        imageUrl = "TODO()",
                         title = "Blue Valentine",
                         singer = "NMIXX",
                         isPlaying = true,
                         isSelected = true,
                     ),
                     MusicInfo(
-                        image = R.drawable.img_chart1_42,
+                        imageUrl = "TODO()",
                         title = "Blue Valentine",
                         singer = "NMIXX",
                         isPlaying = true,
                         isSelected = false,
                     ),
                     MusicInfo(
-                        image = R.drawable.img_chart1_42,
+                        imageUrl = "TODO()",
                         title = "Blue Valentine",
                         singer = "NMIXX",
                         isPlaying = false,
                         isSelected = true,
                     ),
                     MusicInfo(
-                        image = R.drawable.img_chart1_42,
+                        imageUrl = "TODO(0",
                         title = "Blue Valentine",
                         singer = "NMIXX",
                         isPlaying = true,
                         isSelected = true,
                     ),
                     MusicInfo(
-                        image = R.drawable.img_chart1_42,
+                        imageUrl = "TODO()",
                         title = "Blue Valentine",
                         singer = "NMIXX",
                         isPlaying = false,
                         isSelected = true,
                     ),
                     MusicInfo(
-                        image = R.drawable.img_chart1_42,
+                        imageUrl = "TODO()",
                         title = "Blue Valentine",
                         singer = "NMIXX",
                         isPlaying = false,
                         isSelected = false,
                     ),
                     MusicInfo(
-                        image = R.drawable.img_chart1_42,
+                        imageUrl = "TODO()",
                         title = "Blue Valentine",
                         singer = "NMIXX",
                         isPlaying = true,

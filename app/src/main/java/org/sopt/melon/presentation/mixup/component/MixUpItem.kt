@@ -29,6 +29,7 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil3.compose.AsyncImage
 import org.sopt.melon.R
 import org.sopt.melon.core.common.util.noRippleClickable
 import org.sopt.melon.core.designsystem.theme.MELONTheme
@@ -90,9 +91,14 @@ private fun Music(
                 Modifier
                     .size(42.dp)
                     .clip(RoundedCornerShape(4.dp))
-                    .paint(painterResource(musicInfo.image),
-                        contentScale = ContentScale.Crop),
         ) {
+            AsyncImage(
+                model = musicInfo.imageUrl,
+                error = painterResource(R.drawable.img_chart1_42),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+            )
+
             if (isPlaying) {
                 Box(
                     modifier =
@@ -133,7 +139,7 @@ private fun Music(
 
 @Preview(showBackground = true, backgroundColor = 0x121212)
 @Composable
-fun MixUpItemPreview() {
+private fun MixUpItemPreview() {
     var isPlaying by remember { mutableStateOf(false) }
     var isSelected by remember { mutableStateOf(false) }
 
@@ -149,7 +155,7 @@ fun MixUpItemPreview() {
         MixUpItem(
             musicInfo =
                 MusicInfo(
-                    image = R.drawable.img_chart1_42,
+                    imageUrl = "TODO()",
                     title = "Blue Valentine",
                     singer = "NMIXX",
                     isPlaying = false,
@@ -166,11 +172,11 @@ fun MixUpItemPreview() {
 
 @Preview(showBackground = true)
 @Composable
-fun MusicPreview() {
+private fun MusicPreview() {
     Music(
         musicInfo =
             MusicInfo(
-                image = R.drawable.img_chart1_42,
+                imageUrl = "TODO()",
                 title = "Blue Valentine",
                 singer = "NMIXX",
                 isPlaying = false,

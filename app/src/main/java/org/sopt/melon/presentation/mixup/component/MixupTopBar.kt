@@ -46,7 +46,7 @@ fun MixUpTopBar(
 }
 
 @Composable
-fun MixUpTopbarTab(
+private fun MixUpTopbarTab(
     modifier: Modifier = Modifier,
 ) {
     var current by remember { mutableStateOf(MixUpTopBar.MIXUP) }
@@ -103,7 +103,7 @@ private fun MixUpTopbarIcons(
 
 @Preview(showBackground = true, backgroundColor = 0x12121212)
 @Composable
-fun MixUpBarPreview() {
+private fun MixUpBarPreview() {
     MixUpTopBar(
         onSearchClick = {},
         onChevronClick = {},
