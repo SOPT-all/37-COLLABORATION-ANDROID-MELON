@@ -15,6 +15,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.paint
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -33,18 +35,12 @@ fun ForYouMalangCard(
     Box(
         modifier =
             modifier
-                .clip(
-                    shape = RoundedCornerShape(8.dp),
-                ),
+                .aspectRatio(1f)
+                .paint(
+                    painter = painterResource(img_malang_card),
+                    contentScale = ContentScale.Crop,
+                ).clip(shape = RoundedCornerShape(8.dp)),
     ) {
-        Image(
-            painter = painterResource(img_malang_card),
-            contentDescription = null,
-            modifier =
-                Modifier
-                    .aspectRatio(1f),
-        )
-
         Row(
             modifier =
                 Modifier
