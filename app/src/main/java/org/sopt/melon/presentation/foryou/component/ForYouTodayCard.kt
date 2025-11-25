@@ -79,7 +79,7 @@ fun ForYouTodayCard(
                         bottom = 22.5.dp,
                     ),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Absolute.SpaceBetween,
+            horizontalArrangement = Arrangement.SpaceBetween,
         ) {
             Text(
                 text = stringResource(foryou_today_recommend_title),
