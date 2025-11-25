@@ -8,6 +8,17 @@
     <string name="home_topbar_chip_content">멜론혜택</string>
     <!--ForYou  -->
     <string name="foryou">ForYou</string>
+    <string name="foryou_recommend_button">추천 바로 듣기</string>
+    <string name="foryou_preference_button">취향 설정하기</string>
+    <string name="foryou_today_recommend_title">오늘의 추천</string>
+    <string name="foryou_my_preference_label">내 취향 기반</string>
+    <string name="foryou_situation_label">상황 기반</string>
+    <string name="foryou_reload_label">새로 고침</string>
+    <string name="foryou_custom_song_title">맞춤 선곡</string>
+    <string name="foryou_newest_album_title">팬맺은 아티스트의 최신앨범</string>
+    <string name="foryou_newest_chip_title">TITLE</string>
+    <string name="foryou_newest_preview_button">미리듣기</string>
+    <string name="foryou_newest_mixup_button">믹스업</string>
     <!--MixUp   -->
     <!--Search  -->
     <string name="search">탐색</string>
