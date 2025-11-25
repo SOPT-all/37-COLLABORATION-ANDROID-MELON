@@ -10,6 +10,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -44,6 +45,11 @@ fun ForYouRoute(
             actionLabel = stringResource(snackbar_move_action_label),
             onClick = navigateToMixUp,
         )
+
+    LaunchedEffect(Unit) {
+        viewModel.fetchCustomMusic()
+        viewModel.fetchAlbum()
+    }
 
     ForYouScreen(
         uiState = uiState,
