@@ -1,5 +1,11 @@
 package org.sopt.melon.presentation.mixup.navigation
 
+import androidx.compose.animation.core.FastOutLinearInEasing
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
@@ -13,11 +19,26 @@ fun NavController.navigateToMixUp(
 ) = navigate(MixUp, navOptions)
 
 fun NavGraphBuilder.mixUpGraph(
-    navigateUp: () -> Unit,
+    navigateToHome: () -> Unit,
+    innerPadding: PaddingValues
 ) {
-    composable<MixUp> {
+    composable<MixUp>(
+        enterTransition = {
+            slideInVertically(
+                initialOffsetY = { fullHeight -> fullHeight },
+                animationSpec = tween(300, easing = FastOutSlowInEasing)
+            )
+        },
+        popExitTransition = {
+            slideOutVertically(
+                targetOffsetY = { fullHeight -> fullHeight }, // 화면 아래로 이동
+                animationSpec = tween(300, easing = FastOutLinearInEasing)
+            )
+        }
+    ) {
         MixUpRoute(
-            navigateUp = navigateUp,
+            innerPadding = innerPadding,
+            onChevronClick = navigateToHome
         )
     }
 }
