@@ -41,7 +41,7 @@ fun MixUpItem(
     isPlaying: Boolean,
     isSelected: Boolean,
     onSelectClick: () -> Unit,
-    onMenuClick: () -> Unit,
+    draggableModifier: Modifier = Modifier,
     modifier: Modifier = Modifier,
 ) {
     Row(
@@ -71,7 +71,7 @@ fun MixUpItem(
             imageVector = ImageVector.vectorResource(R.drawable.ic_menu),
             contentDescription = null,
             tint = Color.Unspecified,
-            modifier = Modifier.noRippleClickable(onMenuClick),
+            modifier = draggableModifier,
         )
     }
 }
@@ -155,6 +155,7 @@ private fun MixUpItemPreview() {
         MixUpItem(
             musicInfo =
                 MusicInfo(
+                    id = 0,
                     imageUrl = "TODO()",
                     title = "Blue Valentine",
                     singer = "NMIXX",
@@ -164,7 +165,6 @@ private fun MixUpItemPreview() {
             isPlaying = isPlaying,
             isSelected = isSelected,
             onSelectClick = { isSelected = !isSelected },
-            onMenuClick = {},
             modifier = Modifier.size(width = 320.dp, height = 42.dp),
         )
     }
@@ -176,6 +176,7 @@ private fun MusicPreview() {
     Music(
         musicInfo =
             MusicInfo(
+                id = 1,
                 imageUrl = "TODO()",
                 title = "Blue Valentine",
                 singer = "NMIXX",

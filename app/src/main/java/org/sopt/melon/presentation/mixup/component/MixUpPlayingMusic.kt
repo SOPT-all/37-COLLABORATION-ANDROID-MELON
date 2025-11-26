@@ -36,7 +36,6 @@ fun MixUpPlayingMusic(
     onAllSelectClick: () -> Unit,
     isCurrentMusicSelected: Boolean,
     onSelectClick: () -> Unit,
-    onMenuClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -78,7 +77,6 @@ fun MixUpPlayingMusic(
             isPlaying = true,
             isSelected = isCurrentMusicSelected,
             onSelectClick = onSelectClick,
-            onMenuClick = onMenuClick,
             modifier = Modifier.fillMaxWidth(),
         )
     }
@@ -154,6 +152,7 @@ private fun MixUpPlayingMusicPreview() {
     MixUpPlayingMusic(
         musicInfo =
             MusicInfo(
+                id = 0,
                 imageUrl = "TODO()",
                 title = "Blue Valentine",
                 singer = "NMIXX",
@@ -165,7 +164,6 @@ private fun MixUpPlayingMusicPreview() {
         onAllSelectClick = {},
         isCurrentMusicSelected = false,
         onSelectClick = {},
-        onMenuClick = {},
         modifier = Modifier.size(width = 320.dp, height = 120.dp),
     )
 }
