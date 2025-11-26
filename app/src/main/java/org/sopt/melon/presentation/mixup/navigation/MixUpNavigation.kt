@@ -5,7 +5,6 @@ import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
@@ -19,8 +18,7 @@ fun NavController.navigateToMixUp(
 ) = navigate(MixUp, navOptions)
 
 fun NavGraphBuilder.mixUpGraph(
-    navigateToHome: () -> Unit,
-    innerPadding: PaddingValues,
+    navigateUp: () -> Unit,
 ) {
     composable<MixUp>(
         enterTransition = {
@@ -37,8 +35,7 @@ fun NavGraphBuilder.mixUpGraph(
         },
     ) {
         MixUpRoute(
-            innerPadding = innerPadding,
-            onChevronClick = navigateToHome,
+            navigateUp = navigateUp,
         )
     }
 }

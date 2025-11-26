@@ -28,7 +28,6 @@ import org.sopt.melon.core.designsystem.theme.MELONTheme
 import org.sopt.melon.presentation.drawer.drawerGraph
 import org.sopt.melon.presentation.foryou.navigation.forYouGraph
 import org.sopt.melon.presentation.home.navigation.homeGraph
-import org.sopt.melon.presentation.home.navigation.navigateToHome
 import org.sopt.melon.presentation.main.component.MainBottomBar
 import org.sopt.melon.presentation.mixup.navigation.mixUpGraph
 import org.sopt.melon.presentation.mixup.navigation.navigateToMixUp
@@ -125,8 +124,7 @@ private fun MainNavHost(
         shortCutGraph()
 
         mixUpGraph(
-            innerPadding = innerPadding,
-            navigateToHome = navigator.navController::navigateToHome,
+            navigateUp = navigator::navigateUp,
         )
     }
 }

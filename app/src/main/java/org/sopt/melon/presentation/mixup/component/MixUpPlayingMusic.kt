@@ -154,7 +154,6 @@ private fun MixUpPlayingMusicPreview() {
                 title = "Blue Valentine",
                 singer = "NMIXX",
                 isPlaying = false,
-                isSelected = true,
             ),
         onAddAllClick = {},
         isAllSelected = true,

@@ -36,11 +36,11 @@ import org.sopt.melon.presentation.mixup.model.MusicInfo
 @Composable
 fun MixUpItem(
     musicInfo: MusicInfo,
-    isPlaying: Boolean,
     isSelected: Boolean,
     onSelectClick: () -> Unit,
     draggableModifier: Modifier = Modifier,
     modifier: Modifier = Modifier,
+    isPlaying: Boolean = false,
 ) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -158,7 +158,6 @@ private fun MixUpItemPreview() {
                     title = "Blue Valentine",
                     singer = "NMIXX",
                     isPlaying = false,
-                    isSelected = true,
                 ),
             isPlaying = isPlaying,
             isSelected = isSelected,
@@ -179,7 +178,6 @@ private fun MusicPreview() {
                 title = "Blue Valentine",
                 singer = "NMIXX",
                 isPlaying = false,
-                isSelected = false,
             ),
         isPlaying = true,
         modifier = Modifier,

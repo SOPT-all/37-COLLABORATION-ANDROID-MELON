@@ -7,15 +7,12 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
@@ -31,8 +28,9 @@ import org.sopt.melon.presentation.mixup.utils.rememberDragDropState
 @Composable
 fun MixUpList(
     musicInfos: List<MusicInfo>,
+    selectedMusicIds: Set<Int>,
     onReorder: (Int, Int) -> Unit,
-    onSelectClick: (Long) -> Unit,
+    onSelectClick: (Int) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val listState = rememberLazyListState()
@@ -72,9 +70,9 @@ fun MixUpList(
                 ) { isDragging ->
 
                     MixUpItem(
-                        musicInfo = musicInfos[index],
-                        isPlaying = musicInfos[index].isPlaying,
-                        isSelected = musicInfos[index].isSelected,
+                        musicInfo = item,
+                        isPlaying = item.isPlaying,
+                        isSelected = selectedMusicIds.contains(item.id),
                         onSelectClick = { onSelectClick(item.id) },
                         draggableModifier =
                             Modifier.pointerInput(Unit) {
@@ -122,7 +120,6 @@ fun MixUpListPreview() {
                     title = "Blue Valentine",
                     singer = "NMIXX",
                     isPlaying = true,
-                    isSelected = false,
                 ),
                 MusicInfo(
                     id = 1,
@@ -130,7 +127,6 @@ fun MixUpListPreview() {
                     title = "Blue Valentine",
                     singer = "NMIXX",
                     isPlaying = false,
-                    isSelected = true,
                 ),
                 MusicInfo(
                     id = 2,
@@ -138,7 +134,6 @@ fun MixUpListPreview() {
                     title = "Blue Valentine",
                     singer = "NMIXX",
                     isPlaying = true,
-                    isSelected = true,
                 ),
                 MusicInfo(
                     id = 3,
@@ -146,7 +141,6 @@ fun MixUpListPreview() {
                     title = "Blue Valentine",
                     singer = "NMIXX",
                     isPlaying = true,
-                    isSelected = false,
                 ),
                 MusicInfo(
                     id = 4,
@@ -154,7 +148,6 @@ fun MixUpListPreview() {
                     title = "Blue Valentine",
                     singer = "NMIXX",
                     isPlaying = false,
-                    isSelected = true,
                 ),
                 MusicInfo(
                     id = 5,
@@ -162,7 +155,6 @@ fun MixUpListPreview() {
                     title = "Blue Valentine",
                     singer = "NMIXX",
                     isPlaying = true,
-                    isSelected = true,
                 ),
                 MusicInfo(
                     id = 6,
@@ -170,7 +162,6 @@ fun MixUpListPreview() {
                     title = "Blue Valentine",
                     singer = "NMIXX",
                     isPlaying = false,
-                    isSelected = true,
                 ),
                 MusicInfo(
                     id = 7,
@@ -178,7 +169,6 @@ fun MixUpListPreview() {
                     title = "Blue Valentine",
                     singer = "NMIXX",
                     isPlaying = false,
-                    isSelected = false,
                 ),
                 MusicInfo(
                     id = 8,
@@ -186,11 +176,11 @@ fun MixUpListPreview() {
                     title = "Blue Valentine",
                     singer = "NMIXX",
                     isPlaying = true,
-                    isSelected = true,
                 ),
             ),
         onReorder = { i, j -> },
         onSelectClick = { i -> },
-        modifier = Modifier.size(width = 320.dp, height = 372.dp),
+        selectedMusicIds =
+            setOf(),
     )
 }
