@@ -3,7 +3,6 @@ package org.sopt.melon.presentation.mixup
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.collections.immutable.toPersistentList
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -11,13 +10,12 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.sopt.melon.data.repository.MusicRepository
-import org.sopt.melon.presentation.mixup.model.MixUpMusicInfo
 import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
 class MixUpViewModel @Inject constructor(
-    private val musicRepository: MusicRepository
+    private val musicRepository: MusicRepository,
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(MixUpUiState())
     val uiState = _uiState.asStateFlow()
@@ -33,11 +31,10 @@ class MixUpViewModel @Inject constructor(
                 .onSuccess { result ->
                     _uiState.update {
                         it.copy(
-                            mixUpList = result.toPersistentList()
+                            mixUpList = result.toPersistentList(),
                         )
                     }
-                }
-                .onFailure { error ->
+                }.onFailure { error ->
                     Timber.tag("MixUpViewModel").d(error.toString())
                 }
         }

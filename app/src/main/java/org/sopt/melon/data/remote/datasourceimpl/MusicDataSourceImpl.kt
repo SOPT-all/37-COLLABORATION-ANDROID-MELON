@@ -10,5 +10,6 @@ class MusicDataSourceImpl @Inject constructor(
     private val service: MusicService,
 ) : MusicDataSource {
     override suspend fun getCustomMusic(): BaseResponse<List<MusicDto>> = service.getCustomMusic()
-    override suspend fun getMixUpList(): BaseResponse<List<MusicDto>>  = service.getMixUpList()
+
+    override suspend fun getMixUpList(): BaseResponse<List<MusicDto>> = service.getMixUpList()
 }

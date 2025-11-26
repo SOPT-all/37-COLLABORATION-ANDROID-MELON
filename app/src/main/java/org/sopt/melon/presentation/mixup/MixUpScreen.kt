@@ -70,7 +70,7 @@ private fun MixUpScreen(
                             brush = colors.gradient3,
                         )
                     }
-                }
+                },
     ) {
         Column(
             verticalArrangement = Arrangement.spacedBy(24.dp),
@@ -99,7 +99,7 @@ private fun MixUpScreen(
                 onReorder = onReorder,
                 onSelectClick = onSelectClick,
                 selectedMusicIds = selectedIds,
-                modifier = Modifier.height(372.dp)
+                modifier = Modifier.height(372.dp),
             )
         }
 
@@ -113,7 +113,7 @@ private fun MixUpScreen(
             onPlayPauseClick = {},
             onFrontClick = {},
             currentSongImg = R.drawable.img_home2_56,
-            modifier = Modifier.height(92.dp)
+            modifier = Modifier.height(92.dp),
         )
     }
 }

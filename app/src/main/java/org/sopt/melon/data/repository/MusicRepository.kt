@@ -5,5 +5,6 @@ import org.sopt.melon.presentation.mixup.model.MixUpMusicInfo
 
 interface MusicRepository {
     suspend fun getCustomMusic(): Result<List<ForYouMusic>>
+
     suspend fun getMixUpList(): Result<List<MixUpMusicInfo>>
 }

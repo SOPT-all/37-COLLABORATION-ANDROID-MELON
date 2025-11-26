@@ -17,5 +17,5 @@ fun MusicDto.toMixUpMusicInfoModel() =
         imageUrl = imageUrl,
         title = title,
         artistName = artistName,
-        isPlaying = false
+        isPlaying = false,
     )
