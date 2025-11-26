@@ -60,6 +60,7 @@ fun HomeEventBanner(
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
+
             Text(
                 text = stringResource(R.string.home_event_banner_description),
                 style = MELONTheme.typography.caption.r_12,
