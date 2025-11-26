@@ -1,5 +1,6 @@
 package org.sopt.melon.presentation.home.component
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -27,7 +28,6 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import org.sopt.melon.R
@@ -61,11 +61,10 @@ private fun RecommendSongItem(
         modifier = modifier.width(130.dp),
     ) {
         Box {
-            AsyncImage(
-                model = data.imageUrl,
+            Image(
+                painter = painterResource(id = data.image),
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
-                error = painterResource(R.drawable.img_recommend1_140),
                 modifier =
                     Modifier
                         .aspectRatio(1f)
@@ -104,15 +103,15 @@ private fun HomeRecommendListPreview() {
             recommendSongList =
                 persistentListOf(
                     RecommendSongItemData(
-                        imageUrl = "TODO()",
+                        image = R.drawable.img_recommend1_140,
                         description = "내가 아끼는 최애곡 모음",
                     ),
                     RecommendSongItemData(
-                        imageUrl = "TODO()",
+                        image = R.drawable.img_recommend1_140,
                         description = "내가 아끼는 최애곡 모음",
                     ),
                     RecommendSongItemData(
-                        imageUrl = "TODO()",
+                        image = R.drawable.img_recommend1_140,
                         description = "내가 아끼는 최애곡 모음",
                     ),
                 ),

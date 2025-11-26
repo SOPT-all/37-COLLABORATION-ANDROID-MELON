@@ -1,22 +1,26 @@
 package org.sopt.melon.presentation.home.model
 
-import org.sopt.melon.data.model.HomeMusic
+import kotlinx.collections.immutable.persistentListOf
+import org.sopt.melon.R
 
 class RecommendSongItemData(
-    val imageUrl: String,
+    val image: Int,
     val description: String,
-)
-
-fun HomeMusic.toRecommendSongItemData() {
-    val description = when (index) {
-        0 -> "내가 아끼는 최애곡 모음"
-        1 -> "요즘 듣던 노래 이어듣기"
-        2 -> "매일 찾아듣는 음악"
-        else -> ""
+) {
+    companion object {
+        val dummyRecommendSongData = persistentListOf(
+            RecommendSongItemData(
+                image = R.drawable.img_recommend1_140,
+                description = "내가 아끼는 최애곡 모음",
+            ),
+            RecommendSongItemData(
+                image = R.drawable.img_recommend2_140,
+                description = "요즘 듣던 노래 이어듣기",
+            ),
+            RecommendSongItemData(
+                image = R.drawable.img_recommend3_140,
+                description = "매일 찾아듣는 음악",
+            ),
+        )
     }
-
-    RecommendSongItemData(
-        imageUrl = imageUrl,
-        description = description,
-    )
 }
