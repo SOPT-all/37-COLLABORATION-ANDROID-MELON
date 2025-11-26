@@ -13,10 +13,9 @@ fun MusicDto.toForYouMusicModel() =
 
 fun MusicDto.toHomeMusicModel(
     index: Int,
-) =
-    HomeMusic(
-        index = index,
-        title = title,
-        artistName = artistName,
-        imageUrl = imageUrl,
-    )
+) = HomeMusic(
+    index = index,
+    title = title,
+    artistName = artistName,
+    imageUrl = imageUrl,
+)

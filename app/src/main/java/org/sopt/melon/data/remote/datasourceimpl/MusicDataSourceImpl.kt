@@ -11,12 +11,9 @@ class MusicDataSourceImpl @Inject constructor(
 ) : MusicDataSource {
     override suspend fun getCustomMusic(): BaseResponse<List<MusicDto>> = service.getCustomMusic()
 
-    override suspend fun getPopularMusicList(): BaseResponse<List<MusicDto>> =
-        service.getPopularMusicList()
+    override suspend fun getPopularMusicList(): BaseResponse<List<MusicDto>> = service.getPopularMusicList()
 
-    override suspend fun getNewestMusicList(category: String): BaseResponse<List<MusicDto>> =
-        service.getNewestMusicList(category)
+    override suspend fun getNewestMusicList(category: String): BaseResponse<List<MusicDto>> = service.getNewestMusicList(category)
 
-    override suspend fun getChartMusicList(): BaseResponse<List<MusicDto>> =
-        service.getChartMusicList()
+    override suspend fun getChartMusicList(): BaseResponse<List<MusicDto>> = service.getChartMusicList()
 }

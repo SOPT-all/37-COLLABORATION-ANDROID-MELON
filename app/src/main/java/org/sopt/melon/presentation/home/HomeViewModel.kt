@@ -54,11 +54,14 @@ class HomeViewModel @Inject constructor(
 
     fun fetchPopularSongList() {
         viewModelScope.launch {
-            musicRepository.getPopularMusicList()
+            musicRepository
+                .getPopularMusicList()
                 .onSuccess { result ->
-                    val popularSongList = result.map { music ->
-                        music.toPopularSongData()
-                    }.toImmutableList()
+                    val popularSongList =
+                        result
+                            .map { music ->
+                                music.toPopularSongData()
+                            }.toImmutableList()
 
                     _uiState.update { currentState ->
                         currentState.copy(
@@ -81,11 +84,14 @@ class HomeViewModel @Inject constructor(
 
     fun fetchNewestSongList() {
         viewModelScope.launch {
-            musicRepository.getNewestMusicList(_uiState.value.selectedNewSongTab.serverQuery)
+            musicRepository
+                .getNewestMusicList(_uiState.value.selectedNewSongTab.serverQuery)
                 .onSuccess { result ->
-                    val newSongList = result.map { music ->
-                        music.toNewSongItemData()
-                    }.toImmutableList()
+                    val newSongList =
+                        result
+                            .map { music ->
+                                music.toNewSongItemData()
+                            }.toImmutableList()
 
                     _uiState.update { currentState ->
                         currentState.copy(
@@ -100,11 +106,14 @@ class HomeViewModel @Inject constructor(
 
     fun fetchMelonChartSongList() {
         viewModelScope.launch {
-            musicRepository.getChartMusicList()
+            musicRepository
+                .getChartMusicList()
                 .onSuccess { result ->
-                    val melonChartList = result.map { music ->
-                        music.toMelonChartItemData()
-                    }.toImmutableList()
+                    val melonChartList =
+                        result
+                            .map { music ->
+                                music.toMelonChartItemData()
+                            }.toImmutableList()
 
                     _uiState.update { currentState ->
                         currentState.copy(

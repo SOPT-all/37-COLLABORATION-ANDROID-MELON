@@ -12,12 +12,13 @@ data class PopularSongData(
 fun HomeMusic.toPopularSongData(): PopularSongData =
     PopularSongData(
         imgUrl = imageUrl,
-        subtitle = when (index % 3) {
-            0 -> "멜론DJ’s Pick"
-            1 -> "검색 트렌드"
-            2 -> "HOT100 7위"
-            else -> ""
-        },
+        subtitle =
+            when (index % 3) {
+                0 -> "멜론DJ’s Pick"
+                1 -> "검색 트렌드"
+                2 -> "HOT100 7위"
+                else -> ""
+            },
         title = title,
         artistName = artistName,
     )
