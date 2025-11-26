@@ -2,8 +2,10 @@ package org.sopt.melon.presentation.mixup
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.runtime.Composable
@@ -14,7 +16,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.sopt.melon.R
 import org.sopt.melon.core.designsystem.theme.MELONTheme
+import org.sopt.melon.presentation.mixup.component.MixUpBigPlayBar
 import org.sopt.melon.presentation.mixup.component.MixUpList
 import org.sopt.melon.presentation.mixup.component.MixUpPlayingMusic
 import org.sopt.melon.presentation.mixup.component.MixUpTopBar
@@ -40,15 +44,13 @@ fun MixUpRoute(
 
 @Composable
 private fun MixUpScreen(
-    // Data (State)
     currentMusicInfo: MusicInfo,
-    mixUpList: List<MusicInfo>, // 순서가 변경될 수 있는 리스트
-    selectedIds: Set<Int>, // 선택된 음악들의 ID 집합 (체크박스 상태용)
-    // Events (Actions)
+    mixUpList: List<MusicInfo>,
+    selectedIds: Set<Int>,
     onChevronClick: () -> Unit,
-    onSelectClick: (Int) -> Unit, // 개별 아이템 선택/해제
-    onAllSelectClick: () -> Unit, // 전체 선택/해제
-    onReorder: (Int, Int) -> Unit, // 리스트 순서 변경 (Draggable 결과 반영)
+    onSelectClick: (Int) -> Unit,
+    onAllSelectClick: () -> Unit,
+    onReorder: (Int, Int) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val colors = MELONTheme.colors
@@ -59,7 +61,6 @@ private fun MixUpScreen(
     val isCurrentMusicSelected = selectedIds.contains(currentMusicInfo.id)
 
     Column(
-        verticalArrangement = Arrangement.spacedBy(24.dp),
         modifier =
             modifier
                 .fillMaxSize()
@@ -69,31 +70,50 @@ private fun MixUpScreen(
                             brush = colors.gradient3,
                         )
                     }
-                }.padding(top = 20.dp, bottom = 16.dp, start = 20.dp, end = 20.dp)
-                .systemBarsPadding(),
+                }
     ) {
-        MixUpTopBar(
-            onSearchClick = {}, // no function
-            onChevronClick = onChevronClick, // ease in animation & route home
-            modifier = Modifier.fillMaxWidth(),
-        )
+        Column(
+            verticalArrangement = Arrangement.spacedBy(24.dp),
+            modifier =
+                Modifier
+                    .padding(top = 20.dp, bottom = 16.dp, start = 20.dp, end = 20.dp)
+                    .systemBarsPadding(),
+        ) {
+            MixUpTopBar(
+                onSearchClick = {},
+                onChevronClick = onChevronClick,
+                modifier = Modifier.fillMaxWidth(),
+            )
 
-        MixUpPlayingMusic(
-            musicInfo = currentMusicInfo,
-            onAddAllClick = {}, // no function
-            isAllSelected = isAllSelected,
-            onAllSelectClick = onAllSelectClick, // select all music & check all checkbox
-            isCurrentMusicSelected = isCurrentMusicSelected,
-            onSelectClick = { onSelectClick(currentMusicInfo.id) }, // add selected list
-            modifier = Modifier.fillMaxWidth(),
-        )
-        MixUpList(
-            // draggable list
-            musicInfos = mixUpList,
-            onReorder = onReorder,
-            onSelectClick = onSelectClick,
-            modifier = Modifier.fillMaxWidth(),
-            selectedMusicIds = selectedIds,
+            MixUpPlayingMusic(
+                musicInfo = currentMusicInfo,
+                onAddAllClick = {},
+                isAllSelected = isAllSelected,
+                onAllSelectClick = onAllSelectClick,
+                isCurrentMusicSelected = isCurrentMusicSelected,
+                onSelectClick = { onSelectClick(currentMusicInfo.id) },
+                modifier = Modifier.fillMaxWidth(),
+            )
+            MixUpList(
+                musicInfos = mixUpList,
+                onReorder = onReorder,
+                onSelectClick = onSelectClick,
+                selectedMusicIds = selectedIds,
+                modifier = Modifier.height(372.dp)
+            )
+        }
+
+        Spacer(Modifier.weight(1f))
+
+        MixUpBigPlayBar(
+            progressRatio = 0.5f,
+            isPlaying = true,
+            onSettingClick = {},
+            onBackClick = {},
+            onPlayPauseClick = {},
+            onFrontClick = {},
+            currentSongImg = R.drawable.img_home2_56,
+            modifier = Modifier.height(92.dp)
         )
     }
 }
