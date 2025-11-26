@@ -12,6 +12,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.sopt.melon.BuildConfig
 import retrofit2.Converter
 import retrofit2.Retrofit
+import timber.log.Timber
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -32,9 +33,26 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor =
-        HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BODY
+    fun provideHttpLoggingInterceptor(
+        json: Json,
+    ): HttpLoggingInterceptor =
+        HttpLoggingInterceptor { message ->
+            if (message.startsWith("{") || message.startsWith("[")) {
+                runCatching {
+                    val element = json.parseToJsonElement(message)
+                    val pretty = json.encodeToString(element)
+                    Timber.tag("OkHttp").d(pretty)
+                }.onFailure {
+                    Timber.tag("OkHttp").d(message)
+                }
+            }
+        }.apply {
+            level =
+                if (BuildConfig.DEBUG) {
+                    HttpLoggingInterceptor.Level.BODY
+                } else {
+                    HttpLoggingInterceptor.Level.NONE
+                }
         }
 
     @Provides

@@ -6,8 +6,24 @@
     <string name="home_event_banner_title">지금 참여하면 MMA 초대권 선물</string>
     <string name="home_event_banner_description">최애 입덕 포인트 남기고 실물 영접하러 가자!</string>
     <string name="home_topbar_chip_content">멜론혜택</string>
+    <string name="home_melon_chart_description">오늘 10:00시 기준</string>
+    <string name="home_melon_chart_title">멜론차트</string>
+    <string name="home_title_all">전체보기</string>
+    <string name="home_new_song_title">최신음악</string>
+    <string name="home_new_song_title_divider">|</string>
     <!--ForYou  -->
     <string name="foryou">ForYou</string>
+    <string name="foryou_recommend_button">추천 바로 듣기</string>
+    <string name="foryou_preference_button">취향 설정하기</string>
+    <string name="foryou_today_recommend_title">오늘의 추천</string>
+    <string name="foryou_my_preference_label">내 취향 기반</string>
+    <string name="foryou_situation_label">상황 기반</string>
+    <string name="foryou_reload_label">새로 고침</string>
+    <string name="foryou_custom_song_title">맞춤 선곡</string>
+    <string name="foryou_newest_album_title">팬맺은 아티스트의 최신앨범</string>
+    <string name="foryou_newest_chip_title">TITLE</string>
+    <string name="foryou_newest_preview_button">미리듣기</string>
+    <string name="foryou_newest_mixup_button">믹스업</string>
     <!--MixUp   -->
     <string name="playlist">재생목록</string>
     <string name="music_shelf">음악서랍</string>
