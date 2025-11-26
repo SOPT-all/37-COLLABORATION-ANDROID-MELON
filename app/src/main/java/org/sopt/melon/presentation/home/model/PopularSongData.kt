@@ -9,18 +9,15 @@ data class PopularSongData(
     val artistName: String,
 )
 
-fun HomeMusic.toPopularSongData() {
-    val subtitle = when (index % 3) {
-        0 -> "멜론DJ’s Pick"
-        1 -> "검색 트렌드"
-        2 -> "HOT100 7위"
-        else -> ""
-    }
-
+fun HomeMusic.toPopularSongData(): PopularSongData =
     PopularSongData(
         imgUrl = imageUrl,
-        subtitle = subtitle,
+        subtitle = when (index % 3) {
+            0 -> "멜론DJ’s Pick"
+            1 -> "검색 트렌드"
+            2 -> "HOT100 7위"
+            else -> ""
+        },
         title = title,
         artistName = artistName,
     )
-}

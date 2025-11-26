@@ -8,7 +8,7 @@ data class NewSongItemData(
     val singer: String,
 )
 
-fun HomeMusic.toNewSongItemData() =
+fun HomeMusic.toNewSongItemData(): NewSongItemData =
     NewSongItemData(
         imageUrl = imageUrl,
         songTitle = title,
