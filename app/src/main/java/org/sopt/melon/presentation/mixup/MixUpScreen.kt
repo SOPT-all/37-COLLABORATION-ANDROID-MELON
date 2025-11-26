@@ -2,14 +2,18 @@ package org.sopt.melon.presentation.mixup
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.sopt.melon.core.designsystem.theme.MELONTheme
 import org.sopt.melon.presentation.mixup.component.MixUpList
 import org.sopt.melon.presentation.mixup.component.MixUpPlayingMusic
@@ -19,17 +23,23 @@ import kotlin.Int
 
 @Composable
 fun MixUpRoute(
-    navigateUp: () -> Unit,
+    innerPadding: PaddingValues,
+    onChevronClick: () -> Unit,
+    viewModel: MixUpViewModel = hiltViewModel()
 ) {
+    val mixUpList by viewModel.mixUpList.collectAsStateWithLifecycle()
+    val selectedIds by viewModel.selectedIds.collectAsStateWithLifecycle()
+
     MixUpScreen(
         currentMusicInfo = TODO(),
-        mixUpList = TODO(),
-        selectedIds = TODO(),
-        onChevronClick = TODO(),
-        onSelectClick = TODO(),
-        onAllSelectClick = TODO(),
-        onReorder = TODO(),
-        modifier = TODO()
+        mixUpList = mixUpList,
+        selectedIds = selectedIds,
+        onChevronClick = onChevronClick,
+        onSelectClick = viewModel::onSelection,
+        onAllSelectClick = viewModel::onSelectAll,
+        onReorder = viewModel::swapMusicOrder,
+        modifier = Modifier
+            .padding(innerPadding)
     )
 }
 
