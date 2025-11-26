@@ -22,7 +22,7 @@ import org.sopt.melon.presentation.mixup.component.MixUpBigPlayBar
 import org.sopt.melon.presentation.mixup.component.MixUpList
 import org.sopt.melon.presentation.mixup.component.MixUpPlayingMusic
 import org.sopt.melon.presentation.mixup.component.MixUpTopBar
-import org.sopt.melon.presentation.mixup.model.MusicInfo
+import org.sopt.melon.presentation.mixup.model.MixUpMusicInfo
 
 @Composable
 fun MixUpRoute(
@@ -32,7 +32,7 @@ fun MixUpRoute(
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     MixUpScreen(
-        currentMusicInfo = uiState.currentMusicInfo,
+        currentMixUpMusicInfo = uiState.currentMixUpMusicInfo,
         mixUpList = uiState.mixUpList,
         selectedIds = uiState.selectedMusicIds,
         onChevronClick = navigateUp,
@@ -44,8 +44,8 @@ fun MixUpRoute(
 
 @Composable
 private fun MixUpScreen(
-    currentMusicInfo: MusicInfo,
-    mixUpList: List<MusicInfo>,
+    currentMixUpMusicInfo: MixUpMusicInfo,
+    mixUpList: List<MixUpMusicInfo>,
     selectedIds: Set<Int>,
     onChevronClick: () -> Unit,
     onSelectClick: (Int) -> Unit,
@@ -58,7 +58,7 @@ private fun MixUpScreen(
     val isAllSelected =
         mixUpList.isNotEmpty() &&
             selectedIds.containsAll(mixUpList.map { it.id })
-    val isCurrentMusicSelected = selectedIds.contains(currentMusicInfo.id)
+    val isCurrentMusicSelected = selectedIds.contains(currentMixUpMusicInfo.id)
 
     Column(
         modifier =
@@ -86,16 +86,16 @@ private fun MixUpScreen(
             )
 
             MixUpPlayingMusic(
-                musicInfo = currentMusicInfo,
+                mixUpMusicInfo = currentMixUpMusicInfo,
                 onAddAllClick = {},
                 isAllSelected = isAllSelected,
                 onAllSelectClick = onAllSelectClick,
                 isCurrentMusicSelected = isCurrentMusicSelected,
-                onSelectClick = { onSelectClick(currentMusicInfo.id) },
+                onSelectClick = { onSelectClick(currentMixUpMusicInfo.id) },
                 modifier = Modifier.fillMaxWidth(),
             )
             MixUpList(
-                musicInfos = mixUpList,
+                mixUpMusicInfos = mixUpList,
                 onReorder = onReorder,
                 onSelectClick = onSelectClick,
                 selectedMusicIds = selectedIds,
@@ -123,77 +123,77 @@ private fun MixUpScreen(
 private fun MixUpPreview() {
     MELONTheme {
         MixUpScreen(
-            currentMusicInfo =
-                MusicInfo(
+            currentMixUpMusicInfo =
+                MixUpMusicInfo(
                     id = 0,
                     imageUrl = "TODO()",
                     title = "Blue Valentine",
-                    singer = "NMIXX",
+                    artistName = "NMIXX",
                     isPlaying = true,
                 ),
             mixUpList =
                 listOf(
-                    MusicInfo(
+                    MixUpMusicInfo(
                         id = 1,
                         imageUrl = "TODO()",
                         title = "1",
-                        singer = "NMIXX",
+                        artistName = "NMIXX",
                         isPlaying = true,
                     ),
-                    MusicInfo(
+                    MixUpMusicInfo(
                         id = 2,
                         imageUrl = "TODO()",
                         title = "2",
-                        singer = "NMIXX",
+                        artistName = "NMIXX",
                         isPlaying = false,
                     ),
-                    MusicInfo(
+                    MixUpMusicInfo(
                         id = 3,
                         imageUrl = "TODO()",
                         title = "3",
-                        singer = "NMIXX",
+                        artistName = "NMIXX",
                         isPlaying = true,
                     ),
-                    MusicInfo(
+                    MixUpMusicInfo(
                         id = 4,
                         imageUrl = "TODO()",
                         title = "4",
-                        singer = "NMIXX",
+                        artistName = "NMIXX",
                         isPlaying = true,
                     ),
-                    MusicInfo(
+                    MixUpMusicInfo(
                         id = 5,
                         imageUrl = "TODO()",
                         title = "5",
-                        singer = "NMIXX",
+                        artistName = "NMIXX",
                         isPlaying = false,
                     ),
-                    MusicInfo(
+                    MixUpMusicInfo(
                         id = 6,
                         imageUrl = "TODO(0",
                         title = "6",
-                        singer = "NMIXX",
+                        artistName = "NMIXX",
                         isPlaying = true,
                     ),
-                    MusicInfo(
+                    MixUpMusicInfo(
                         id = 7,
                         imageUrl = "TODO()",
                         title = "7",
-                        singer = "NMIXX",
+                        artistName = "NMIXX",
                         isPlaying = false,
                     ),
-                    MusicInfo(
+                    MixUpMusicInfo(
                         id = 8,
                         imageUrl = "TODO()",
                         title = "8",
-                        singer = "NMIXX",
+                        artistName = "NMIXX",
                         isPlaying = false,
                     ),
-                    MusicInfo(
+                    MixUpMusicInfo(
                         id = 9,
                         imageUrl = "TODO()",
                         title = "9",
-                        singer = "NMIXX",
+                        artistName = "NMIXX",
                         isPlaying = true,
                     ),
                 ),

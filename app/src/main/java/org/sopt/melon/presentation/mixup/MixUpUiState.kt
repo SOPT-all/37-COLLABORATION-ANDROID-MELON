@@ -2,17 +2,17 @@ package org.sopt.melon.presentation.mixup
 
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
-import org.sopt.melon.presentation.mixup.model.MusicInfo
+import org.sopt.melon.presentation.mixup.model.MixUpMusicInfo
 
 data class MixUpUiState(
-    val mixUpList: ImmutableList<MusicInfo> = persistentListOf(),
+    val mixUpList: ImmutableList<MixUpMusicInfo> = persistentListOf(),
     val selectedMusicIds: Set<Int> = emptySet(),
-    val currentMusicInfo: MusicInfo =
-        MusicInfo(
+    val currentMixUpMusicInfo: MixUpMusicInfo =
+        MixUpMusicInfo(
             id = -1,
             imageUrl = "TODO()",
             title = "Blue Valentine",
-            singer = "NMIXX",
+            artistName = "NMIXX",
             isPlaying = true,
         ),
 )
