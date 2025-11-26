@@ -31,11 +31,11 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import org.sopt.melon.R
 import org.sopt.melon.core.designsystem.theme.MELONTheme
-import org.sopt.melon.presentation.mixup.model.MusicInfo
+import org.sopt.melon.presentation.mixup.model.MixUpMusicInfo
 
 @Composable
 fun MixUpItem(
-    musicInfo: MusicInfo,
+    mixUpMusicInfo: MixUpMusicInfo,
     isSelected: Boolean,
     onSelectClick: () -> Unit,
     draggableModifier: Modifier = Modifier,
@@ -60,7 +60,7 @@ fun MixUpItem(
             Spacer(Modifier.size(10.dp))
 
             Music(
-                musicInfo = musicInfo,
+                mixUpMusicInfo = mixUpMusicInfo,
                 isPlaying = isPlaying,
             )
         }
@@ -76,7 +76,7 @@ fun MixUpItem(
 
 @Composable
 private fun Music(
-    musicInfo: MusicInfo,
+    mixUpMusicInfo: MixUpMusicInfo,
     isPlaying: Boolean,
     modifier: Modifier = Modifier,
 ) {
@@ -91,7 +91,7 @@ private fun Music(
                     .clip(RoundedCornerShape(4.dp)),
         ) {
             AsyncImage(
-                model = musicInfo.imageUrl,
+                model = mixUpMusicInfo.imageUrl,
                 error = painterResource(R.drawable.img_chart1_42),
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
@@ -118,14 +118,14 @@ private fun Music(
             horizontalAlignment = Alignment.Start,
         ) {
             Text(
-                text = musicInfo.title,
+                text = mixUpMusicInfo.title,
                 style = MELONTheme.typography.body.m_14,
                 color = if (isPlaying) MELONTheme.colors.primary else MELONTheme.colors.white,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
             Text(
-                text = musicInfo.singer,
+                text = mixUpMusicInfo.artistName,
                 style = MELONTheme.typography.caption.r_12,
                 color = MELONTheme.colors.gray200,
                 maxLines = 1,
@@ -151,12 +151,12 @@ private fun MixUpItemPreview() {
         Spacer(Modifier.size(20.dp))
 
         MixUpItem(
-            musicInfo =
-                MusicInfo(
+            mixUpMusicInfo =
+                MixUpMusicInfo(
                     id = 0,
                     imageUrl = "TODO()",
                     title = "Blue Valentine",
-                    singer = "NMIXX",
+                    artistName = "NMIXX",
                     isPlaying = false,
                 ),
             isPlaying = isPlaying,
@@ -171,12 +171,12 @@ private fun MixUpItemPreview() {
 @Composable
 private fun MusicPreview() {
     Music(
-        musicInfo =
-            MusicInfo(
+        mixUpMusicInfo =
+            MixUpMusicInfo(
                 id = 1,
                 imageUrl = "TODO()",
                 title = "Blue Valentine",
-                singer = "NMIXX",
+                artistName = "NMIXX",
                 isPlaying = false,
             ),
         isPlaying = true,

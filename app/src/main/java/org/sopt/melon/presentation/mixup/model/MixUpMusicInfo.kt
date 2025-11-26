@@ -1,9 +1,9 @@
 package org.sopt.melon.presentation.mixup.model
 
-data class MusicInfo(
+data class MixUpMusicInfo(
     val id: Int,
     val imageUrl: String,
     val title: String,
-    val singer: String,
+    val artistName: String,
     val isPlaying: Boolean = false,
 )

@@ -31,7 +31,7 @@ import org.sopt.melon.core.designsystem.theme.defaultMelonColors
 @Composable
 fun MelonSmallPlayBar(
     title: String,
-    singer: String,
+    artistName: String,
     progressRatio: Float,
     isPlaying: Boolean,
     onBackClick: () -> Unit,
@@ -63,10 +63,10 @@ fun MelonSmallPlayBar(
                         bottom = 11.dp,
                     ),
         ) {
-            // title & singer
+            // title & artistName
             SongInfo(
                 title = title,
-                singer = singer,
+                artistName = artistName,
                 modifier = Modifier,
             )
 
@@ -102,7 +102,7 @@ fun MelonSmallPlayBar(
 @Composable
 private fun SongInfo(
     title: String,
-    singer: String,
+    artistName: String,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -116,7 +116,7 @@ private fun SongInfo(
             overflow = TextOverflow.Ellipsis,
         )
         Text(
-            text = singer,
+            text = artistName,
             style = MELONTheme.typography.caption.r_12,
             color = MELONTheme.colors.gray300,
             maxLines = 1,
@@ -132,7 +132,7 @@ private fun MelonSmallPlayBarPreview() {
 
     MelonSmallPlayBar(
         title = "Blue Valentine",
-        singer = "NMIXX",
+        artistName = "NMIXX",
         progressRatio = 0.5f,
         isPlaying = isPlaying,
         onBackClick = {},
@@ -148,7 +148,7 @@ private fun MelonSmallPlayBarPreview() {
 private fun SongInfoPreview() {
     SongInfo(
         title = "Blue Valentine",
-        singer = "NMIXX",
+        artistName = "NMIXX",
         modifier = Modifier,
     )
 }

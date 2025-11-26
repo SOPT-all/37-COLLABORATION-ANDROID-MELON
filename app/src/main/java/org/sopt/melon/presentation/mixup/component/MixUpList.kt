@@ -20,14 +20,14 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.sopt.melon.core.designsystem.theme.MELONTheme
-import org.sopt.melon.presentation.mixup.model.MusicInfo
+import org.sopt.melon.presentation.mixup.model.MixUpMusicInfo
 import org.sopt.melon.presentation.mixup.utils.DraggableItem
 import org.sopt.melon.presentation.mixup.utils.rememberDragDropState
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun MixUpList(
-    musicInfos: List<MusicInfo>,
+    mixUpMusicInfos: List<MixUpMusicInfo>,
     selectedMusicIds: Set<Int>,
     onReorder: (Int, Int) -> Unit,
     onSelectClick: (Int) -> Unit,
@@ -59,7 +59,7 @@ fun MixUpList(
             modifier = Modifier,
         ) {
             itemsIndexed(
-                items = musicInfos,
+                items = mixUpMusicInfos,
                 key = { _, item -> item.id },
             ) { index, item ->
 
@@ -70,7 +70,7 @@ fun MixUpList(
                 ) { isDragging ->
 
                     MixUpItem(
-                        musicInfo = item,
+                        mixUpMusicInfo = item,
                         isPlaying = item.isPlaying,
                         isSelected = selectedMusicIds.contains(item.id),
                         onSelectClick = { onSelectClick(item.id) },
@@ -112,69 +112,69 @@ fun MixUpList(
 @Composable
 fun MixUpListPreview() {
     MixUpList(
-        musicInfos =
+        mixUpMusicInfos =
             listOf(
-                MusicInfo(
+                MixUpMusicInfo(
                     id = 0,
                     imageUrl = "TODO()",
                     title = "Blue Valentine",
-                    singer = "NMIXX",
+                    artistName = "NMIXX",
                     isPlaying = true,
                 ),
-                MusicInfo(
+                MixUpMusicInfo(
                     id = 1,
                     imageUrl = "TODO()",
                     title = "Blue Valentine",
-                    singer = "NMIXX",
+                    artistName = "NMIXX",
                     isPlaying = false,
                 ),
-                MusicInfo(
+                MixUpMusicInfo(
                     id = 2,
                     imageUrl = "TODO()",
                     title = "Blue Valentine",
-                    singer = "NMIXX",
+                    artistName = "NMIXX",
                     isPlaying = true,
                 ),
-                MusicInfo(
+                MixUpMusicInfo(
                     id = 3,
                     imageUrl = "TODO()",
                     title = "Blue Valentine",
-                    singer = "NMIXX",
+                    artistName = "NMIXX",
                     isPlaying = true,
                 ),
-                MusicInfo(
+                MixUpMusicInfo(
                     id = 4,
                     imageUrl = "TODO()",
                     title = "Blue Valentine",
-                    singer = "NMIXX",
+                    artistName = "NMIXX",
                     isPlaying = false,
                 ),
-                MusicInfo(
+                MixUpMusicInfo(
                     id = 5,
                     imageUrl = "TODO()",
                     title = "Blue Valentine",
-                    singer = "NMIXX",
+                    artistName = "NMIXX",
                     isPlaying = true,
                 ),
-                MusicInfo(
+                MixUpMusicInfo(
                     id = 6,
                     imageUrl = "TODO()",
                     title = "Blue Valentine",
-                    singer = "NMIXX",
+                    artistName = "NMIXX",
                     isPlaying = false,
                 ),
-                MusicInfo(
+                MixUpMusicInfo(
                     id = 7,
                     imageUrl = "TODO()",
                     title = "Blue Valentine",
-                    singer = "NMIXX",
+                    artistName = "NMIXX",
                     isPlaying = false,
                 ),
-                MusicInfo(
+                MixUpMusicInfo(
                     id = 8,
                     imageUrl = "TODO()",
                     title = "Blue Valentine",
-                    singer = "NMIXX",
+                    artistName = "NMIXX",
                     isPlaying = true,
                 ),
             ),

@@ -24,11 +24,11 @@ import androidx.compose.ui.unit.dp
 import org.sopt.melon.R
 import org.sopt.melon.core.common.util.noRippleClickable
 import org.sopt.melon.core.designsystem.theme.MELONTheme
-import org.sopt.melon.presentation.mixup.model.MusicInfo
+import org.sopt.melon.presentation.mixup.model.MixUpMusicInfo
 
 @Composable
 fun MixUpPlayingMusic(
-    musicInfo: MusicInfo,
+    mixUpMusicInfo: MixUpMusicInfo,
     onAddAllClick: () -> Unit,
     isAllSelected: Boolean,
     onAllSelectClick: () -> Unit,
@@ -71,7 +71,7 @@ fun MixUpPlayingMusic(
 
         // current music
         MixUpItem(
-            musicInfo = musicInfo,
+            mixUpMusicInfo = mixUpMusicInfo,
             isPlaying = true,
             isSelected = isCurrentMusicSelected,
             onSelectClick = onSelectClick,
@@ -147,12 +147,12 @@ private fun AllSelectButton(
 @Composable
 private fun MixUpPlayingMusicPreview() {
     MixUpPlayingMusic(
-        musicInfo =
-            MusicInfo(
+        mixUpMusicInfo =
+            MixUpMusicInfo(
                 id = 0,
                 imageUrl = "TODO()",
                 title = "Blue Valentine",
-                singer = "NMIXX",
+                artistName = "NMIXX",
                 isPlaying = false,
             ),
         onAddAllClick = {},
