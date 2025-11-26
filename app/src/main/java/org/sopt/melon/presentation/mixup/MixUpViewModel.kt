@@ -9,8 +9,7 @@ import org.sopt.melon.presentation.mixup.model.MusicInfo
 import javax.inject.Inject
 
 @HiltViewModel
-class MixUpViewModel @Inject constructor(): ViewModel() {
-
+class MixUpViewModel @Inject constructor() : ViewModel() {
     // 1. 리스트 상태 (순서 변경 가능하므로 StateFlow 관리)
     private val _mixUpList = MutableStateFlow<List<MusicInfo>>(emptyList())
     val mixUpList: StateFlow<List<MusicInfo>> = _mixUpList.asStateFlow()
@@ -20,7 +19,10 @@ class MixUpViewModel @Inject constructor(): ViewModel() {
     val selectedIds: StateFlow<Set<Long>> = _selectedIds.asStateFlow()
 
     // 3. 순서 변경 로직 (Draggable)
-    fun swapMusicOrder(fromIndex: Int, toIndex: Int) {
+    fun swapMusicOrder(
+        fromIndex: Int,
+        toIndex: Int,
+    ) {
         val currentList = _mixUpList.value.toMutableList()
         if (fromIndex in currentList.indices && toIndex in currentList.indices) {
             val item = currentList.removeAt(fromIndex)

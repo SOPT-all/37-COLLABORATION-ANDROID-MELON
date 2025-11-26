@@ -1,7 +1,6 @@
 package org.sopt.melon.presentation.mixup.utils
 
 import androidx.compose.animation.core.Animatable
-import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
@@ -25,31 +24,37 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+
 /**
  * Created by Parniyan Mousaie on 11/12/23.
  */
 @Composable
 fun rememberDragDropState(
     lazyListState: LazyListState,
-    onSwap: (Int, Int) -> Unit
+    onSwap: (Int, Int) -> Unit,
 ): DragDropState {
     val scope = rememberCoroutineScope()
-    val state = remember(lazyListState) {
-        DragDropState(
-            state = lazyListState,
-            onSwap = onSwap,
-            scope = scope
-        )
-    }
+    val state =
+        remember(lazyListState) {
+            DragDropState(
+                state = lazyListState,
+                onSwap = onSwap,
+                scope = scope,
+            )
+        }
     return state
 }
 
-fun LazyListState.getVisibleItemInfoFor(absoluteIndex: Int): LazyListItemInfo? {
-    return this
+fun LazyListState.getVisibleItemInfoFor(absoluteIndex: Int): LazyListItemInfo? =
+    this
         .layoutInfo
         .visibleItemsInfo
-        .getOrNull(absoluteIndex - this.layoutInfo.visibleItemsInfo.first().index)
-}
+        .getOrNull(
+            absoluteIndex -
+                this.layoutInfo.visibleItemsInfo
+                    .first()
+                    .index,
+        )
 
 val LazyListItemInfo.offsetEnd: Int
     get() = this.offset + this.size
@@ -61,67 +66,71 @@ fun LazyItemScope.DraggableItem(
     dragDropState: DragDropState,
     index: Int,
     modifier: Modifier,
-    content: @Composable ColumnScope.(isDragging: Boolean) -> Unit
+    content: @Composable ColumnScope.(isDragging: Boolean) -> Unit,
 ) {
     val isDragging = index == dragDropState.currentIndexOfDraggedItem
     val isPrevious = index == dragDropState.previousIndexOfDraggedItem
 
     val scale by animateFloatAsState(
         targetValue = if (isDragging) 1.05f else 1f,
-        label = "scale"
+        label = "scale",
     )
     val alpha by animateFloatAsState(
         targetValue = if (isDragging) 0.8f else 1f,
-        label = "alpha"
+        label = "alpha",
     )
 
-    val draggingModifier = if (isDragging) {
-        Modifier
-            .zIndex(1f)
-            .graphicsLayer {
-                translationY = dragDropState.draggingItemOffset
+    val draggingModifier =
+        if (isDragging) {
+            Modifier
+                .zIndex(1f)
+                .graphicsLayer {
+                    translationY = dragDropState.draggingItemOffset
 
-                scaleX = scale
-                scaleY = scale
-                this.alpha = alpha
+                    scaleX = scale
+                    scaleY = scale
+                    this.alpha = alpha
 
-                shadowElevation = 8.dp.toPx()
-                shape = RoundedCornerShape(8.dp)
-                clip = true
-            }
-    } else if (isPrevious) {
-        Modifier
-            .zIndex(1f)
-            .graphicsLayer {
-                translationY = dragDropState.previousItemOffset.value
+                    shadowElevation = 8.dp.toPx()
+                    shape = RoundedCornerShape(8.dp)
+                    clip = true
+                }
+        } else if (isPrevious) {
+            Modifier
+                .zIndex(1f)
+                .graphicsLayer {
+                    translationY = dragDropState.previousItemOffset.value
 
-                scaleX = scale
-                scaleY = scale
-                this.alpha = alpha
-            }
-    } else {
-        Modifier.animateItem(
-            tween(easing = FastOutSlowInEasing)
-        )
-    }
+                    scaleX = scale
+                    scaleY = scale
+                    this.alpha = alpha
+                }
+        } else {
+            Modifier.animateItem(
+                tween(easing = FastOutSlowInEasing),
+            )
+        }
     Column(modifier = modifier.then(draggingModifier)) {
         content(isDragging)
     }
 }
+
 class DragDropState internal constructor(
     val state: LazyListState,
     private val scope: CoroutineScope,
-    private val onSwap: (Int, Int) -> Unit
+    private val onSwap: (Int, Int) -> Unit,
 ) {
     private var draggedDistance by mutableStateOf(0f)
     private var draggingItemInitialOffset by mutableStateOf(0)
     internal val draggingItemOffset: Float
-        get() = draggingItemLayoutInfo?.let { item ->
-            draggingItemInitialOffset + draggedDistance - item.offset
-        } ?: 0f
+        get() =
+            draggingItemLayoutInfo?.let { item ->
+                draggingItemInitialOffset + draggedDistance - item.offset
+            } ?: 0f
     private val draggingItemLayoutInfo: LazyListItemInfo?
-        get() = state.layoutInfo.visibleItemsInfo
-            .firstOrNull { it.index == currentIndexOfDraggedItem }
+        get() =
+            state.layoutInfo.visibleItemsInfo
+                .firstOrNull { it.index == currentIndexOfDraggedItem }
 
     internal var previousIndexOfDraggedItem by mutableStateOf<Int?>(null)
         private set
@@ -137,10 +146,10 @@ class DragDropState internal constructor(
         get() = initiallyDraggedElement?.let { Pair(it.offset, it.offsetEnd) }
 
     private val currentElement: LazyListItemInfo?
-        get() = currentIndexOfDraggedItem?.let {
-            state.getVisibleItemInfoFor(absoluteIndex = it)
-        }
-
+        get() =
+            currentIndexOfDraggedItem?.let {
+                state.getVisibleItemInfoFor(absoluteIndex = it)
+            }
 
     fun onDragStart(index: Int) {
         state.layoutInfo.visibleItemsInfo
@@ -160,7 +169,7 @@ class DragDropState internal constructor(
                 previousItemOffset.snapTo(startOffset)
                 previousItemOffset.animateTo(
                     0f,
-                    tween(easing = FastOutSlowInEasing, durationMillis = 300)
+                    tween(easing = FastOutSlowInEasing, durationMillis = 300),
                 )
                 previousIndexOfDraggedItem = null
             }
@@ -187,13 +196,12 @@ class DragDropState internal constructor(
                             delta > 0 -> (endOffset > item.offsetEnd)
                             else -> (startOffset < item.offset)
                         }
-                    }
-                    ?.also { item ->
+                    }?.also { item ->
                         currentIndexOfDraggedItem?.let { current ->
                             scope.launch {
                                 onSwap.invoke(
                                     current,
-                                    item.index
+                                    item.index,
                                 )
                             }
                         }
@@ -208,11 +216,10 @@ class DragDropState internal constructor(
             val startOffset = it.offset + draggedDistance
             val endOffset = it.offsetEnd + draggedDistance
             return@let when {
-                draggedDistance > 0 -> (endOffset - state.layoutInfo.viewportEndOffset+50f).takeIf { diff -> diff > 0 }
-                draggedDistance < 0 -> (startOffset - state.layoutInfo.viewportStartOffset-50f).takeIf { diff -> diff < 0 }
+                draggedDistance > 0 -> (endOffset - state.layoutInfo.viewportEndOffset + 50f).takeIf { diff -> diff > 0 }
+                draggedDistance < 0 -> (startOffset - state.layoutInfo.viewportStartOffset - 50f).takeIf { diff -> diff < 0 }
                 else -> null
             }
         } ?: 0f
     }
 }
-

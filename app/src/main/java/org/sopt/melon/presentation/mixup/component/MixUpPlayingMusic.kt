@@ -1,6 +1,5 @@
 package org.sopt.melon.presentation.mixup.component
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -25,7 +24,6 @@ import androidx.compose.ui.unit.dp
 import org.sopt.melon.R
 import org.sopt.melon.core.common.util.noRippleClickable
 import org.sopt.melon.core.designsystem.theme.MELONTheme
-import org.sopt.melon.core.designsystem.theme.Primary
 import org.sopt.melon.presentation.mixup.model.MusicInfo
 
 @Composable
@@ -51,7 +49,7 @@ fun MixUpPlayingMusic(
 
         // select all
         Row(
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             MixUpCheckBox(
                 isSelected = isAllSelected,
@@ -121,8 +119,7 @@ private fun AllSelectButton(
                     width = 0.5.dp,
                     color = MELONTheme.colors.gray300,
                     shape = RoundedCornerShape(4.dp),
-                )
-                .padding(start = 6.dp, end = 6.dp, top = 4.dp, bottom = 4.dp),
+                ).padding(start = 6.dp, end = 6.dp, top = 4.dp, bottom = 4.dp),
     ) {
         Icon(
             imageVector = ImageVector.vectorResource(R.drawable.ic_plus),

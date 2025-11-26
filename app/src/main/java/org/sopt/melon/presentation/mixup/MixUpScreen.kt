@@ -25,7 +25,7 @@ import kotlin.Int
 fun MixUpRoute(
     innerPadding: PaddingValues,
     onChevronClick: () -> Unit,
-    viewModel: MixUpViewModel = hiltViewModel()
+    viewModel: MixUpViewModel = hiltViewModel(),
 ) {
     val mixUpList by viewModel.mixUpList.collectAsStateWithLifecycle()
     val selectedIds by viewModel.selectedIds.collectAsStateWithLifecycle()
@@ -38,8 +38,9 @@ fun MixUpRoute(
         onSelectClick = viewModel::onSelection,
         onAllSelectClick = viewModel::onSelectAll,
         onReorder = viewModel::swapMusicOrder,
-        modifier = Modifier
-            .padding(innerPadding)
+        modifier =
+            Modifier
+                .padding(innerPadding),
     )
 }
 
@@ -47,26 +48,25 @@ fun MixUpRoute(
 private fun MixUpScreen(
     // Data (State)
     currentMusicInfo: MusicInfo,
-    mixUpList: List<MusicInfo>,     // 순서가 변경될 수 있는 리스트
-    selectedIds: Set<Long>,         // 선택된 음악들의 ID 집합 (체크박스 상태용)
-
+    mixUpList: List<MusicInfo>, // 순서가 변경될 수 있는 리스트
+    selectedIds: Set<Long>, // 선택된 음악들의 ID 집합 (체크박스 상태용)
     // Events (Actions)
     onChevronClick: () -> Unit,
     onSelectClick: (Long) -> Unit, // 개별 아이템 선택/해제
-    onAllSelectClick: () -> Unit,  // 전체 선택/해제
-    onReorder: (Int, Int) -> Unit,  // 리스트 순서 변경 (Draggable 결과 반영)
-
-    modifier: Modifier = Modifier
+    onAllSelectClick: () -> Unit, // 전체 선택/해제
+    onReorder: (Int, Int) -> Unit, // 리스트 순서 변경 (Draggable 결과 반영)
+    modifier: Modifier = Modifier,
 ) {
-    val isAllSelected = mixUpList.isNotEmpty()
-        && selectedIds.containsAll(mixUpList.map { it.id })
+    val isAllSelected =
+        mixUpList.isNotEmpty() &&
+            selectedIds.containsAll(mixUpList.map { it.id })
     val isCurrentMusicSelected = selectedIds.contains(currentMusicInfo.id)
 
     Column(
         verticalArrangement = Arrangement.spacedBy(24.dp),
         modifier =
             modifier
-                .fillMaxSize()
+                .fillMaxSize(),
     ) {
         MixUpTopBar(
             onSearchClick = {}, // no function
@@ -98,14 +98,15 @@ private fun MixUpPreview() {
     val colors = MELONTheme.colors
     MELONTheme {
         MixUpScreen(
-            currentMusicInfo = MusicInfo(
-                id = 0,
-                imageUrl = "TODO()",
-                title = "Blue Valentine",
-                singer = "NMIXX",
-                isPlaying = true,
-                isSelected = false,
-            ),
+            currentMusicInfo =
+                MusicInfo(
+                    id = 0,
+                    imageUrl = "TODO()",
+                    title = "Blue Valentine",
+                    singer = "NMIXX",
+                    isPlaying = true,
+                    isSelected = false,
+                ),
             mixUpList =
                 listOf(
                     MusicInfo(
@@ -183,9 +184,9 @@ private fun MixUpPreview() {
                 ),
             selectedIds = setOf(0),
             onChevronClick = {},
-        onSelectClick = {i -> },
-        onAllSelectClick = {},
-        onReorder = {i, j -> },
+            onSelectClick = { i -> },
+            onAllSelectClick = {},
+            onReorder = { i, j -> },
             modifier =
                 Modifier
                     .fillMaxSize()
@@ -195,8 +196,7 @@ private fun MixUpPreview() {
                                 brush = colors.gradient3,
                             )
                         }
-                    }
-                    .padding(top = 50.dp, bottom = 160.dp, start = 20.dp, end = 20.dp),
+                    }.padding(top = 50.dp, bottom = 160.dp, start = 20.dp, end = 20.dp),
         )
     }
 }

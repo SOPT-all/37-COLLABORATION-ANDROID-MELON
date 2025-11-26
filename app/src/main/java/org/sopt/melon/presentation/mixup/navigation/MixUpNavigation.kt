@@ -20,25 +20,25 @@ fun NavController.navigateToMixUp(
 
 fun NavGraphBuilder.mixUpGraph(
     navigateToHome: () -> Unit,
-    innerPadding: PaddingValues
+    innerPadding: PaddingValues,
 ) {
     composable<MixUp>(
         enterTransition = {
             slideInVertically(
                 initialOffsetY = { fullHeight -> fullHeight },
-                animationSpec = tween(300, easing = FastOutSlowInEasing)
+                animationSpec = tween(300, easing = FastOutSlowInEasing),
             )
         },
         popExitTransition = {
             slideOutVertically(
                 targetOffsetY = { fullHeight -> fullHeight }, // 화면 아래로 이동
-                animationSpec = tween(300, easing = FastOutLinearInEasing)
+                animationSpec = tween(300, easing = FastOutLinearInEasing),
             )
-        }
+        },
     ) {
         MixUpRoute(
             innerPadding = innerPadding,
-            onChevronClick = navigateToHome
+            onChevronClick = navigateToHome,
         )
     }
 }

@@ -20,7 +20,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
@@ -31,7 +30,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import org.sopt.melon.R
-import org.sopt.melon.core.common.util.noRippleClickable
 import org.sopt.melon.core.designsystem.theme.MELONTheme
 import org.sopt.melon.presentation.mixup.model.MusicInfo
 
@@ -90,7 +88,7 @@ private fun Music(
             modifier =
                 Modifier
                     .size(42.dp)
-                    .clip(RoundedCornerShape(4.dp))
+                    .clip(RoundedCornerShape(4.dp)),
         ) {
             AsyncImage(
                 model = musicInfo.imageUrl,
@@ -109,7 +107,7 @@ private fun Music(
                 Icon(
                     imageVector = ImageVector.vectorResource(R.drawable.ic_playing),
                     contentDescription = null,
-                    tint = Color.Unspecified
+                    tint = Color.Unspecified,
                 )
             }
         }

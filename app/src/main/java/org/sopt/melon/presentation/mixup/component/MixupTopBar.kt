@@ -3,7 +3,6 @@ package org.sopt.melon.presentation.mixup.component
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
@@ -95,8 +94,9 @@ private fun MixUpTopbarIcons(
         Image(
             imageVector = ImageVector.vectorResource(R.drawable.ic_chevron_down),
             contentDescription = null,
-            modifier = Modifier
-                .noRippleClickable(onChevronClick),
+            modifier =
+                Modifier
+                    .noRippleClickable(onChevronClick),
         )
     }
 }

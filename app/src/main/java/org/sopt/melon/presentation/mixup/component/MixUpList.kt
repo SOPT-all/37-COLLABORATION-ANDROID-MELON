@@ -15,8 +15,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableFloatStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -24,7 +22,6 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import org.sopt.melon.R
 import org.sopt.melon.core.designsystem.theme.MELONTheme
 import org.sopt.melon.presentation.mixup.model.MusicInfo
 import org.sopt.melon.presentation.mixup.utils.DraggableItem
@@ -39,10 +36,11 @@ fun MixUpList(
     modifier: Modifier = Modifier,
 ) {
     val listState = rememberLazyListState()
-    val dragDropState = rememberDragDropState(
-        lazyListState = listState,
-        onSwap = onReorder
-    )
+    val dragDropState =
+        rememberDragDropState(
+            lazyListState = listState,
+            onSwap = onReorder,
+        )
 
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
@@ -64,13 +62,13 @@ fun MixUpList(
         ) {
             itemsIndexed(
                 items = musicInfos,
-                key = { _, item -> item.id }
+                key = { _, item -> item.id },
             ) { index, item ->
 
                 DraggableItem(
                     dragDropState = dragDropState,
                     index = index,
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
                 ) { isDragging ->
 
                     MixUpItem(
@@ -78,34 +76,35 @@ fun MixUpList(
                         isPlaying = musicInfos[index].isPlaying,
                         isSelected = musicInfos[index].isSelected,
                         onSelectClick = { onSelectClick(item.id) },
-                        draggableModifier = Modifier.pointerInput(Unit) {
-                            detectDragGestures(
-                                onDragStart = {
-                                    // 핸들을 잡았을 때, 해당 인덱스로 드래그 시작 알림
-                                    dragDropState.onDragStart(index)
-                                },
-                                onDrag = { change, dragAmount ->
-                                    change.consume()
-                                    // 드래그 거리만큼 상태 업데이트
-                                    dragDropState.onDrag(change.position - change.previousPosition)
-                                },
-                                onDragEnd = {
-                                    dragDropState.onDragInterrupted()
-                                },
-                                onDragCancel = {
-                                    dragDropState.onDragInterrupted()
-                                }
-                            )
-                        },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .background(
-                                color = if (isDragging) MELONTheme.colors.gray500 else Color.Transparent,
-                                shape = RoundedCornerShape(8.dp)
-                            )
+                        draggableModifier =
+                            Modifier.pointerInput(Unit) {
+                                detectDragGestures(
+                                    onDragStart = {
+                                        // 핸들을 잡았을 때, 해당 인덱스로 드래그 시작 알림
+                                        dragDropState.onDragStart(index)
+                                    },
+                                    onDrag = { change, dragAmount ->
+                                        change.consume()
+                                        // 드래그 거리만큼 상태 업데이트
+                                        dragDropState.onDrag(change.position - change.previousPosition)
+                                    },
+                                    onDragEnd = {
+                                        dragDropState.onDragInterrupted()
+                                    },
+                                    onDragCancel = {
+                                        dragDropState.onDragInterrupted()
+                                    },
+                                )
+                            },
+                        modifier =
+                            Modifier
+                                .fillMaxWidth()
+                                .background(
+                                    color = if (isDragging) MELONTheme.colors.gray500 else Color.Transparent,
+                                    shape = RoundedCornerShape(8.dp),
+                                ),
                     )
                 }
-
             }
         }
     }
@@ -190,8 +189,8 @@ fun MixUpListPreview() {
                     isSelected = true,
                 ),
             ),
-        onReorder = {i, j -> },
-        onSelectClick = {i -> },
+        onReorder = { i, j -> },
+        onSelectClick = { i -> },
         modifier = Modifier.size(width = 320.dp, height = 372.dp),
     )
 }
