@@ -3,6 +3,7 @@ package org.sopt.melon.presentation.home.component
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -28,6 +29,7 @@ fun HomeChipList(
             modifier
                 .horizontalScroll(rememberScrollState())
                 .padding(horizontal = 20.dp),
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         chipContentList.forEachIndexed { index, content ->
             HomeChip(

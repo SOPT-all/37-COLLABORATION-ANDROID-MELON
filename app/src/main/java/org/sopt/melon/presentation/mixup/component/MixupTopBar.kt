@@ -68,9 +68,7 @@ private fun MixUpTopbarTab(
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
                 modifier =
-                    Modifier.noRippleClickable(
-                        { current = it },
-                    ),
+                    Modifier.noRippleClickable { current = it },
             )
         }
     }

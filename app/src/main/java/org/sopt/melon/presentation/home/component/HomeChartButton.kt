@@ -2,6 +2,7 @@ package org.sopt.melon.presentation.home.component
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -34,6 +35,7 @@ fun HomeChartButton(
         modifier =
             modifier
                 .fillMaxWidth()
+                .clickable(onClick = {})
                 .clip(shape = RoundedCornerShape(4.dp))
                 .background(MELONTheme.colors.gray500)
                 .padding(all = 10.dp),

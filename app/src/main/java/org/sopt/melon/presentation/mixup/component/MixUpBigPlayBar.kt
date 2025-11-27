@@ -2,12 +2,11 @@ package org.sopt.melon.presentation.mixup.component
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
@@ -29,15 +28,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import org.sopt.melon.R
-import org.sopt.melon.core.common.component.MelonMusicControlBar
-import org.sopt.melon.core.common.component.MelonMusicControlBarSize
-import org.sopt.melon.core.common.component.MelonProgressBar
+import org.sopt.melon.R.drawable.ic_settings
 import org.sopt.melon.core.common.util.noRippleClickable
-import org.sopt.melon.core.designsystem.theme.defaultMelonColors
+import org.sopt.melon.core.designsystem.component.controlbar.MelonMusicControlBar
+import org.sopt.melon.core.designsystem.component.controlbar.MelonMusicControlBarType
+import org.sopt.melon.core.designsystem.component.controlbar.MelonProgressBar
+
+private const val FIXED_CONTROL_BAR_RATIO = 72 / 360f
 
 @Composable
 fun MixUpBigPlayBar(
-    progressRatio: Float,
     isPlaying: Boolean,
     onSettingClick: () -> Unit,
     onBackClick: () -> Unit,
@@ -45,47 +45,52 @@ fun MixUpBigPlayBar(
     onFrontClick: () -> Unit,
     @DrawableRes currentSongImg: Int,
     modifier: Modifier = Modifier,
+    progressRatio: Float = FIXED_CONTROL_BAR_RATIO,
 ) {
-    val settingIcon = R.drawable.ic_settings
-
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier =
-            modifier
-                .background(color = defaultMelonColors.background2),
+        modifier = modifier,
     ) {
         MelonProgressBar(
             progressRatio = progressRatio,
             modifier = Modifier.fillMaxWidth(),
         )
 
-        Spacer(Modifier.size(6.dp))
-
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween,
+            modifier =
+                Modifier
+                    .padding(
+                        top = 6.dp,
+                        start = 17.dp,
+                        end = 17.dp,
+                        bottom = 20.dp,
+                    ),
         ) {
             Icon(
-                imageVector = ImageVector.vectorResource(settingIcon),
-                tint = Color.Unspecified,
+                imageVector = ImageVector.vectorResource(ic_settings),
                 contentDescription = null,
                 modifier =
                     Modifier
                         .size(24.dp)
                         .noRippleClickable(onSettingClick),
+                tint = Color.Unspecified,
             )
 
-            Spacer(Modifier.size(39.dp))
-
             MelonMusicControlBar(
-                size = MelonMusicControlBarSize.BIG,
+                controlBarType = MelonMusicControlBarType.BIG,
                 isPlaying = isPlaying,
                 onBackClick = onBackClick,
                 onPlayPauseClick = onPlayPauseClick,
                 onFrontClick = onFrontClick,
+                modifier =
+                    Modifier
+                        .padding(
+                            start = 39.dp,
+                            end = 33.dp,
+                        ),
             )
-
-            Spacer(Modifier.size(33.dp))
 
             Image(
                 painter = painterResource(currentSongImg),
@@ -122,6 +127,5 @@ private fun MixUpBigPlayBarPreview() {
         onPlayPauseClick = { isPlaying = !isPlaying },
         onFrontClick = {},
         currentSongImg = R.drawable.img_home2_56,
-        modifier = Modifier.size(width = 375.dp, height = 113.dp),
     )
 }

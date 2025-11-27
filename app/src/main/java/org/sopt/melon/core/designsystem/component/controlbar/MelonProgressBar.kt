@@ -1,4 +1,4 @@
-package org.sopt.melon.core.common.component
+package org.sopt.melon.core.designsystem.component.controlbar
 
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.animateFloatAsState

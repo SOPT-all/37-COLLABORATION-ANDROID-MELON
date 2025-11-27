@@ -64,19 +64,18 @@ fun HomeRoute(
     val melonChartGridState = rememberLazyGridState()
 
     HomeScreen(
+        innerPadding = innerPadding,
         uiState = uiState,
         onMixUpClick = { snackbarTrigger(snackbarRequest) },
         popularGridState = popularGridState,
         melonChartGridState = melonChartGridState,
         onNewSongFilterClick = viewModel::onNewSongFilterClick,
-        modifier =
-            Modifier
-                .padding(innerPadding),
     )
 }
 
 @Composable
 private fun HomeScreen(
+    innerPadding: PaddingValues,
     uiState: HomeUiState,
     onMixUpClick: () -> Unit,
     popularGridState: LazyGridState,
@@ -86,6 +85,7 @@ private fun HomeScreen(
 ) {
     LazyColumn(
         modifier = modifier,
+        contentPadding = innerPadding,
     ) {
         item {
             HomeTopBar(
@@ -426,6 +426,7 @@ private fun HomeScreenPreview() {
                 popularGridState = rememberLazyGridState(),
                 onNewSongFilterClick = {},
                 melonChartGridState = rememberLazyGridState(),
+                innerPadding = PaddingValues(),
             )
         }
     }

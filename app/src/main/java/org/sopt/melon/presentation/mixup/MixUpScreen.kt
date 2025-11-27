@@ -1,13 +1,14 @@
 package org.sopt.melon.presentation.mixup
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.systemBarsPadding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -19,6 +20,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.sopt.melon.R
 import org.sopt.melon.core.designsystem.theme.MELONTheme
+import org.sopt.melon.core.designsystem.theme.defaultMelonColors
 import org.sopt.melon.presentation.mixup.component.MixUpBigPlayBar
 import org.sopt.melon.presentation.mixup.component.MixUpList
 import org.sopt.melon.presentation.mixup.component.MixUpPlayingMusic
@@ -77,8 +79,8 @@ private fun MixUpScreen(
             verticalArrangement = Arrangement.spacedBy(24.dp),
             modifier =
                 Modifier
-                    .padding(top = 20.dp, bottom = 108.dp, start = 20.dp, end = 20.dp)
-                    .systemBarsPadding(),
+                    .padding(top = 16.dp, bottom = 20.dp, start = 20.dp, end = 20.dp)
+                    .statusBarsPadding(),
         ) {
             MixUpTopBar(
                 onSearchClick = {},
@@ -95,6 +97,7 @@ private fun MixUpScreen(
                 onSelectClick = { onSelectClick(currentMixUpMusicInfo.id) },
                 modifier = Modifier.fillMaxWidth(),
             )
+
             MixUpList(
                 mixUpMusicInfos = mixUpList,
                 onReorder = onReorder,
@@ -104,8 +107,7 @@ private fun MixUpScreen(
         }
 
         MixUpBigPlayBar(
-            progressRatio = 0.5f,
-            isPlaying = true,
+            isPlaying = false,
             onSettingClick = {},
             onBackClick = {},
             onPlayPauseClick = {},
@@ -113,8 +115,9 @@ private fun MixUpScreen(
             currentSongImg = R.drawable.img_home2_56,
             modifier =
                 Modifier
-                    .height(92.dp)
-                    .align(Alignment.BottomCenter),
+                    .align(Alignment.BottomCenter)
+                    .background(color = defaultMelonColors.background2)
+                    .navigationBarsPadding(),
         )
     }
 }

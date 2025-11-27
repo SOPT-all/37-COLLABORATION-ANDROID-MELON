@@ -1,7 +1,6 @@
 package org.sopt.melon.presentation.mixup.component
 
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -10,11 +9,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -78,12 +75,10 @@ fun MixUpList(
                             Modifier.pointerInput(Unit) {
                                 detectDragGestures(
                                     onDragStart = {
-                                        // 핸들을 잡았을 때, 해당 인덱스로 드래그 시작 알림
                                         dragDropState.onDragStart(index)
                                     },
                                     onDrag = { change, dragAmount ->
                                         change.consume()
-                                        // 드래그 거리만큼 상태 업데이트
                                         dragDropState.onDrag(change.position - change.previousPosition)
                                     },
                                     onDragEnd = {
@@ -94,13 +89,7 @@ fun MixUpList(
                                     },
                                 )
                             },
-                        modifier =
-                            Modifier
-                                .fillMaxWidth()
-                                .background(
-                                    color = if (isDragging) MELONTheme.colors.gray500 else Color.Transparent,
-                                    shape = RoundedCornerShape(8.dp),
-                                ),
+                        modifier = Modifier.fillMaxWidth(),
                     )
                 }
             }

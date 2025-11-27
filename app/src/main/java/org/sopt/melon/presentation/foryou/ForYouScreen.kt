@@ -10,7 +10,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -46,20 +45,16 @@ fun ForYouRoute(
             onClick = navigateToMixUp,
         )
 
-    LaunchedEffect(Unit) {
-        viewModel.fetchCustomMusic()
-        viewModel.fetchAlbum()
-    }
-
     ForYouScreen(
+        innerPadding = innerPadding,
         uiState = uiState,
         onMixUpClick = { snackbarTrigger(snackbarRequest) },
-        modifier = Modifier.padding(innerPadding),
     )
 }
 
 @Composable
 private fun ForYouScreen(
+    innerPadding: PaddingValues,
     uiState: ForYouUiState,
     onMixUpClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -76,7 +71,7 @@ private fun ForYouScreen(
                     top = 22.dp,
                     end = 20.dp,
                     bottom = 36.dp,
-                ),
+                ).padding(innerPadding),
     ) {
         Text(
             text = stringResource(foryou),
@@ -122,6 +117,7 @@ private fun ForYouScreenPreview() {
             modifier = Modifier.background(MELONTheme.colors.background),
             onMixUpClick = {},
             uiState = ForYouUiState(),
+            innerPadding = PaddingValues(),
         )
     }
 }

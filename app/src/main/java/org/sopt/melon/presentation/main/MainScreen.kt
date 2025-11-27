@@ -7,6 +7,8 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideIn
 import androidx.compose.animation.slideOut
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
@@ -20,6 +22,7 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import kotlinx.collections.immutable.toImmutableList
+import org.sopt.melon.core.designsystem.component.controlbar.MelonSmallPlayBar
 import org.sopt.melon.core.designsystem.component.snackbar.LocalMelonSnackbarTrigger
 import org.sopt.melon.core.designsystem.component.snackbar.MelonActionSnackbar
 import org.sopt.melon.core.designsystem.component.snackbar.MelonSnackbarActionRequest
@@ -71,14 +74,23 @@ fun MainScreen(
                 enter = fadeIn() + slideIn { IntOffset(0, it.height) },
                 exit = fadeOut() + slideOut { IntOffset(0, it.height) },
             ) {
-                MainBottomBar(
-                    tabs = MainTab.entries.toImmutableList(),
-                    currentTab = navigator.currentTab,
-                    onTabSelected = navigator::navigate,
+                Column(
                     modifier =
                         Modifier
+                            .background(MELONTheme.colors.background)
                             .navigationBarsPadding(),
-                )
+                ) {
+                    MelonSmallPlayBar(
+                        title = "Blue Valentine",
+                        artistName = "NMIXX",
+                    )
+
+                    MainBottomBar(
+                        tabs = MainTab.entries.toImmutableList(),
+                        currentTab = navigator.currentTab,
+                        onTabSelected = navigator::navigate,
+                    )
+                }
             }
         },
         containerColor = MELONTheme.colors.background,

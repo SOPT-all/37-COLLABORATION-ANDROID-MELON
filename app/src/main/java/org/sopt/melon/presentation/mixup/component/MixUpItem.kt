@@ -6,8 +6,9 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
@@ -47,23 +48,21 @@ fun MixUpItem(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier,
     ) {
-        Row(
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            MixUpCheckBox(
-                isSelected = isSelected,
-                onSelectClick = onSelectClick,
-                modifier = Modifier.size(24.dp),
-            )
+        MixUpCheckBox(
+            isSelected = isSelected,
+            onSelectClick = onSelectClick,
+            modifier = Modifier.size(24.dp),
+        )
 
-            Spacer(Modifier.size(10.dp))
+        Spacer(Modifier.width(10.dp))
 
-            Music(
-                mixUpMusicInfo = mixUpMusicInfo,
-                isPlaying = isPlaying,
-            )
-        }
+        Music(
+            mixUpMusicInfo = mixUpMusicInfo,
+            isPlaying = isPlaying,
+            modifier = Modifier.weight(1f),
+        )
+
+        Spacer(Modifier.width(27.dp))
 
         Icon(
             imageVector = ImageVector.vectorResource(R.drawable.ic_menu),
@@ -82,18 +81,22 @@ private fun Music(
 ) {
     Row(
         modifier = modifier,
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         Box(
             contentAlignment = Alignment.Center,
             modifier =
                 Modifier
-                    .size(42.dp)
+                    .wrapContentSize()
                     .clip(RoundedCornerShape(4.dp)),
         ) {
             AsyncImage(
                 model = mixUpMusicInfo.imageUrl,
                 error = painterResource(R.drawable.img_chart1_42),
                 contentDescription = null,
+                modifier =
+                    Modifier
+                        .size(42.dp),
                 contentScale = ContentScale.Crop,
             )
 
@@ -101,7 +104,7 @@ private fun Music(
                 Box(
                     modifier =
                         Modifier
-                            .fillMaxSize()
+                            .size(42.dp)
                             .background(MELONTheme.colors.opacity2),
                 )
                 Icon(
@@ -124,6 +127,7 @@ private fun Music(
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
+
             Text(
                 text = mixUpMusicInfo.artistName,
                 style = MELONTheme.typography.caption.r_12,

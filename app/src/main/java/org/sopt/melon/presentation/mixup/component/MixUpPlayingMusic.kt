@@ -39,7 +39,6 @@ fun MixUpPlayingMusic(
     Column(
         modifier = modifier,
     ) {
-        // top
         MixUpPlayingMusicTopBar(
             onAddAllClick = onAddAllClick,
             modifier = Modifier.fillMaxWidth(),
@@ -47,7 +46,6 @@ fun MixUpPlayingMusic(
 
         Spacer(Modifier.size(16.dp))
 
-        // select all
         Row(
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -69,7 +67,6 @@ fun MixUpPlayingMusic(
 
         Spacer(Modifier.size(12.dp))
 
-        // current music
         MixUpItem(
             mixUpMusicInfo = mixUpMusicInfo,
             isPlaying = true,
