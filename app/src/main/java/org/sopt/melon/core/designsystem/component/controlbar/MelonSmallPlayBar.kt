@@ -31,7 +31,7 @@ private const val FIXED_CONTROL_BAR_RATIO = 216 / 360f
 @Composable
 fun MelonSmallPlayBar(
     title: String,
-    singer: String,
+    artistName: String,
     modifier: Modifier = Modifier,
     isPlaying: Boolean = false,
     onBackClick: () -> Unit = {},
@@ -52,6 +52,7 @@ fun MelonSmallPlayBar(
         )
 
         Row(
+            horizontalArrangement = Arrangement.SpaceBetween,
             modifier =
                 Modifier
                     .fillMaxWidth()
@@ -65,7 +66,7 @@ fun MelonSmallPlayBar(
         ) {
             SongInfo(
                 title = title,
-                singer = singer,
+                artistName = artistName,
             )
 
             Row(
@@ -97,7 +98,7 @@ fun MelonSmallPlayBar(
 @Composable
 private fun SongInfo(
     title: String,
-    singer: String,
+    artistName: String,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -110,8 +111,9 @@ private fun SongInfo(
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
         )
+
         Text(
-            text = singer,
+            text = artistName,
             style = MELONTheme.typography.caption.r_12,
             color = MELONTheme.colors.gray300,
             maxLines = 1,
@@ -127,8 +129,8 @@ private fun MelonSmallPlayBarPreview() {
 
     MelonSmallPlayBar(
         title = "Blue Valentine",
-        singer = "NMIXX",
-        progressRatio = FIXED_CONTROL_BAR_RATIO,
+        artistName = "NMIXX",
+        progressRatio = 0.5f,
         isPlaying = isPlaying,
         onBackClick = {},
         onPlayPauseClick = { isPlaying = !isPlaying },
@@ -142,7 +144,7 @@ private fun MelonSmallPlayBarPreview() {
 private fun SongInfoPreview() {
     SongInfo(
         title = "Blue Valentine",
-        singer = "NMIXX",
+        artistName = "NMIXX",
         modifier = Modifier,
     )
 }
