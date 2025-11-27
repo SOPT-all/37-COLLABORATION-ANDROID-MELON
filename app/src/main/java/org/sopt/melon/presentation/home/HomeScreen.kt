@@ -235,15 +235,15 @@ private fun HomeScreenPreview() {
                         recommendSongList =
                             persistentListOf(
                                 RecommendSongItemData(
-                                    imageUrl = "TODO()",
+                                    image = R.drawable.img_recommend1_140,
                                     description = "내가 아끼는 최애곡 모음",
                                 ),
                                 RecommendSongItemData(
-                                    imageUrl = "TODO()",
+                                    image = R.drawable.img_recommend1_140,
                                     description = "내가 아끼는 최애곡 모음",
                                 ),
                                 RecommendSongItemData(
-                                    imageUrl = "TODO()",
+                                    image = R.drawable.img_recommend1_140,
                                     description = "내가 아끼는 최애곡 모음",
                                 ),
                             ),
