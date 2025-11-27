@@ -20,6 +20,7 @@ fun MusicDto.toMixUpMusicInfoModel() =
         artistName = artistName,
         isPlaying = false,
     )
+
 fun MusicDto.toHomeMusicModel(
     index: Int,
 ) = HomeMusic(

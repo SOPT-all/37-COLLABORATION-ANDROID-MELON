@@ -3,7 +3,6 @@ package org.sopt.melon.presentation.mixup
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -14,7 +13,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithCache
-import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -113,9 +111,10 @@ private fun MixUpScreen(
             onPlayPauseClick = {},
             onFrontClick = {},
             currentSongImg = R.drawable.img_home2_56,
-            modifier = Modifier
-                .height(92.dp)
-                .align(Alignment.BottomCenter),
+            modifier =
+                Modifier
+                    .height(92.dp)
+                    .align(Alignment.BottomCenter),
         )
     }
 }
