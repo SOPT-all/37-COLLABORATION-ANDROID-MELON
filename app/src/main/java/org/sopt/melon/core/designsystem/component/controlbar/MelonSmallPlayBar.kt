@@ -1,4 +1,4 @@
-package org.sopt.melon.core.common.component
+package org.sopt.melon.core.designsystem.component.controlbar
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -26,25 +25,27 @@ import androidx.compose.ui.unit.dp
 import org.sopt.melon.R
 import org.sopt.melon.core.common.util.noRippleClickable
 import org.sopt.melon.core.designsystem.theme.MELONTheme
-import org.sopt.melon.core.designsystem.theme.defaultMelonColors
+
+private const val FIXED_CONTROL_BAR_RATIO = 216 / 360f
 
 @Composable
 fun MelonSmallPlayBar(
     title: String,
     singer: String,
-    progressRatio: Float,
-    isPlaying: Boolean,
-    onBackClick: () -> Unit,
-    onPlayPauseClick: (Boolean) -> Unit,
-    onFrontClick: () -> Unit,
-    onPlayMenuClick: () -> Unit,
+
     modifier: Modifier = Modifier,
+    isPlaying: Boolean = false,
+    onBackClick: () -> Unit = {},
+    onPlayPauseClick: (Boolean) -> Unit = {},
+    onFrontClick: () -> Unit = {},
+    onPlayMenuClick: () -> Unit = {},
+    progressRatio: Float = FIXED_CONTROL_BAR_RATIO,
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier =
             modifier
-                .background(color = defaultMelonColors.background2),
+                .background(color = MELONTheme.colors.background),
     ) {
         MelonProgressBar(
             progressRatio = progressRatio,
@@ -52,36 +53,31 @@ fun MelonSmallPlayBar(
         )
 
         Row(
-            horizontalArrangement = Arrangement.SpaceBetween,
             modifier =
                 Modifier
-                    .fillMaxSize()
+                    .fillMaxWidth()
                     .padding(
                         top = 7.dp,
                         start = 20.dp,
                         end = 8.dp,
                         bottom = 11.dp,
                     ),
+            horizontalArrangement = Arrangement.SpaceBetween,
         ) {
-            // title & singer
             SongInfo(
                 title = title,
                 singer = singer,
-                modifier = Modifier,
             )
 
-            // Control Bar
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier,
             ) {
                 MelonMusicControlBar(
-                    size = MelonMusicControlBarSize.SMALL,
+                    controlBarType = MelonMusicControlBarType.SMALL,
                     isPlaying = isPlaying,
                     onBackClick = onBackClick,
                     onPlayPauseClick = onPlayPauseClick,
                     onFrontClick = onFrontClick,
-                    modifier = Modifier,
                 )
 
                 Spacer(Modifier.size(4.dp))
@@ -133,13 +129,12 @@ private fun MelonSmallPlayBarPreview() {
     MelonSmallPlayBar(
         title = "Blue Valentine",
         singer = "NMIXX",
-        progressRatio = 0.5f,
+        progressRatio = FIXED_CONTROL_BAR_RATIO,
         isPlaying = isPlaying,
         onBackClick = {},
         onPlayPauseClick = { isPlaying = !isPlaying },
         onFrontClick = {},
         onPlayMenuClick = {},
-        modifier = Modifier.size(width = 360.dp, height = 60.dp),
     )
 }
 

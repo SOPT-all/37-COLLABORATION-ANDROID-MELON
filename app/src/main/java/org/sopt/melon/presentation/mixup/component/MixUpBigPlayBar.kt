@@ -6,10 +6,11 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -20,6 +21,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
@@ -27,15 +29,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import org.sopt.melon.R
-import org.sopt.melon.core.common.component.MelonMusicControlBar
-import org.sopt.melon.core.common.component.MelonMusicControlBarSize
-import org.sopt.melon.core.common.component.MelonProgressBar
+import org.sopt.melon.R.drawable.ic_settings
 import org.sopt.melon.core.common.util.noRippleClickable
+import org.sopt.melon.core.designsystem.component.controlbar.MelonMusicControlBar
+import org.sopt.melon.core.designsystem.component.controlbar.MelonMusicControlBarType
+import org.sopt.melon.core.designsystem.component.controlbar.MelonProgressBar
 import org.sopt.melon.core.designsystem.theme.defaultMelonColors
+
+private const val FIXED_CONTROL_BAR_RATIO = 72 / 360f
 
 @Composable
 fun MixUpBigPlayBar(
-    progressRatio: Float,
     isPlaying: Boolean,
     onSettingClick: () -> Unit,
     onBackClick: () -> Unit,
@@ -43,9 +47,8 @@ fun MixUpBigPlayBar(
     onFrontClick: () -> Unit,
     @DrawableRes currentSongImg: Int,
     modifier: Modifier = Modifier,
+    progressRatio: Float = FIXED_CONTROL_BAR_RATIO,
 ) {
-    val settingIcon = R.drawable.ic_settings
-
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier =
@@ -57,32 +60,39 @@ fun MixUpBigPlayBar(
             modifier = Modifier.fillMaxWidth(),
         )
 
-        Spacer(Modifier.size(6.dp))
-
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween,
+            modifier = Modifier
+                .padding(
+                    top = 6.dp,
+                    start = 17.dp,
+                    end = 17.dp,
+                    bottom = 20.dp,
+                ),
         ) {
-            Image(
-                imageVector = ImageVector.vectorResource(settingIcon),
+            Icon(
+                imageVector = ImageVector.vectorResource(ic_settings),
                 contentDescription = null,
                 modifier =
                     Modifier
                         .size(24.dp)
                         .noRippleClickable(onSettingClick),
+                tint = Color.Unspecified,
             )
 
-            Spacer(Modifier.size(39.dp))
-
             MelonMusicControlBar(
-                size = MelonMusicControlBarSize.BIG,
+                controlBarType = MelonMusicControlBarType.BIG,
                 isPlaying = isPlaying,
                 onBackClick = onBackClick,
                 onPlayPauseClick = onPlayPauseClick,
                 onFrontClick = onFrontClick,
+                modifier = Modifier
+                    .padding(
+                        start = 39.dp,
+                        end = 33.dp,
+                    ),
             )
-
-            Spacer(Modifier.size(33.dp))
 
             Image(
                 painter = painterResource(currentSongImg),
