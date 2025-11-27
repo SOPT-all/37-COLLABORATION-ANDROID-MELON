@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.runtime.Composable
@@ -77,7 +76,7 @@ private fun MixUpScreen(
             verticalArrangement = Arrangement.spacedBy(24.dp),
             modifier =
                 Modifier
-                    .padding(top = 20.dp, bottom = 108.dp, start = 20.dp, end = 20.dp)
+                    .padding(top = 16.dp, bottom = 20.dp, start = 20.dp, end = 20.dp)
                     .systemBarsPadding(),
         ) {
             MixUpTopBar(
@@ -95,6 +94,7 @@ private fun MixUpScreen(
                 onSelectClick = { onSelectClick(currentMixUpMusicInfo.id) },
                 modifier = Modifier.fillMaxWidth(),
             )
+
             MixUpList(
                 mixUpMusicInfos = mixUpList,
                 onReorder = onReorder,
@@ -104,17 +104,13 @@ private fun MixUpScreen(
         }
 
         MixUpBigPlayBar(
-            progressRatio = 0.5f,
             isPlaying = true,
             onSettingClick = {},
             onBackClick = {},
             onPlayPauseClick = {},
             onFrontClick = {},
             currentSongImg = R.drawable.img_home2_56,
-            modifier =
-                Modifier
-                    .height(92.dp)
-                    .align(Alignment.BottomCenter),
+            modifier = Modifier.align(Alignment.BottomCenter),
         )
     }
 }

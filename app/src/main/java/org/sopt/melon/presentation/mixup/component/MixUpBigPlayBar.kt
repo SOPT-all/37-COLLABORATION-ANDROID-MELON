@@ -66,7 +66,7 @@ fun MixUpBigPlayBar(
             modifier =
                 Modifier
                     .padding(
-                        top = 6.dp,
+                        top = 8.dp,
                         start = 17.dp,
                         end = 17.dp,
                         bottom = 20.dp,
