@@ -82,7 +82,7 @@ fun MainScreen(
                 ) {
                     MelonSmallPlayBar(
                         title = "Blue Valentine",
-                        singer = "NMIXX",
+                        artistName = "NMIXX",
                     )
 
                     MainBottomBar(

@@ -52,7 +52,6 @@ fun MelonSmallPlayBar(
         )
 
         Row(
-            horizontalArrangement = Arrangement.SpaceBetween,
             modifier =
                 Modifier
                     .fillMaxWidth()
