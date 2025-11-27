@@ -27,6 +27,11 @@ class ForYouViewModel @Inject constructor(
     private val _uiState = MutableStateFlow(ForYouUiState())
     val uiState = _uiState.asStateFlow()
 
+    init {
+        fetchCustomMusic()
+        fetchAlbum()
+    }
+
     fun fetchCustomMusic() =
         viewModelScope.launch {
             musicRepository
