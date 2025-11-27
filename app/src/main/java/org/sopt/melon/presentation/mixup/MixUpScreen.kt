@@ -1,11 +1,13 @@
 package org.sopt.melon.presentation.mixup
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -18,6 +20,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.sopt.melon.R
 import org.sopt.melon.core.designsystem.theme.MELONTheme
+import org.sopt.melon.core.designsystem.theme.defaultMelonColors
 import org.sopt.melon.presentation.mixup.component.MixUpBigPlayBar
 import org.sopt.melon.presentation.mixup.component.MixUpList
 import org.sopt.melon.presentation.mixup.component.MixUpPlayingMusic
@@ -77,7 +80,7 @@ private fun MixUpScreen(
             modifier =
                 Modifier
                     .padding(top = 16.dp, bottom = 20.dp, start = 20.dp, end = 20.dp)
-                    .systemBarsPadding(),
+                    .statusBarsPadding(),
         ) {
             MixUpTopBar(
                 onSearchClick = {},
@@ -104,13 +107,17 @@ private fun MixUpScreen(
         }
 
         MixUpBigPlayBar(
-            isPlaying = true,
+            isPlaying = false,
             onSettingClick = {},
             onBackClick = {},
             onPlayPauseClick = {},
             onFrontClick = {},
             currentSongImg = R.drawable.img_home2_56,
-            modifier = Modifier.align(Alignment.BottomCenter),
+            modifier =
+                Modifier
+                    .align(Alignment.BottomCenter)
+                    .background(color = defaultMelonColors.background2)
+                    .systemBarsPadding(),
         )
     }
 }

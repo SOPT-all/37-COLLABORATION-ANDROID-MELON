@@ -2,7 +2,6 @@ package org.sopt.melon.presentation.mixup.component
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -34,7 +33,6 @@ import org.sopt.melon.core.common.util.noRippleClickable
 import org.sopt.melon.core.designsystem.component.controlbar.MelonMusicControlBar
 import org.sopt.melon.core.designsystem.component.controlbar.MelonMusicControlBarType
 import org.sopt.melon.core.designsystem.component.controlbar.MelonProgressBar
-import org.sopt.melon.core.designsystem.theme.defaultMelonColors
 
 private const val FIXED_CONTROL_BAR_RATIO = 72 / 360f
 
@@ -51,9 +49,7 @@ fun MixUpBigPlayBar(
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier =
-            modifier
-                .background(color = defaultMelonColors.background2),
+        modifier = modifier,
     ) {
         MelonProgressBar(
             progressRatio = progressRatio,
@@ -66,7 +62,7 @@ fun MixUpBigPlayBar(
             modifier =
                 Modifier
                     .padding(
-                        top = 8.dp,
+                        top = 6.dp,
                         start = 17.dp,
                         end = 17.dp,
                         bottom = 20.dp,
@@ -131,6 +127,5 @@ private fun MixUpBigPlayBarPreview() {
         onPlayPauseClick = { isPlaying = !isPlaying },
         onFrontClick = {},
         currentSongImg = R.drawable.img_home2_56,
-        modifier = Modifier.size(width = 375.dp, height = 113.dp),
     )
 }
