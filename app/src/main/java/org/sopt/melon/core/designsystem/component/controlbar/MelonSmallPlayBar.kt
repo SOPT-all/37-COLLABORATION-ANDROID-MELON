@@ -32,7 +32,6 @@ private const val FIXED_CONTROL_BAR_RATIO = 216 / 360f
 fun MelonSmallPlayBar(
     title: String,
     singer: String,
-
     modifier: Modifier = Modifier,
     isPlaying: Boolean = false,
     onBackClick: () -> Unit = {},

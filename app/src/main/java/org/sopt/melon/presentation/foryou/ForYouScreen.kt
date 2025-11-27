@@ -71,8 +71,7 @@ private fun ForYouScreen(
                     top = 22.dp,
                     end = 20.dp,
                     bottom = 36.dp,
-                )
-                .padding(innerPadding),
+                ).padding(innerPadding),
     ) {
         Text(
             text = stringResource(foryou),

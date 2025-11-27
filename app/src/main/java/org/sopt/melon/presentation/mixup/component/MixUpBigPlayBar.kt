@@ -63,13 +63,14 @@ fun MixUpBigPlayBar(
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier
-                .padding(
-                    top = 6.dp,
-                    start = 17.dp,
-                    end = 17.dp,
-                    bottom = 20.dp,
-                ),
+            modifier =
+                Modifier
+                    .padding(
+                        top = 6.dp,
+                        start = 17.dp,
+                        end = 17.dp,
+                        bottom = 20.dp,
+                    ),
         ) {
             Icon(
                 imageVector = ImageVector.vectorResource(ic_settings),
@@ -87,11 +88,12 @@ fun MixUpBigPlayBar(
                 onBackClick = onBackClick,
                 onPlayPauseClick = onPlayPauseClick,
                 onFrontClick = onFrontClick,
-                modifier = Modifier
-                    .padding(
-                        start = 39.dp,
-                        end = 33.dp,
-                    ),
+                modifier =
+                    Modifier
+                        .padding(
+                            start = 39.dp,
+                            end = 33.dp,
+                        ),
             )
 
             Image(

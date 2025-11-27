@@ -35,10 +35,11 @@ fun MelonMusicControlBar(
         Icon(
             imageVector = ImageVector.vectorResource(controlBarType.backIcon),
             contentDescription = null,
-            modifier = Modifier
+            modifier =
+                Modifier
                     .noRippleClickable(
-                    onClick = onBackClick,
-                ),
+                        onClick = onBackClick,
+                    ),
             tint = Color.Unspecified,
         )
 
