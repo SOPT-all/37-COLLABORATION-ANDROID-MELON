@@ -3,7 +3,7 @@ package org.sopt.melon.presentation.home.model
 import kotlinx.collections.immutable.persistentListOf
 import org.sopt.melon.R
 
-class RecommendSongItemData(
+data class RecommendSongItemData(
     val image: Int,
     val description: String,
 ) {
