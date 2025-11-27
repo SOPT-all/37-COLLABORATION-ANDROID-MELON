@@ -1,6 +1,7 @@
 package org.sopt.melon.presentation.mixup
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,8 +11,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithCache
+import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -60,7 +63,7 @@ private fun MixUpScreen(
             selectedIds.containsAll(mixUpList.map { it.id })
     val isCurrentMusicSelected = selectedIds.contains(currentMixUpMusicInfo.id)
 
-    Column(
+    Box(
         modifier =
             modifier
                 .fillMaxSize()
@@ -76,7 +79,7 @@ private fun MixUpScreen(
             verticalArrangement = Arrangement.spacedBy(24.dp),
             modifier =
                 Modifier
-                    .padding(top = 20.dp, bottom = 16.dp, start = 20.dp, end = 20.dp)
+                    .padding(top = 20.dp, bottom = 108.dp, start = 20.dp, end = 20.dp)
                     .systemBarsPadding(),
         ) {
             MixUpTopBar(
@@ -99,11 +102,8 @@ private fun MixUpScreen(
                 onReorder = onReorder,
                 onSelectClick = onSelectClick,
                 selectedMusicIds = selectedIds,
-                modifier = Modifier.height(372.dp),
             )
         }
-
-        Spacer(Modifier.weight(1f))
 
         MixUpBigPlayBar(
             progressRatio = 0.5f,
@@ -113,7 +113,9 @@ private fun MixUpScreen(
             onPlayPauseClick = {},
             onFrontClick = {},
             currentSongImg = R.drawable.img_home2_56,
-            modifier = Modifier.height(92.dp),
+            modifier = Modifier
+                .height(92.dp)
+                .align(Alignment.BottomCenter),
         )
     }
 }

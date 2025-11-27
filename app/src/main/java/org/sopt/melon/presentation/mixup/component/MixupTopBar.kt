@@ -69,7 +69,7 @@ private fun MixUpTopbarTab(
                 overflow = TextOverflow.Ellipsis,
                 modifier =
                     Modifier.noRippleClickable(
-                        { current = MixUpTopBar.PLAYLIST },
+                        { current = it },
                     ),
             )
         }

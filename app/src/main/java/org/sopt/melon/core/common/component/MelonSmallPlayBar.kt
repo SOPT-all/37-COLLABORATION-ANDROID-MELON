@@ -63,14 +63,12 @@ fun MelonSmallPlayBar(
                         bottom = 11.dp,
                     ),
         ) {
-            // title & artistName
             SongInfo(
                 title = title,
                 artistName = artistName,
                 modifier = Modifier,
             )
 
-            // Control Bar
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier,
