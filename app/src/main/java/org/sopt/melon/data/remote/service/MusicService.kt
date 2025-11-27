@@ -9,6 +9,9 @@ interface MusicService {
     @GET("music/custom-recommendation")
     suspend fun getCustomMusic(): BaseResponse<List<MusicDto>>
 
+    @GET("music/mixup")
+    suspend fun getMixUpList(): BaseResponse<List<MusicDto>>
+
     @GET("music/popular")
     suspend fun getPopularMusicList(): BaseResponse<List<MusicDto>>
 

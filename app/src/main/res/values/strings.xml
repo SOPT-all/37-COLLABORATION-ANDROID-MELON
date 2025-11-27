@@ -25,6 +25,11 @@
     <string name="foryou_newest_preview_button">미리듣기</string>
     <string name="foryou_newest_mixup_button">믹스업</string>
     <!--MixUp   -->
+    <string name="playlist">재생목록</string>
+    <string name="music_shelf">음악서랍</string>
+    <string name="mixup">믹스업</string>
+    <string name="mix_up_select_all">전체선택</string>
+    <string name="mix_up_current_sing">재생 중인 곡</string>
     <!--Search  -->
     <string name="search">탐색</string>
     <!--Drawer  -->

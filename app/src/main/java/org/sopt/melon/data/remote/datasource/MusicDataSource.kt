@@ -6,6 +6,8 @@ import org.sopt.melon.data.remote.dto.MusicDto
 interface MusicDataSource {
     suspend fun getCustomMusic(): BaseResponse<List<MusicDto>>
 
+    suspend fun getMixUpList(): BaseResponse<List<MusicDto>>
+
     suspend fun getPopularMusicList(): BaseResponse<List<MusicDto>>
 
     suspend fun getNewestMusicList(
