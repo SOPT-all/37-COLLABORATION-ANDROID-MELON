@@ -38,10 +38,12 @@ fun HomeBannerList(
     bannerDataList: ImmutableList<BannerData>,
     modifier: Modifier = Modifier,
 ) {
-    val pagerState = rememberPagerState(
-        initialPage = 0,
-        pageCount = { bannerDataList.size },
-    )
+    val pagerState =
+        rememberPagerState(
+            initialPage = 0,
+            pageCount = { bannerDataList.size },
+        )
+
     HorizontalPager(
         state = pagerState,
         contentPadding = PaddingValues(horizontal = 20.dp),
