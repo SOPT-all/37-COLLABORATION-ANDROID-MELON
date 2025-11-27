@@ -60,8 +60,7 @@ private fun HomeChip(
                     width = 0.5.dp,
                     color = style.borderColor,
                     shape = RoundedCornerShape(32.dp),
-                )
-                .padding(horizontal = 20.dp, vertical = 8.dp),
+                ).padding(horizontal = 20.dp, vertical = 8.dp),
     )
 }
 

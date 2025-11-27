@@ -49,12 +49,13 @@ class HomeViewModel @Inject constructor(
     fun getChipList() =
         _uiState.update { currentState ->
             currentState.copy(
-                chipContentList = persistentListOf(
-                    "TOP 100",
-                    "HOT 100",
-                    "월드뮤직",
-                    "한강에서 즐기기 좋은 음악",
-                ),
+                chipContentList =
+                    persistentListOf(
+                        "TOP 100",
+                        "HOT 100",
+                        "월드뮤직",
+                        "한강에서 즐기기 좋은 음악",
+                    ),
             )
         }
 
