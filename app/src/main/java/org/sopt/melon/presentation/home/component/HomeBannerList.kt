@@ -72,6 +72,8 @@ private fun BannerItem(
             color = MELONTheme.colors.gray200,
         )
 
+        Spacer(Modifier.height(4.dp))
+
         Row(
             modifier =
                 Modifier
